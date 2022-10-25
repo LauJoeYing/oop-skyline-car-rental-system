@@ -19,6 +19,6 @@ public class HelloApplication extends Application {
 
     public static void main(String[] args) {
 //        launch();
-        System.out.println("Welcome to OODJ Assignment!");
+        System.out.println("Welcome to OODJ Assignment! (trial branch)");
     }
 }
