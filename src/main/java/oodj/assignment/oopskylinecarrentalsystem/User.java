@@ -17,16 +17,16 @@ public class User {
 
             Scanner input = new Scanner(System.in);
             System.out.println("Please Enter Your User ID : ");
-            String username = input.next().toLowerCase();
+            String username = input.next();
 
 
             System.out.println("Please Enter Your Password : ");
             String password = input.next();
 
-            if (username.equals(usernameData.toLowerCase()) && password.equals(passwordData)) {
+            if (username.equalsIgnoreCase(usernameData) && password.equals(passwordData)) {
                 System.out.println("Welcome to Skyline Car Rental System!");
                 break;
-            } else if (username.equals(usernameData.toLowerCase())) {
+            } else if (username.equalsIgnoreCase(usernameData)) {
                 System.out.println("Invalid Password!");
             } else if (password.equals(passwordData)) {
                 System.out.println("Invalid User ID!");
