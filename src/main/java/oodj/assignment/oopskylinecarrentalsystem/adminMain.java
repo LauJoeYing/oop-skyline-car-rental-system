@@ -1,6 +1,6 @@
 package oodj.assignment.oopskylinecarrentalsystem;
 
-public class AdminMain {
+public class adminMain {
 
     static void buttonViewCar(){
 
