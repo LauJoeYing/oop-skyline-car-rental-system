@@ -1,42 +1,56 @@
 package oodj.assignment.oopskylinecarrentalsystem;
 
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.util.Objects;
 import java.util.Scanner;
+import java.util.concurrent.atomic.AtomicBoolean;
+import java.util.stream.Stream;
 
 public class User {
     public void login() {
 
-        while (true) {
-
-//            Scanner scan = new Scanner(new File("the\\dir\\myFile.extension"));
-//            Scanner input = new Scanner(System.in);
-//            String userIdData = scan.nextline();
-//            String passwordData = scan.nextline()
-
-            String usernameData = "CUS00001";
-            String passwordData = "12345A";
-
-            Scanner input = new Scanner(System.in);
-            System.out.println("Please Enter Your User ID : ");
-            String username = input.next();
+        AtomicBoolean pass = new AtomicBoolean(false);
 
 
-            System.out.println("Please Enter Your Password : ");
-            String password = input.next();
+        while (!pass.get()) {
+            try (Stream<String> stream = Files.lines(Paths.get(Objects.requireNonNull(getClass().getResource("user.txt")).toURI()))) {
 
-            if (username.equalsIgnoreCase(usernameData) && password.equals(passwordData)) {
-                System.out.println("Welcome to Skyline Car Rental System!");
-                break;
-            } else if (username.equalsIgnoreCase(usernameData)) {
-                System.out.println("Invalid Password!");
-            } else if (password.equals(passwordData)) {
-                System.out.println("Invalid User ID!");
-            } else {
-                System.out.println("Invalid User ID and Password!");
+                Scanner input = new Scanner(System.in);
 
+
+                System.out.println("Please Enter Your User ID : ");
+                String usernameInput = input.nextLine().trim();
+
+                System.out.println("Please Enter Your Password : ");
+                String passwordInput = input.nextLine();
+
+                //lamda expression
+                stream.parallel().forEach(user -> {
+                    String[] userData = user.split(" \\| ");
+                    String userId = userData[0];
+                    String username = userData[1];
+                    String password = userData[2];
+                    String userName = userData[3];
+
+                    if (usernameInput.equalsIgnoreCase(username) && passwordInput.equals(password)) {
+                            System.out.printf("Welcome back to Skyline Car Rental System, %s !", userName);
+                            pass.set(true);
+                        }
+                    });
+                if (!pass.get()){
+                    System.out.println("Invalid Input! Please Try Again!");
+                    continue;
+                }
+
+            } catch (IOException | URISyntaxException e) {
+                e.printStackTrace();
             }
-
         }
-
     }
 }
 
