@@ -15,10 +15,11 @@ public class HelloApplication extends Application {
 //        stage.setTitle("Hello!");
 //        stage.setScene(scene);
 //        stage.show();
+        User joey = new User();
+        joey.login();
     }
 
     public static void main(String[] args) {
-//        launch();
-        System.out.println("Welcome to OODJ Assignment!");
+        launch();
     }
 }
