@@ -59,7 +59,7 @@ public class User {
     }
 
     public void signUp() {
-        String username, userName, gender, userPin, email, phoneNum, unitNum, streetLine1, streetLine2, postcode, city, state;
+        String username, password, userName, gender, userPin, email, phoneNum, unitNum, streetLine1, streetLine2, postcode, city, state;
         boolean genderPass = false;
 
 
@@ -81,7 +81,34 @@ public class User {
 //            }
 //
 //        }
-//
+
+        String passwordInput;
+        String passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{8,32}$";
+        Pattern passwordPattern = Pattern.compile(passwordRegex);
+        Matcher passwordMatcher;
+
+        while (true) {
+            System.out.println("\nEnter password (8 - 32 characters): ");
+            passwordInput = input.nextLine();
+            passwordMatcher = passwordPattern.matcher(passwordInput);
+            if (passwordMatcher.matches()) {
+                System.out.println("\nConfirm password: ");
+                if (input.nextLine().equals(passwordInput)) {
+                    System.out.println("Correct Password Format! Your New Password Has Been Recorded");
+                    break;
+                }
+                System.out.println("\nPasswords do not match! Please try again.");
+                continue;
+            }
+
+            System.out.println("\nInvalid password! Please make sure the password contains: ");
+            System.out.println("1. At least one digit.");
+            System.out.println("2. At least one lowercase character.");
+            System.out.println("3. At least one uppercase character.");
+            System.out.println("4. At least one special character.");
+            System.out.println("5. Between 8 and 32 characters.");
+        }
+
 //        while (!genderPass) {
 //            System.out.println("[ 1 ] - Male");
 //            System.out.println("[ 2 ] - Female");
@@ -143,25 +170,25 @@ public class User {
 //
 //        }
 
-        while (true) {
-
-            System.out.println("Please Enter Your Phone Number:");
-            String phoneNumInput = input.nextLine().trim();
-
-            String phoneNumRegex = "^((\\+6|6)?01)([02-46-9]-?[\\d]{7}|1-?[\\d]{8})$";
-            //Accepted format: (\+6|6)?01): +601, 601 | ([02-46-9]-?[\d]{7}|1-?[\d]{8}): According to the fixed length of Malaysia phone number
-            Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
-            Matcher phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
-
-            if (phoneNumMatcher.matches()) {
-                System.out.println("Correct Phone Format! Your Email Has Been Recorded");
-                break;
-            }
-
-            System.out.println("Invalid Input! Please Try Again!");
-            System.out.println("Example of accepted input: 1234567890 / 123-456-7890 / (123)456-7890 / (123)4567890");
-
-        }
+//        while (true) {
+//
+//            System.out.println("Please Enter Your Phone Number:");
+//            String phoneNumInput = input.nextLine().trim();
+//
+//            String phoneNumRegex = "^((\\+6|6)?01)([02-46-9]-?[\\d]{7}|1-?[\\d]{8})$";
+//            //Accepted format: \d{10}: 1234567890 | (?:\d{3}-){2}\d{4} : 123-456-7890 | \(\d{3}\)\d{3}-?\d{4} : (123)456-7890 or (123)4567890
+//            Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
+//            Matcher phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
+//
+//            if (phoneNumMatcher.matches()) {
+//                System.out.println("Correct Phone Format! Your Email Has Been Recorded");
+//                break;
+//            }
+//
+//            System.out.println("Invalid Input! Please Try Again!");
+//            System.out.println("Example of accepted input: 1234567890 / 123-456-7890 / (123)456-7890 / (123)4567890");
+//
+//        }
 
 //        while (true) {
 //
