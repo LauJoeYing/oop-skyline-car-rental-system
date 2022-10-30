@@ -16,7 +16,8 @@ public class HelloApplication extends Application {
 //        stage.setScene(scene);
 //        stage.show();
         User joey = new User();
-        joey.login();
+//        joey.login();
+        joey.signUp();
     }
 
     public static void main(String[] args) {
