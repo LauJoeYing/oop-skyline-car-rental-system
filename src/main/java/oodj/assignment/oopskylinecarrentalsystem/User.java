@@ -105,23 +105,23 @@ public class User {
 //            }
 //        }
 
-//        while (true) {
-//
-//            System.out.println("Please Enter Your Personal Identification Number:");
-//            String userPinInput = input.nextLine().trim();
-//
-//            String userPinRegex = "^[\\d]{3}-[\\d]{2}-[\\d]{4}$";
-//            Pattern userPinPattern = Pattern.compile(userPinRegex);
-//            Matcher userPinMatcher = userPinPattern.matcher(userPinInput);
-//
-//            if (userPinMatcher.matches()) {
-//                System.out.println("Correct Personal Identification Number Format! Your PIN Has Been Recorded");
-//                break;
-//            }
-//
-//            System.out.println("Invalid Input! Please Try Again!");
-//
-//        }
+        while (true) {
+
+            System.out.println("Please Enter Your Personal Identification Number:");
+            String userPinInput = input.nextLine().trim();
+
+            String userPinRegex = "^[\\d]{6}[\\d]{2}[\\d]{4}|[\\d]{6}-[\\d]{2}-[\\d]{4}$";
+            Pattern userPinPattern = Pattern.compile(userPinRegex);
+            Matcher userPinMatcher = userPinPattern.matcher(userPinInput);
+
+            if (userPinMatcher.matches()) {
+                System.out.println("Correct Personal Identification Number Format! Your Identification Number Has Been Recorded");
+                break;
+            }
+
+            System.out.println("Invalid Input! Please Try Again!");
+
+        }
 
 //        while (true) {
 //
@@ -182,26 +182,26 @@ public class User {
 //            System.out.println("The Unit Number Must Between 1-5 Characters.");
 //
 //        }
-      //#################################ERROR REGEX!
-        while (true) {
 
-            System.out.println("Please Enter Your Address Street Line 1:");
-            String street1Input = input.nextLine().trim();
-
-            String street1Regex = "^[a-z][\\s\\w\\-]*$";
-
-            Pattern street1Pattern = Pattern.compile(street1Regex, Pattern.CASE_INSENSITIVE);
-            Matcher street1Matcher = street1Pattern.matcher(street1Input);
-
-            if (street1Matcher.matches()) {
-                System.out.println("Correct Street Line 1 Format! Your Address Line 1 Has Been Recorded");
-                break;
-            }
-
-            System.out.println("Invalid Input! Please Try Again!");
-            System.out.println("The Unit Number Must Between 1-5 Characters.");
-
-        }
+//        while (true) {
+//
+//            System.out.println("Please Enter Your Address Street Line 1:");
+//            String street1Input = input.nextLine().trim();
+//
+//            String street1Regex = "^[a-z][\\s\\w\\-]*$";
+//
+//            Pattern street1Pattern = Pattern.compile(street1Regex, Pattern.CASE_INSENSITIVE);
+//            Matcher street1Matcher = street1Pattern.matcher(street1Input);
+//
+//            if (street1Matcher.matches()) {
+//                System.out.println("Correct Street Line 1 Format! Your Address Line 1 Has Been Recorded");
+//                break;
+//            }
+//
+//            System.out.println("Invalid Input! Please Try Again!");
+//            System.out.println("The Unit Number Must Between 1-5 Characters.");
+//
+//        }
 
 //        while (true) {
 //
