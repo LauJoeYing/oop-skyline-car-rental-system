@@ -148,7 +148,7 @@ public class User {
             System.out.println("Please Enter Your Phone Number:");
             String phoneNumInput = input.nextLine().trim();
 
-            String phoneNumRegex = "^(\\+?6?01)[02-46-9]-?[0-9]{7}$|^(\\+?6?01)[0-46-9]-?[0-9]{8}$";
+            String phoneNumRegex = "^((\\+6|6)?01)([02-46-9]-?[\\d]{7}|1-?[\\d]{8})$";
             //Accepted format: \d{10}: 1234567890 | (?:\d{3}-){2}\d{4} : 123-456-7890 | \(\d{3}\)\d{3}-?\d{4} : (123)456-7890 or (123)4567890
             Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
             Matcher phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
