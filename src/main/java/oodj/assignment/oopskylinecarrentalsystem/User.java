@@ -66,8 +66,8 @@ public class User {
 
         Scanner input = new Scanner(System.in);
 
-        while (true) {
-
+//        while (true) {
+//
 //            System.out.println("========== SIGN UP PAGE ==========");
 //            System.out.println("Please Enter Your Username:");
 //            String usernameInput = input.nextLine();
@@ -104,7 +104,7 @@ public class User {
 //                }
 //            }
 //        }
-//
+
 //        while (true) {
 //
 //            System.out.println("Please Enter Your Personal Identification Number:");
@@ -122,7 +122,7 @@ public class User {
 //            System.out.println("Invalid Input! Please Try Again!");
 //
 //        }
-//
+
 //        while (true) {
 //
 //            System.out.println("Please Enter Your Email:");
@@ -142,7 +142,7 @@ public class User {
 //            System.out.println("Invalid Input! Please Try Again!");
 //
 //        }
-//
+
 //        while (true) {
 //
 //            System.out.println("Please Enter Your Phone Number:");
@@ -162,7 +162,7 @@ public class User {
 //            System.out.println("Example of accepted input: 1234567890 / 123-456-7890 / (123)456-7890 / (123)4567890");
 //
 //        }
-//
+
 //        while (true) {
 //
 //            System.out.println("Please Enter Your Address Unit Number:");
@@ -182,27 +182,27 @@ public class User {
 //            System.out.println("The Unit Number Must Between 1-5 Characters.");
 //
 //        }
-//      //#################################ERROR REGEX!
-//        while (true) {
-//
-//            System.out.println("Please Enter Your Address Street Line 1:");
-//            String street1Input = input.nextLine().trim();
-//
-//            String street1Regex = "^[a-z][\\w\\-]$";
-//
-//            Pattern street1Pattern = Pattern.compile(street1Regex, Pattern.CASE_INSENSITIVE);
-//            Matcher street1Matcher = street1Pattern.matcher(street1Input);
-//
-//            if (street1Matcher.matches()) {
-//                System.out.println("Correct Street Line 1 Format! Your Address Line 1 Has Been Recorded");
-//                break;
-//            }
-//
-//            System.out.println("Invalid Input! Please Try Again!");
-//            System.out.println("The Unit Number Must Between 1-5 Characters.");
-//
-//        }
-//
+      //#################################ERROR REGEX!
+        while (true) {
+
+            System.out.println("Please Enter Your Address Street Line 1:");
+            String street1Input = input.nextLine().trim();
+
+            String street1Regex = "^[a-z][\\s\\w\\-]*$";
+
+            Pattern street1Pattern = Pattern.compile(street1Regex, Pattern.CASE_INSENSITIVE);
+            Matcher street1Matcher = street1Pattern.matcher(street1Input);
+
+            if (street1Matcher.matches()) {
+                System.out.println("Correct Street Line 1 Format! Your Address Line 1 Has Been Recorded");
+                break;
+            }
+
+            System.out.println("Invalid Input! Please Try Again!");
+            System.out.println("The Unit Number Must Between 1-5 Characters.");
+
+        }
+
 //        while (true) {
 //
 //            System.out.println("Please Enter Your Postcode:");
