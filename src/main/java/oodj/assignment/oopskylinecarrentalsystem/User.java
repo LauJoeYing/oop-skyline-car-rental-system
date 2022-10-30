@@ -149,7 +149,7 @@ public class User {
             String phoneNumInput = input.nextLine().trim();
 
             String phoneNumRegex = "^((\\+6|6)?01)([02-46-9]-?[\\d]{7}|1-?[\\d]{8})$";
-            //Accepted format: \d{10}: 1234567890 | (?:\d{3}-){2}\d{4} : 123-456-7890 | \(\d{3}\)\d{3}-?\d{4} : (123)456-7890 or (123)4567890
+            //Accepted format: (\+6|6)?01): +601, 601 | ([02-46-9]-?[\d]{7}|1-?[\d]{8}): According to the fixed length of Malaysia phone number
             Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
             Matcher phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
 
