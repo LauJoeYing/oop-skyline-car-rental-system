@@ -105,23 +105,23 @@ public class User {
 //            }
 //        }
 
-        while (true) {
-
-            System.out.println("Please Enter Your Personal Identification Number:");
-            String userPinInput = input.nextLine().trim();
-
-            String userPinRegex = "^[\\d]{12}|[\\d]{6}-[\\d]{2}-[\\d]{4}$";
-            Pattern userPinPattern = Pattern.compile(userPinRegex);
-            Matcher userPinMatcher = userPinPattern.matcher(userPinInput);
-
-            if (userPinMatcher.matches()) {
-                System.out.println("Correct Personal Identification Number Format! Your Identification Number Has Been Recorded");
-                break;
-            }
-
-            System.out.println("Invalid Input! Please Try Again!");
-
-        }
+//        while (true) {
+//
+//            System.out.println("Please Enter Your Personal Identification Number:");
+//            String userPinInput = input.nextLine().trim();
+//
+            String userPinRegex = "^[\\d]{12}$|^[\\d]{6}-[\\d]{2}-[\\d]{4}$";
+//            Pattern userPinPattern = Pattern.compile(userPinRegex);
+//            Matcher userPinMatcher = userPinPattern.matcher(userPinInput);
+//
+//            if (userPinMatcher.matches()) {
+//                System.out.println("Correct Personal Identification Number Format! Your Identification Number Has Been Recorded");
+//                break;
+//            }
+//
+//            System.out.println("Invalid Input! Please Try Again!");
+//
+//        }
 
 //        while (true) {
 //
@@ -143,25 +143,25 @@ public class User {
 //
 //        }
 
-//        while (true) {
-//
-//            System.out.println("Please Enter Your Phone Number:");
-//            String phoneNumInput = input.nextLine().trim();
-//
-//            String phoneNumRegex = "^\"\\\\d{10}|(?:\\\\d{3}-){2}\\\\d{4}|\\\\(\\\\d{3}\\\\)\\\\d{3}-?\\\\d{4}\";";
-//            //Accepted format: \d{10}: 1234567890 | (?:\d{3}-){2}\d{4} : 123-456-7890 | \(\d{3}\)\d{3}-?\d{4} : (123)456-7890 or (123)4567890
-//            Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
-//            Matcher phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
-//
-//            if (phoneNumMatcher.matches()) {
-//                System.out.println("Correct Phone Format! Your Email Has Been Recorded");
-//                break;
-//            }
-//
-//            System.out.println("Invalid Input! Please Try Again!");
-//            System.out.println("Example of accepted input: 1234567890 / 123-456-7890 / (123)456-7890 / (123)4567890");
-//
-//        }
+        while (true) {
+
+            System.out.println("Please Enter Your Phone Number:");
+            String phoneNumInput = input.nextLine().trim();
+
+            String phoneNumRegex = "^(\\+?6?01)[0-46-9]-*[0-9]{7,8}$";
+            //Accepted format: \d{10}: 1234567890 | (?:\d{3}-){2}\d{4} : 123-456-7890 | \(\d{3}\)\d{3}-?\d{4} : (123)456-7890 or (123)4567890
+            Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
+            Matcher phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
+
+            if (phoneNumMatcher.matches()) {
+                System.out.println("Correct Phone Format! Your Email Has Been Recorded");
+                break;
+            }
+
+            System.out.println("Invalid Input! Please Try Again!");
+            System.out.println("Example of accepted input: 1234567890 / 123-456-7890 / (123)456-7890 / (123)4567890");
+
+        }
 
 //        while (true) {
 //
