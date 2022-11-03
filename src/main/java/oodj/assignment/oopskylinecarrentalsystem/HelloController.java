@@ -14,12 +14,19 @@ public class HelloController implements Initializable {
     private TextField loginInputUsername;
     @FXML
     private TextField LoginInputPassword;
-
+    @FXML
+    private Label menuWelcomeText;
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
 
     }
 
+    public void menuWelcome() {
+        menuWelcomeText.setText("Hello " +loginInputUsername);
+    }
 
+    public void switchlogin_custMenu() {
+
+    }
 
 }

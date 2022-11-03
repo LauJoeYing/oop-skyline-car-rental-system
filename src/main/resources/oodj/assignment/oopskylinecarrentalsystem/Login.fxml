@@ -22,9 +22,9 @@
             <Font name="Georgia" size="48.0" />
          </font>
       </Text>
-      <Pane layoutX="554.0" layoutY="73.0" prefHeight="394.0" prefWidth="339.0" style="-fx-background-color: #EFEFEF;">
+      <Pane layoutX="554.0" layoutY="73.0" prefHeight="394.0" prefWidth="339.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20;">
          <children>
-            <Text fill="#25459e" layoutX="124.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="91.13671875">
+            <Text fill="#25459e" layoutX="120.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Login" wrappingWidth="98.13671875">
                <font>
                   <Font name="Georgia" size="36.0" />
                </font>
@@ -41,7 +41,10 @@
             </Text>
             <TextField layoutX="32.0" layoutY="147.0" prefHeight="25.0" prefWidth="263.0" />
             <TextField layoutX="32.0" layoutY="206.0" prefHeight="25.0" prefWidth="263.0" />
-            <Button layoutX="243.0" layoutY="285.0" mnemonicParsing="false" text="Login" />
+            <Button layoutX="229.0" layoutY="285.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Login">
+               <font>
+                  <Font name="Georgia" size="12.0" />
+               </font></Button>
             <Hyperlink layoutX="32.0" layoutY="243.0" text="Sign Up">
                <font>
                   <Font name="Georgia Bold" size="10.0" />
