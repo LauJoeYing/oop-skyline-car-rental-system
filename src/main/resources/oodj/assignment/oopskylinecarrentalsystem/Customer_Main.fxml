@@ -8,7 +8,7 @@
 
 <AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #BCCEF8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.HelloController">
    <children>
-      <Pane layoutX="80.0" layoutY="125.0" prefHeight="380.0" prefWidth="800.0" style="-fx-background-color: EFEFEF;" />
+      <Pane layoutX="80.0" layoutY="125.0" prefHeight="380.0" prefWidth="800.0" style="-fx-background-color: #EFEFEF;" />
       <Text layoutX="105.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome Back, " >
          <font>
             <Font size="36.0" />

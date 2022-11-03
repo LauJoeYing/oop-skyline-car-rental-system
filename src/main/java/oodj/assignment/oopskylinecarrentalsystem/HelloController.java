@@ -1,14 +1,25 @@
 package oodj.assignment.oopskylinecarrentalsystem;
 
 import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
 
-public class HelloController {
-    @FXML
-    private Label welcomeText;
+import java.net.URL;
+import java.util.ResourceBundle;
+
+public class HelloController implements Initializable {
 
     @FXML
-    protected void onHelloButtonClick() {
-        welcomeText.setText("Welcome to JavaFX Application!");
+    private TextField loginInputUsername;
+    @FXML
+    private TextField LoginInputPassword;
+
+    @Override
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+
     }
+
+
+
 }
