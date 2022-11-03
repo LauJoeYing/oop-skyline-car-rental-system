@@ -39,9 +39,9 @@
                   <Font name="Georgia Bold" size="12.0" />
                </font>
             </Text>
-            <TextField layoutX="32.0" layoutY="147.0" prefHeight="25.0" prefWidth="263.0" />
-            <TextField layoutX="32.0" layoutY="206.0" prefHeight="25.0" prefWidth="263.0" />
-            <Button layoutX="229.0" layoutY="285.0" mnemonicParsing="false" prefHeight="23.0" prefWidth="60.0" text="Login">
+            <TextField fx:id="loginInputUsername" layoutX="32.0" layoutY="147.0" prefHeight="25.0" prefWidth="263.0" />
+            <TextField fx:id="LoginInputPassword" layoutX="32.0" layoutY="206.0" prefHeight="25.0" prefWidth="263.0" />
+            <Button layoutX="229.0" layoutY="285.0" mnemonicParsing="false" onAction="#switchlogin_custMenu" prefHeight="23.0" prefWidth="60.0" text="Login">
                <font>
                   <Font name="Georgia" size="12.0" />
                </font></Button>

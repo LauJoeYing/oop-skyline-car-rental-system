@@ -1,6 +1,5 @@
 package oodj.assignment.oopskylinecarrentalsystem;
 
-import com.sun.javafx.stage.EmbeddedWindow;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
@@ -32,9 +31,7 @@ public class HelloController implements Initializable {
     }
 
     public void switchlogin_custMenu() throws IOException {
-        Parent root = FXMLLoader.load(HelloController.class.getResource("FILENAME"));
-        stage.setScene(scene);
-        stage.show();
+        viewSwitcher.switchTo(View.CUST_MAIN);
     }
 
 }
