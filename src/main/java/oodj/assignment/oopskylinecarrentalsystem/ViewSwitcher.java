@@ -1,18 +1,17 @@
 package oodj.assignment.oopskylinecarrentalsystem;
-import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 
 import java.io.IOException;
 
-public class viewSwitcher {
+public class ViewSwitcher {
 
 
     private static Scene scene;
 
     public static void setScene(Scene scene) {
-        viewSwitcher.scene = scene;
+        ViewSwitcher.scene = scene;
     }
 
     public static void switchTo(View view) {
@@ -23,7 +22,7 @@ public class viewSwitcher {
 
         try {
             Parent root = FXMLLoader.load(
-                    viewSwitcher.class.getResource(view.getFileName())
+                    ViewSwitcher.class.getResource(view.getFileName())
             );
 
             scene.setRoot(root);

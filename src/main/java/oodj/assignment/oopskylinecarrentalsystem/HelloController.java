@@ -1,13 +1,9 @@
 package oodj.assignment.oopskylinecarrentalsystem;
 
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -31,7 +27,7 @@ public class HelloController implements Initializable {
     }
 
     public void switchlogin_custMenu() throws IOException {
-        viewSwitcher.switchTo(View.CUST_MAIN);
+        ViewSwitcher.switchTo(View.CUST_MAIN);
     }
 
 }
