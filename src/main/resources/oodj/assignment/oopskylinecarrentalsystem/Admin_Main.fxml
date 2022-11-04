@@ -7,7 +7,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #BCCEF8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.HelloController">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #BCCEF8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
     <Pane layoutX="80.0" layoutY="125.0" prefHeight="380.0" prefWidth="800.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20;">
         <children>
             <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="91.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />

@@ -1,0 +1,3 @@
+Best if every page has a controller, or at least one controller for each use case.
+
+primaryStage.setResizable(False); #Disables resizable
