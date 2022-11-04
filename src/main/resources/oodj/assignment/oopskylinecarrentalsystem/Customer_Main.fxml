@@ -1,17 +1,50 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
-<?import javafx.scene.layout.GridPane?>
-
 
 <AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #BCCEF8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.HelloController">
-      <Pane layoutX="80.0" layoutY="125.0" prefHeight="380.0" prefWidth="800.0" style="-fx-background-color: #EFEFEF;" />
-      <Text layoutX="105.0" layoutY="97.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome, NAME" >
-         <font>
-            <Font size="36.0" />
-         </font>
-      </Text>
+      <Pane layoutX="80.0" layoutY="125.0" prefHeight="380.0" prefWidth="800.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20;">
+      <children>
+         <ImageView fitHeight="150.0" fitWidth="150.0" layoutX="91.0" layoutY="72.0" pickOnBounds="true" preserveRatio="true" />
+         <Text fill="#153462" layoutX="116.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:  NAME">
+            <font>
+               <Font name="Georgia" size="12.0" />
+            </font>
+         </Text>
+         <Button layoutX="384.0" layoutY="72.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;" text="Rent Car" textFill="WHITE">
+            <font>
+               <Font name="Georgia" size="12.0" />
+            </font>
+         </Button>
+         <Button layoutX="582.0" layoutY="72.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;" text="Top Up" textFill="WHITE">
+            <font>
+               <Font name="Georgia" size="12.0" />
+            </font>
+         </Button>
+         <Button layoutX="384.0" layoutY="160.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;" text="View Approval" textFill="WHITE">
+            <font>
+               <Font name="Georgia" size="12.0" />
+            </font>
+         </Button>
+         <Button layoutX="582.0" layoutY="160.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="150.0" style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;" text="View Booking History" textFill="WHITE">
+            <font>
+               <Font name="Georgia" size="12.0" />
+            </font>
+         </Button>
+         <Button layoutX="384.0" layoutY="248.0" mnemonicParsing="false" prefHeight="60.0" prefWidth="348.0" style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;" text="General Settings" textFill="WHITE">
+            <font>
+               <Font name="Georgia" size="12.0" />
+            </font>
+         </Button>
+      </children></Pane>
+   <Text fill="#153462" layoutX="80.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome  NAME">
+      <font>
+         <Font name="Georgia Bold" size="36.0" />
+      </font>
+   </Text>
 </AnchorPane>
