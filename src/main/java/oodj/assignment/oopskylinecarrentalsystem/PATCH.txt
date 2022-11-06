@@ -1,3 +1,7 @@
 Best if every page has a controller, or at least one controller for each use case.
 
 primaryStage.setResizable(False); #Disables resizable
+
+
+
+New assumptions: pickup time is only on specific hours, best if several time range(eg 9-12, 13-15, 17-20)
