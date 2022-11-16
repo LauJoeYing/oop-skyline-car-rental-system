@@ -16,9 +16,13 @@ public class HelloApplication extends Application {
 //        stage.setTitle("Hello!");
 //        stage.setScene(scene);
 //        stage.show();
-        App joey = new App();
+//        App joey = new App();
 //        joey.login();
-        joey.signUp();
+//        joey.signUp();
+        Booking joey = new Booking();
+        joey.displayCar();
+        joey.selectCar();
+        joey.bookingDetail();
 
     }
 
