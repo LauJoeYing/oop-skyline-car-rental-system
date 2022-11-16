@@ -85,4 +85,8 @@ public class Car {
         this.carStatus = carStatus;
     }
 
+    @Override
+    public String toString() {
+        return String.join(" | ", carId, carBrand, carModel, carType, carTransmission, carRentalPrice, carStatus);
+    }
 }

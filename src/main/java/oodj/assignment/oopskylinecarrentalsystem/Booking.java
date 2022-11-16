@@ -20,6 +20,8 @@ public class Booking {
     private Car car;
     private String carFilePath = "";
 
+    ArrayList<Car> carList = new ArrayList<>();
+    Scanner scanner = new Scanner(System.in);
 
     public Booking() {
         String carFilePathRegex = "(?<=oop-skyline-car-rental-system/)(target/classes)(?=/oodj/assignment/oopskylinecarrentalsystem/car\\.txt)";
@@ -29,17 +31,20 @@ public class Booking {
 
         String incompleteCarFilePath = carFilePathMatcher.replaceFirst(pathReplacement);
         carFilePath = URLDecoder.decode((incompleteCarFilePath.substring(1)), StandardCharsets.UTF_8);
-    }
-    ArrayList<Car> carList = new ArrayList<>();
-    Scanner scanner = new Scanner(System.in);
-    public void displayCar(){
 
         try (Stream<String> stream = Files.lines(Path.of(carFilePath))) {
-            stream.parallel().forEach(System.out::println);
+            stream.parallel().forEach(car ->{
+                String[] carData = car.split(" \\| ");
+                carList.add(new Car(carData));
+            });
 
         } catch (IOException e) {
             System.out.println("Error Reading File!");
         }
+    }
+
+    public void displayCar(){
+        carList.stream().parallel().forEach(System.out::println);
     }
 
     public void carSorting() {
@@ -65,35 +70,22 @@ public class Booking {
             System.out.println("\nPlease Enter Your Selected Car ID:");
             String carIdInput = scanner.nextLine().trim();
 
-            try (Stream<String> stream = Files.lines(Path.of(carFilePath))) {
-
-                AtomicBoolean parsingError = new AtomicBoolean(false);
-                stream.parallel().forEach(car ->{
-                    String[] carData = car.split(" \\| ");
-                    carList.add(new Car(carData));
-                });
-
-                carList.stream().parallel().forEach(car -> {
-                    if (carIdInput.equalsIgnoreCase(car.getCarId())) {
-                        this.currentCar = car;
-                        authenticated.set(true);
-                    }
-                });
-
-                if (!authenticated.get()) {
-                    System.out.println("\nInvalid Car Input. Please Try Again!");
-                    continue;
+            carList.stream().parallel().forEach(car -> {
+                if (carIdInput.equalsIgnoreCase(car.getCarId())) {
+                    this.currentCar = car;
+                    authenticated.set(true);
                 }
+            });
 
-                System.out.printf("\nYour Car Selection Has Been Saved: %s", carIdInput);
-                break;
-
-            } catch (IOException e){
-                e.printStackTrace();
+            if (!authenticated.get()) {
+                System.out.println("\nInvalid Car Input. Please Try Again!");
+                continue;
             }
 
-        }
+            System.out.printf("\nYour Car Selection Has Been Saved: %s", carIdInput);
+            break;
 
+        }
     }
 
     public void bookingDetail() {
