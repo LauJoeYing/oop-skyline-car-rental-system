@@ -20,10 +20,10 @@ public class HelloApplication extends Application {
 //        joey.login();
 //        joey.signUp();
         Booking joey = new Booking();
-        joey.displayCar();
-        joey.selectCar();
-        joey.bookingDetail();
-
+//        joey.displayCarList();
+//        joey.selectCar();
+//        joey.bookingDetail();
+        joey.carSorting();
     }
 
     public static void main(String[] args) {
