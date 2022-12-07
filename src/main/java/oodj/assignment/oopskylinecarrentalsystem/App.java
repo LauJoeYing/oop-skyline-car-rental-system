@@ -6,10 +6,7 @@ import java.nio.charset.StandardCharsets;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.StandardOpenOption;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Objects;
-import java.util.Scanner;
+import java.util.*;
 import java.util.concurrent.atomic.AtomicBoolean;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -31,9 +28,9 @@ public class App {
         userFilePath = URLDecoder.decode((incompleteUserFilePath.substring(1)), StandardCharsets.UTF_8);
     }
 
-    public void login() {
+    public User login() {
         AtomicBoolean authenticated = new AtomicBoolean(false);
-        ArrayList<User> userList = new ArrayList<>();
+        List<User> userList = new ArrayList<User>();
 
         try (Stream<String> stream = Files.lines(Path.of(userFilePath))) {
             AtomicBoolean parsingError = new AtomicBoolean(false);
@@ -86,6 +83,8 @@ public class App {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+        return currentUser;
     }
 
     public void signUp() {
@@ -372,4 +371,6 @@ public class App {
             login();
         }
     }
+
+
 }
