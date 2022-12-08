@@ -5,7 +5,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #BCCEF8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
    <children>
       <Text fill="#25459e" layoutX="110.0" layoutY="348.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Skyline" wrappingWidth="213.13671875">
          <font>
@@ -46,9 +46,8 @@
                </font></Hyperlink>
          </children>
       </Pane>
-      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="117.0" layoutY="73.0" pickOnBounds="true"
-                 preserveRatio="true">
-         <Image url="https://drive.google.com/uc?id=1LDHbO2CjukOBAgf7L023NnKhoOoSmH9q"/>
+      <ImageView fitHeight="200.0" fitWidth="200.0" layoutX="117.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
+         <Image url="https://drive.google.com/uc?id=1LDHbO2CjukOBAgf7L023NnKhoOoSmH9q" />
       </ImageView>
    </children>
 </AnchorPane>

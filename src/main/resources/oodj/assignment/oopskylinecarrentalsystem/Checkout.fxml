@@ -1,19 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
-<?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
-<?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
-<?import javafx.scene.text.Font?>
-<?import javafx.scene.text.Text?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #BCCEF8;" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: #BCCEF8;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
     <Pane layoutX="30.0" layoutY="20.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
         <children>
             <Text fill="#153462" layoutX="314.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout Page">
@@ -21,33 +12,6 @@
                     <Font name="Georgia Bold" size="36.0" />
                 </font>
             </Text>
-            <Pane layoutX="33.0" layoutY="138.0" prefHeight="313.0" prefWidth="250.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20;">
-                <children>
-                    <GridPane alignment="CENTER" layoutX="15.0" prefHeight="290.0" prefWidth="220.0">
-                        <columnConstraints>
-                            <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
-                        </columnConstraints>
-                        <rowConstraints>
-                            <RowConstraints maxHeight="73.0" minHeight="10.0" prefHeight="35.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="141.0" minHeight="10.0" prefHeight="120.0" vgrow="SOMETIMES" />
-                            <RowConstraints maxHeight="151.0" minHeight="10.0" prefHeight="142.0" vgrow="SOMETIMES" />
-                        </rowConstraints>
-                        <children>
-                            <Text fill="#153462" strokeType="OUTSIDE" strokeWidth="0.0" text="Toyota Camry" textAlignment="CENTER" wrappingWidth="221.3125" GridPane.halignment="CENTER">
-                                <font>
-                                    <Font name="Georgia" size="24.0" />
-                                </font>
-                            </Text>
-                            <ImageView fitHeight="110.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
-                                <image>
-                                    <Image url="@Toyota_Camry.jpg" />
-                                </image>
-                            </ImageView>
-                            <TextArea editable="false" prefHeight="119.0" prefWidth="220.0" style="-fx-background-color: D9D9D9;" text="Rental Price: RM 250.00&#10;Transmission: Auto&#10;Car Type: Sedan&#10;Seater: 5" GridPane.rowIndex="2" />
-                        </children>
-                    </GridPane>
-                </children>
-            </Pane>
             <Button layoutX="828.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;" text="X">
                 <font>
                     <Font name="Berlin Sans FB" size="18.0" />
@@ -81,7 +45,7 @@
                             <Font name="Georgia" size="24.0" />
                         </font>
                     </Text>
-                    <Text fill="#153462" layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Security Deposit:" textAlignment="RIGHT" GridPane.rowIndex="3">
+                    <Text fill="#153462" layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick-up Date" textAlignment="RIGHT" GridPane.rowIndex="3">
                         <font>
                             <Font name="Georgia" size="24.0" />
                         </font>
@@ -123,5 +87,6 @@
                <Font name="Georgia Bold" size="24.0" />
             </font>
          </Button>
+         <Text layoutX="56.0" layoutY="123.0" strokeType="OUTSIDE" strokeWidth="0.0" text="car id,car model, start date, end date, pick-up slot,duratin, price per day (table)" />
         </children></Pane>
 </AnchorPane>

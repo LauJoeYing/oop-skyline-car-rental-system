@@ -4,7 +4,7 @@
 <?import javafx.scene.layout.*?>
 <?import javafx.scene.text.*?>
 
-<AnchorPane prefHeight="270.0" prefWidth="480.0" style="-fx-background-color: #EFEFEF; -fx-border-color: #000000; -fx-background-radius: 40;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
+<AnchorPane prefHeight="270.0" prefWidth="480.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1); -fx-border-color: #000000; -fx-background-radius: 40; -fx-border-radius: 40;" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
    <children>
       <Button ellipsisString="X" layoutX="438.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="25.0" style="-fx-border-radius: 90; -fx-background-radius: 90; -fx-background-color: #f52929; -fx-border-color: #FFFFFF;" text="Button" textFill="WHITE" />
       <Button layoutX="190.0" layoutY="218.0" mnemonicParsing="false" prefWidth="100.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-background-radius: 20; -fx-border-radius: 20;" text="OK" />
