@@ -85,7 +85,7 @@
                             </Button>
                             <ImageView fitHeight="110.0" fitWidth="220.0" pickOnBounds="true" preserveRatio="true" GridPane.halignment="CENTER" GridPane.rowIndex="1" GridPane.valignment="CENTER">
                                 <image>
-                                    <Image url="@Toyota_Camry.jpg" />
+                                    <Image url="https://www.perodua.com.my/assets/images/myvi-category-image.png" />
                                 </image>
                             </ImageView>
                             <TextArea editable="false" prefHeight="200.0" prefWidth="200.0" style="-fx-background-color: D9D9D9;" text="Rental Price: RM 250.00&#10;Transmission: Auto&#10;Car Type: Sedan&#10;Seater: 5" GridPane.rowIndex="2" />
