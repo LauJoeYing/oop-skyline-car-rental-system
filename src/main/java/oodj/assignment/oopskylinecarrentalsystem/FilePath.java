@@ -2,10 +2,10 @@ package oodj.assignment.oopskylinecarrentalsystem;
 
 public enum FilePath {
 
-    USER("C:\\Users\\User\\Desktop\\demo\\src\\main\\resources\\com\\example\\demo\\textfiles\\user.txt"),
-    CAR("C:\\Users\\User\\Desktop\\demo\\src\\main\\resources\\com\\example\\demo\\textfiles\\car.txt"),
+    USER("C:\\Users\\User\\Documents\\GitHub\\oop-skyline-car-rental-system\\src\\main\\resources\\oodj\\assignment\\oopskylinecarrentalsystem\\textfiles\\user.txt"),
+    CAR("C:\\Users\\User\\Documents\\GitHub\\oop-skyline-car-rental-system\\src\\main\\resources\\oodj\\assignment\\oopskylinecarrentalsystem\\textfiles\\car.txt"),
     BOOKING(""),
-    WALLET("C:\\Users\\User\\Desktop\\demo\\src\\main\\resources\\com\\example\\demo\\textfiles\\wallet.txt"),
+    WALLET("C:\\Users\\User\\Documents\\GitHub\\oop-skyline-car-rental-system\\src\\main\\resources\\oodj\\assignment\\oopskylinecarrentalsystem\\textfiles\\wallet.txt"),
     TX(""),
     ;
 

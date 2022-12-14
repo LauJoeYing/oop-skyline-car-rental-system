@@ -14,7 +14,7 @@
     <Pane layoutX="42.0" layoutY="99.0" prefHeight="407.0" prefWidth="875.0" style="-fx-background-color: #F7F7F7; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
         <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="448.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@../../../img/book-and-pencil.png" />
+            <Image url="@img/book-and-pencil.png" />
          </image>
         </ImageView>
         <Button fx:id="viewCarButton" layoutX="520.0" layoutY="85.0" mnemonicParsing="false" onAction="#ToCarMenu" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 10;" text="Rent Car" textFill="#555879">
