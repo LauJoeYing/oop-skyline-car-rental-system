@@ -64,7 +64,7 @@ public class CustomerMainController implements Initializable{
 
     @FXML
     void ToBookHist(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Booking_History.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("BookingHistory.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -72,7 +72,7 @@ public class CustomerMainController implements Initializable{
 
     @FXML
     void ToCarMenu(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Car_Menu_Customer.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("CarMenuCustomer.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
@@ -96,7 +96,7 @@ public class CustomerMainController implements Initializable{
 
     @FXML
     void ToTXHist(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Transaction_Record.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("TransactionRecord.fxml"));
         stage = (Stage)((Node)event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();

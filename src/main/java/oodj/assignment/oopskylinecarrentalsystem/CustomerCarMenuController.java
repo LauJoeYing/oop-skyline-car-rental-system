@@ -2,13 +2,18 @@ package oodj.assignment.oopskylinecarrentalsystem;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.ComboBox;
 import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
@@ -20,6 +25,10 @@ import java.util.ResourceBundle;
 import java.util.stream.Stream;
 
 public class CustomerCarMenuController implements Initializable {
+
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
 
     @FXML
     private ImageView carImage1;
@@ -94,8 +103,11 @@ public class CustomerCarMenuController implements Initializable {
     int cnt, cnt1, cnt2, cnt3;
     int placeholder;
 
-
-
+    static String carNameLabel;
+    static String carPriceLabel;
+    static String carTransLabel;
+    static String carTypeLabel;
+    static String carImageSource;
 
 
     @Override
@@ -177,23 +189,49 @@ public class CustomerCarMenuController implements Initializable {
     }
 
     @FXML
-    void onRentClick1(ActionEvent event) {
-
+    void onRentClick1(ActionEvent event) throws IOException {
+        carImageSource = ImgAssign(carListcol1.get(cnt).getCarModel());
+        carNameLabel = carListcol1.get(cnt).getCarBrand()+" "+carListcol1.get(cnt).getCarModel();
+        carPriceLabel = "RM "+ carListcol1.get(cnt).getCarRentalPrice();
+        carTransLabel = carListcol1.get(cnt).getCarTransmission();
+        carTypeLabel = carListcol1.get(cnt).getCarType();
+        Parent root = FXMLLoader.load(getClass().getResource("BookNow.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
-    void onRentClick2(ActionEvent event) {
-
+    void onRentClick2(ActionEvent event) throws IOException {
+        carImageSource = ImgAssign(carListcol2.get(cnt).getCarModel());
+        carNameLabel = carListcol2.get(cnt).getCarBrand()+" "+carListcol2.get(cnt).getCarModel();
+        carPriceLabel = "RM "+ carListcol2.get(cnt).getCarRentalPrice();
+        carTransLabel = carListcol2.get(cnt).getCarTransmission();
+        carTypeLabel = carListcol2.get(cnt).getCarType();
+        Parent root = FXMLLoader.load(getClass().getResource("BookNow.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
-    void onRentClick3(ActionEvent event) {
-
+    void onRentClick3(ActionEvent event) throws IOException {
+        carImageSource = ImgAssign(carListcol3.get(cnt).getCarModel());
+        carNameLabel = carListcol3.get(cnt).getCarBrand()+" "+carListcol3.get(cnt).getCarModel();
+        carPriceLabel = "RM "+ carListcol3.get(cnt).getCarRentalPrice();
+        carTransLabel = carListcol3.get(cnt).getCarTransmission();
+        carTypeLabel = carListcol3.get(cnt).getCarType();
+        Parent root = FXMLLoader.load(getClass().getResource("BookNow.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
     void onSearch(ActionEvent event) {
-
+        /**
+         * SEARCH FUNCTION
+         */
     }
 
     @FXML
@@ -235,9 +273,14 @@ public class CustomerCarMenuController implements Initializable {
     }
 
     @FXML
-    void toCustMain(ActionEvent event) {
-
+    void toCustMain(ActionEvent event) throws IOException {
+        Parent root = FXMLLoader.load(getClass().getResource("MainCustomer.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
+
+
 
     int numJump(int val) {
         if (val == 0) {

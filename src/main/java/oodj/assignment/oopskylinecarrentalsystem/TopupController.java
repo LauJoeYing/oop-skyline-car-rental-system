@@ -64,12 +64,6 @@ public class TopupController implements Initializable {
         stage.show();
     }
 
-    @FXML
-    void toCustMain() throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("MainCustomer.fxml"));
-        stage.setScene(new Scene(root));
-        stage.show();
-    }
 
     @FXML
     void OnTopupClick(ActionEvent event) throws IOException {
@@ -81,8 +75,10 @@ public class TopupController implements Initializable {
             //FUNCTION AFTER CONFIRMATION'
         }
         else if (alert.showAndWait().get() == ButtonType.CANCEL) {
-            alert.close();
-            toCustMain();
+            Parent root = FXMLLoader.load(getClass().getResource("MainCustomer.fxml"));
+            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+            stage.setScene(new Scene(root));
+            stage.show();
             return;
         }
         /**
