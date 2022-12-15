@@ -18,22 +18,19 @@ import javafx.stage.Stage;
 import java.io.IOException;
 import java.net.URL;
 import java.time.LocalDate;
+import java.time.Period;
 import java.time.format.DateTimeFormatter;
 import java.util.Arrays;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.CustomerCarMenuController.carNameLabel;
-import static oodj.assignment.oopskylinecarrentalsystem.CustomerCarMenuController.carTypeLabel;
-import static oodj.assignment.oopskylinecarrentalsystem.CustomerCarMenuController.carImageSource;
-import static oodj.assignment.oopskylinecarrentalsystem.CustomerCarMenuController.carTransLabel;
-import static oodj.assignment.oopskylinecarrentalsystem.CustomerCarMenuController.carPriceLabel;
+import static oodj.assignment.oopskylinecarrentalsystem.CustomerCarMenuController.*;
 public class BookNowController implements Initializable {
 
     private Stage stage;
     private Scene scene;
     private Parent root;
 
-    static String pickupDate, returnDate, pickupTime;
+    static String pickupDate, returnDate, pickupTime, duration;
 
     @FXML
     private ImageView carImage;
@@ -65,7 +62,7 @@ public class BookNowController implements Initializable {
         Image myImage = new Image(carImageSource);
         carImage.setImage(myImage);
         carLabel.setText(carNameLabel);
-        priceLabel.setText(carPriceLabel);
+        priceLabel.setText("RM "+carPriceLabel);
         transLabel.setText(carTransLabel);
         typeLabel.setText(carTypeLabel);
 
@@ -92,6 +89,15 @@ public class BookNowController implements Initializable {
         pickupDate = rawPickupDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
         returnDate = rawReturnDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
         pickupTime = pickupTimeCombo.getSelectionModel().getSelectedItem().toString();
+
+        Period period = Period.between(rawReturnDate, rawPickupDate);
+        int tempVal = Math.abs(period.getDays());
+        duration = Integer.toString(tempVal);
+
+        System.out.println(pickupDate);
+        System.out.println(returnDate);
+        System.out.println(pickupTime);
+        System.out.println(duration);
 
         Parent root = FXMLLoader.load(getClass().getResource("DriverDetails.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();

@@ -192,7 +192,7 @@ public class CustomerCarMenuController implements Initializable {
     void onRentClick1(ActionEvent event) throws IOException {
         carImageSource = ImgAssign(carListcol1.get(cnt).getCarModel());
         carNameLabel = carListcol1.get(cnt).getCarBrand()+" "+carListcol1.get(cnt).getCarModel();
-        carPriceLabel = "RM "+ carListcol1.get(cnt).getCarRentalPrice();
+        carPriceLabel = carListcol1.get(cnt).getCarRentalPrice();
         carTransLabel = carListcol1.get(cnt).getCarTransmission();
         carTypeLabel = carListcol1.get(cnt).getCarType();
         Parent root = FXMLLoader.load(getClass().getResource("BookNow.fxml"));
@@ -205,7 +205,7 @@ public class CustomerCarMenuController implements Initializable {
     void onRentClick2(ActionEvent event) throws IOException {
         carImageSource = ImgAssign(carListcol2.get(cnt).getCarModel());
         carNameLabel = carListcol2.get(cnt).getCarBrand()+" "+carListcol2.get(cnt).getCarModel();
-        carPriceLabel = "RM "+ carListcol2.get(cnt).getCarRentalPrice();
+        carPriceLabel = carListcol2.get(cnt).getCarRentalPrice();
         carTransLabel = carListcol2.get(cnt).getCarTransmission();
         carTypeLabel = carListcol2.get(cnt).getCarType();
         Parent root = FXMLLoader.load(getClass().getResource("BookNow.fxml"));
@@ -218,7 +218,7 @@ public class CustomerCarMenuController implements Initializable {
     void onRentClick3(ActionEvent event) throws IOException {
         carImageSource = ImgAssign(carListcol3.get(cnt).getCarModel());
         carNameLabel = carListcol3.get(cnt).getCarBrand()+" "+carListcol3.get(cnt).getCarModel();
-        carPriceLabel = "RM "+ carListcol3.get(cnt).getCarRentalPrice();
+        carPriceLabel = carListcol3.get(cnt).getCarRentalPrice();
         carTransLabel = carListcol3.get(cnt).getCarTransmission();
         carTypeLabel = carListcol3.get(cnt).getCarType();
         Parent root = FXMLLoader.load(getClass().getResource("BookNow.fxml"));

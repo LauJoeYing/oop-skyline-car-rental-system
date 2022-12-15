@@ -16,7 +16,7 @@ public class SadTester extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("CarMenuCustomer.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
         primaryStage.setTitle("Skyline Car Rental");
         primaryStage.setScene(new Scene(root));
         primaryStage.show();
