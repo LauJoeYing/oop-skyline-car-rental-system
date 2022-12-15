@@ -18,7 +18,7 @@
       <children>
           <Pane layoutX="33.0" layoutY="95.0" prefHeight="336.0" prefWidth="756.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
             <children>
-               <Button layoutX="407.0" layoutY="262.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="321.0" style="-fx-background-color: #153462; -fx-background-radius: 15;" text="Confirm" textFill="WHITE">
+               <Button layoutX="407.0" layoutY="262.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="321.0" style="-fx-background-color: #DFF6FF; -fx-background-radius: 15; -fx-border-color: #000000; -fx-border-radius: 15;" text="Add New Car" textFill="#153462">
                   <font>
                      <Font name="Georgia Bold" size="18.0" />
                   </font>
@@ -71,7 +71,17 @@
                <Font name="Georgia" size="24.0" />
             </font>
          </Text>
-         <Button layoutX="576.0" layoutY="188.0" mnemonicParsing="false" text="Upload Image" />
+         <Button layoutX="576.0" layoutY="188.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="185.0" text="Upload Image" />
+         <Button layoutX="724.0" layoutY="14.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
+            <font>
+               <Font name="Georgia Bold" size="12.0" />
+            </font>
+         </Button>
+         <Button layoutX="33.0" layoutY="13.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="&lt; BACK">
+            <font>
+               <Font name="Georgia Bold" size="12.0" />
+            </font>
+         </Button>
       </children>
    </Pane>
 </AnchorPane>
