@@ -23,7 +23,7 @@
                 <Font name="Georgia Bold" size="13.0" />
             </font>
         </Button>
-        <Button layoutX="520.0" layoutY="251.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Recover Customer Account" textAlignment="CENTER" textFill="#555879" wrapText="true">
+        <Button layoutX="520.0" layoutY="251.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Recover/ Blacklist Account" textAlignment="CENTER" textFill="#555879" wrapText="true">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>
