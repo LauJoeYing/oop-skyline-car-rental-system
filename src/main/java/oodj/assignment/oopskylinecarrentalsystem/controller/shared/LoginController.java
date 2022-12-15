@@ -7,7 +7,7 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
-import oodj.assignment.oopskylinecarrentalsystem.controller.customer.MainController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.customer.CustomerMainController;
 import oodj.assignment.oopskylinecarrentalsystem.model.User;
 
 import java.io.IOException;

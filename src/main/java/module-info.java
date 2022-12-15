@@ -25,4 +25,6 @@ module oodj.assignment.oopskylinecarrentalsystem {
     opens oodj.assignment.oopskylinecarrentalsystem.controller.shared to javafx.fxml;
     exports oodj.assignment.oopskylinecarrentalsystem.controller.customer;
     opens oodj.assignment.oopskylinecarrentalsystem.controller.customer to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.controller.admin;
+    opens oodj.assignment.oopskylinecarrentalsystem.controller.admin to javafx.fxml;
 }
