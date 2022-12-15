@@ -5,6 +5,8 @@
 <?import javafx.scene.control.TableColumn?>
 <?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.shape.Line?>
@@ -13,28 +15,28 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
     <children>
-        <AnchorPane layoutX="30.0" layoutY="20.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+        <AnchorPane layoutX="65.0" layoutY="35.0" prefHeight="481.0" prefWidth="822.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
             <children>
-            <Pane layoutX="136.0" layoutY="23.0" prefHeight="448.0" prefWidth="650.0" style="-fx-background-color: #FCFFE7; -fx-border-color: #000000; -fx-background-radius: 20; -fx-border-radius: 20;">
+            <Pane layoutX="136.0" layoutY="23.0" prefHeight="432.0" prefWidth="650.0" style="-fx-background-color: #FCFFE7; -fx-border-color: #000000; -fx-background-radius: 20; -fx-border-radius: 20;">
                <children>
                       <Label layoutX="208.0" layoutY="18.0" text="Payment Details">
                           <font>
                               <Font name="Georgia Bold" size="28.0" />
                           </font>
                       </Label>
-                  <Text layoutX="62.0" layoutY="95.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="81.837890625">
+                  <Text layoutX="62.0" layoutY="212.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="81.837890625">
                      <font>
                         <Font name="Georgia" size="14.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="169.0" layoutY="78.0" />
-                  <Text layoutX="62.0" layoutY="132.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Type:" wrappingWidth="97.837890625">
+                  <TextField layoutX="169.0" layoutY="195.0" style="-fx-border-color: #000000;" />
+                  <Text layoutX="62.0" layoutY="261.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Payment Type:" wrappingWidth="97.837890625">
                      <font>
                         <Font name="Georgia" size="14.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="169.0" layoutY="116.0" />
-                  <TableView layoutX="20.0" layoutY="161.0" prefHeight="271.0" prefWidth="614.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;">
+                  <TextField layoutX="169.0" layoutY="245.0" style="-fx-border-color: #000000;" />
+                  <TableView layoutX="20.0" layoutY="301.0" prefHeight="92.0" prefWidth="614.0" style="-fx-background-color: #FFFFFF; -fx-border-color: #000000;">
                     <columns>
                       <TableColumn prefWidth="96.0" text="Car ID" />
                       <TableColumn prefWidth="85.0" text="Car Brand" />
@@ -45,22 +47,27 @@
                         <TableColumn prefWidth="98.0" text="Total (RM)" />
                     </columns>
                   </TableView>
-                  <Text layoutX="337.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="97.837890625">
+                  <Text layoutX="337.0" layoutY="213.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date:" wrappingWidth="97.837890625">
                      <font>
                         <Font name="Georgia" size="14.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="444.0" layoutY="80.0" />
-                  <Text layoutX="337.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount:" wrappingWidth="97.837890625">
+                  <TextField layoutX="444.0" layoutY="197.0" style="-fx-border-color: #000000;" />
+                  <Text layoutX="337.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Amount:" wrappingWidth="97.837890625">
                      <font>
                         <Font name="Georgia" size="14.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="444.0" layoutY="119.0" />
-                  <Line endX="100.0" layoutX="344.0" layoutY="53.0" startX="-131.0" />
+                  <TextField layoutX="444.0" layoutY="248.0" style="-fx-border-color: #000000;" />
+                  <Line endX="100.0" layoutX="342.0" layoutY="54.0" startX="-131.0" />
+                  <ImageView fitHeight="155.0" fitWidth="170.0" layoutX="243.0" layoutY="47.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@City%20Skyline%20night%20logo%20(5).png" />
+                     </image>
+                  </ImageView>
                </children>
             </Pane>
-            <Button layoutX="806.0" layoutY="27.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
+            <Button layoutX="33.0" layoutY="63.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
                <font>
                   <Font name="Georgia Bold" size="12.0" />
                </font>
