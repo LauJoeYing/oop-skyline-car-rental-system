@@ -10,6 +10,16 @@ module oodj.assignment.oopskylinecarrentalsystem {
     requires org.kordamp.bootstrapfx.core;
     requires eu.hansolo.tilesfx;
 
-    opens oodj.assignment.oopskylinecarrentalsystem to javafx.fxml;
-    exports oodj.assignment.oopskylinecarrentalsystem;
+    exports oodj.assignment.oopskylinecarrentalsystem.model;
+    opens oodj.assignment.oopskylinecarrentalsystem.model to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.config;
+    opens oodj.assignment.oopskylinecarrentalsystem.config to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.app;
+    opens oodj.assignment.oopskylinecarrentalsystem.app to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.controller.admin;
+    opens oodj.assignment.oopskylinecarrentalsystem.controller.admin to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.controller.customer;
+    opens oodj.assignment.oopskylinecarrentalsystem.controller.customer to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.controller.shared;
+    opens oodj.assignment.oopskylinecarrentalsystem.controller.shared to javafx.fxml;
 }
