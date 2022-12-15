@@ -86,8 +86,8 @@ public class BookNowController implements Initializable {
     void checkout(ActionEvent event) throws IOException{
         LocalDate rawPickupDate = pickupDatePicker.getValue();
         LocalDate rawReturnDate = returnDatePicker.getValue();
-        pickupDate = rawPickupDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
-        returnDate = rawReturnDate.format(DateTimeFormatter.ofPattern("MM/dd/yyyy"));
+        pickupDate = rawPickupDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
+        returnDate = rawReturnDate.format(DateTimeFormatter.ofPattern("dd/MM/yyyy"));
         pickupTime = pickupTimeCombo.getSelectionModel().getSelectedItem().toString();
 
         Period period = Period.between(rawReturnDate, rawPickupDate);

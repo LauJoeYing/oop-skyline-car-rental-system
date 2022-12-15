@@ -84,6 +84,7 @@ public class DriverDetailsController implements Initializable{
         transLabel.setText(carTransLabel);
         typeLabel.setText(carTypeLabel);
 
+        driverNameLabel.setText(currentUser.getName());
         currentBalLabel.setText(currentUserWallet.getBalance());
         subtotal = Integer.parseInt(carPriceLabel) *  Integer.parseInt(duration);
         totalPriceLabel.setText(Integer.toString(subtotal));
@@ -91,7 +92,10 @@ public class DriverDetailsController implements Initializable{
 
     @FXML
     void confirmBooking(ActionEvent event) throws IOException{
-        System.out.println("I GOT THE FILE PATH");
+        Parent root = FXMLLoader.load(getClass().getResource("Payment.fxml"));
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+        stage.setScene(new Scene(root));
+        stage.show();
     }
 
     @FXML
