@@ -7,6 +7,7 @@ public enum FilePath {
     BOOKING(""),
     WALLET("C:\\Users\\User\\Desktop\\demo\\src\\main\\resources\\com\\example\\demo\\textfiles\\wallet.txt"),
     TX(""),
+    HOME("C:\\Users\\joeyi\\Downloads\\icons8-home-page-100.png")
     ;
 
     private String datafile;
