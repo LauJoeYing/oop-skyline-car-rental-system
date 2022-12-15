@@ -140,52 +140,42 @@
                         <Font name="Georgia Bold" size="17.0" />
                      </font>
                   </Label>
-                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dff6ff" height="25.0" layoutY="85.0" stroke="BLACK" strokeType="INSIDE" width="393.0" />
-                  <Text layoutX="49.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Bookings: ">
+                  <Rectangle arcHeight="5.0" arcWidth="5.0" fill="#dff6ff" height="39.0" layoutY="43.0" stroke="BLACK" strokeType="INSIDE" width="393.0" />
+                  <Text layoutX="35.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accepted" wrappingWidth="60.0">
                      <font>
                         <Font name="Georgia Bold" size="12.0" />
                      </font>
                   </Text>
-                  <TextField layoutX="156.0" layoutY="44.0" style="-fx-background-color: #F5EFE6; -fx-border-color: #000000;">
-                     <font>
-                        <Font name="Georgia" size="14.0" />
-                     </font>
-                  </TextField>
-                  <Text layoutX="35.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Accepted" wrappingWidth="60.0">
+                  <Text layoutX="167.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending" wrappingWidth="60.0">
                      <font>
                         <Font name="Georgia Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text layoutX="167.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending" wrappingWidth="60.0">
+                  <Text layoutX="300.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rejected" wrappingWidth="70.51171875">
                      <font>
                         <Font name="Georgia Bold" size="12.0" />
                      </font>
                   </Text>
-                  <Text layoutX="300.0" layoutY="102.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rejected" wrappingWidth="70.51171875">
-                     <font>
-                        <Font name="Georgia Bold" size="12.0" />
-                     </font>
-                  </Text>
-                  <TextField layoutX="40.0" layoutY="115.0" prefHeight="39.0" prefWidth="43.0">
+                  <TextField layoutX="40.0" layoutY="100.0" prefHeight="39.0" prefWidth="43.0">
                      <font>
                         <Font name="Georgia" size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="171.0" layoutY="115.0" prefHeight="39.0" prefWidth="43.0">
+                  <TextField layoutX="171.0" layoutY="100.0" prefHeight="39.0" prefWidth="43.0">
                      <font>
                         <Font name="Georgia" size="14.0" />
                      </font>
                   </TextField>
-                  <TextField layoutX="306.0" layoutY="115.0" prefHeight="39.0" prefWidth="43.0">
+                  <TextField layoutX="306.0" layoutY="100.0" prefHeight="39.0" prefWidth="43.0">
                      <font>
                         <Font name="Georgia" size="14.0" />
                      </font>
                   </TextField>
-                  <Line endX="-100.0" endY="93.0" layoutX="228.0" layoutY="73.0" startX="-100.0" startY="13.0" />
-                  <Line endX="-100.0" endY="93.0" layoutX="362.0" layoutY="73.0" startX="-100.0" startY="13.0" />
+                  <Line endX="-100.0" endY="96.0" layoutX="228.0" layoutY="73.0" startX="-100.0" startY="-30.0" />
+                  <Line endX="-100.0" endY="132.0" layoutX="362.0" layoutY="37.0" startX="-100.0" startY="6.0" />
                </children>
             </Pane>
-            <Button layoutX="809.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
+            <Button layoutX="805.0" layoutY="18.0" mnemonicParsing="false" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
                <font>
                   <Font name="Georgia Bold" size="12.0" />
                </font>
