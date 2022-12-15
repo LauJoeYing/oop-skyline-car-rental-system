@@ -14,22 +14,22 @@
         <ImageView fitHeight="103.0" fitWidth="50.0" layoutX="448.0" layoutY="82.0" pickOnBounds="true" preserveRatio="true">
             <Image url="https://img.icons8.com/dusk/64/null/book-and-pencil.png" />
         </ImageView>
-        <Button layoutX="520.0" layoutY="85.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 10;" text="Rent Car" textFill="#555879">
+        <Button layoutX="520.0" layoutY="85.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Rent Car" textFill="#555879">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>
         </Button>
-        <Button layoutX="520.0" layoutY="295.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40;" text="View Booking History" textAlignment="CENTER" textFill="#555879" wrapText="true">
+        <Button layoutX="520.0" layoutY="295.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="View Booking History" textAlignment="CENTER" textFill="#555879" wrapText="true">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>
         </Button>
-        <Button graphicTextGap="5.0" layoutX="520.0" layoutY="226.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40;" text="View Approval" textFill="#555879">
+        <Button graphicTextGap="5.0" layoutX="520.0" layoutY="226.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="View Approval" textFill="#555879">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>
         </Button>
-        <Button layoutX="520.0" layoutY="154.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40;" text="Top Up " textAlignment="CENTER" textFill="#555879">
+        <Button layoutX="520.0" layoutY="154.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Top Up " textAlignment="CENTER" textFill="#555879">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>
@@ -46,12 +46,12 @@
         <ImageView fitHeight="150.0" fitWidth="200.0" layoutX="89.0" layoutY="52.0" pickOnBounds="true" preserveRatio="true">
             <Image url="https://drive.google.com/uc?id=1O_PMpFMv1utGU3TpIrTGpap0uyQYMMEp" />
         </ImageView>
-      <Button layoutX="54.0" layoutY="246.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 10;" text="Change  Password" textFill="#555879">
+      <Button layoutX="54.0" layoutY="246.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Change  Password" textFill="#555879">
          <font>
             <Font name="Georgia Bold" size="13.0" />
          </font>
       </Button>
-      <Button layoutX="54.0" layoutY="306.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 10;" text="Edit Personal Details" textFill="#555879">
+      <Button layoutX="54.0" layoutY="306.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Edit Personal Details" textFill="#555879">
          <font>
             <Font name="Georgia Bold" size="13.0" />
          </font>
