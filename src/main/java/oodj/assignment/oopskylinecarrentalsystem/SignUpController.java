@@ -337,7 +337,7 @@ public class SignUpController implements Initializable {
 
     public void signUp() {
 
-        String newAccount = String.format("\n%s", String.join(" | ", "C", signupUserTemp, signupPassTemp, signupNameTemp, signupGenderTemp, signupEmailTemp, signupICTemp, signupPhoneTemp, signupUnitNumTemp, signupAddLine1Temp, signupAddLine2Temp, signupPostTemp, signupCityTemp, signupStateTemp));
+        String newAccount = String.format("\n%s", String.join(" | ", "C", signupUserTemp, signupPassTemp, signupNameTemp, signupGenderTemp, signupPhoneTemp, signupEmailTemp, signupICTemp, signupUnitNumTemp, signupAddLine1Temp, signupAddLine2Temp, signupPostTemp, signupCityTemp, signupStateTemp, "White"));
         try{
             Files.write(Path.of(FilePath.USER.getDataFile()), newAccount.getBytes(), StandardOpenOption.APPEND);
         } catch (IOException e){

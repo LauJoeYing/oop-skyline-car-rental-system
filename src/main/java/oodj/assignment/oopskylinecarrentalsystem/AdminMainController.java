@@ -13,6 +13,8 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
+import static oodj.assignment.oopskylinecarrentalsystem.LoginController.currentUser;
+
 public class AdminMainController implements Initializable {
 
     @FXML
@@ -21,51 +23,49 @@ public class AdminMainController implements Initializable {
     @FXML
     private ImageView profimg;
 
+    @FXML
+    private Text usernameText;
+
     private String tempString;
+
+    public String getMenuWelcomeText() {
+        tempString = "Welcome, "+currentUser.getName();
+        return tempString;
+    }
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
         menuWelcomeText.setText(getMenuWelcomeText());
-        Image myImage = new Image("https://i.imgur.com/q79wXSH.jpeg");
+        Image myImage = new Image(ImagePath.PROFILE.getImageSource());
         profimg.setImage(myImage);
+        usernameText.setText(currentUser.getUsername());
     }
 
-    public String getMenuWelcomeText() {
-        try {
-            BufferedReader br = new BufferedReader(new FileReader("C:\\Users\\User\\Desktop\\demo\\src\\main\\resources\\com\\example\\demo\\TestFile.txt")); /**FOR SOME REASON CANNOT USE SHORT PATH*/
-            tempString = "Welcome, "+br.readLine();
-            br.close();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
-        return tempString;
-    }
 
 
 
     @FXML
-    void ToAdminBookingList(ActionEvent event) {
+    void genReport(ActionEvent event) {
 
     }
 
     @FXML
-    void ToAdminCarMenu(ActionEvent event) {
+    void manageBooking(ActionEvent event) {
 
     }
 
     @FXML
-    void ToAnalyzedReport(ActionEvent event) {
+    void manageCarMenu(ActionEvent event) {
 
     }
 
     @FXML
-    void ToLogin(ActionEvent event) {
+    void modCustAccount(ActionEvent event) {
 
     }
 
     @FXML
-    void ToSettings(ActionEvent event) {
+    void viewTXRecord(ActionEvent event) {
 
     }
 

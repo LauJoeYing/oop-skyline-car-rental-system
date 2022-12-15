@@ -17,6 +17,7 @@ public class User {
     private String postcode;
     private String city;
     private String state;
+    private String status;
 
     public User(String[] userDetails ){
 
@@ -38,6 +39,7 @@ public class User {
         this.postcode = userDetails[11];
         this.city = userDetails[12];
         this.state = userDetails[13];
+        this.status = userDetails[14];
 
     }
 
@@ -157,5 +159,12 @@ public class User {
         this.state = state;
     }
 
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
+    }
 }
 
