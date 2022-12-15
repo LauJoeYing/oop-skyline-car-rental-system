@@ -15,6 +15,9 @@ import javafx.stage.Stage;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.StandardOpenOption;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.ResourceBundle;
@@ -65,254 +68,265 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField signupUsername;
 
-    ArrayList<String> arrRegister = new ArrayList<>();
+    static ArrayList<String> arrRegister = new ArrayList<>();
+
+    private Boolean flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9, flag10, flag11, flag12;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        String [] genderChoice = {"Male", "Female"};
-        String [] stateChoice = {"Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Sabah", "Sarawak", "Selangor", "Terengganu"};
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+        String[] genderChoice = {"Male", "Female"};
+        String[] stateChoice = {"Johor", "Kedah", "Kelantan", "Melaka", "Negeri Sembilan", "Pahang", "Penang", "Perak", "Perlis", "Sabah", "Sarawak", "Selangor", "Terengganu"};
         signupGender.getItems().addAll(genderChoice);
         signupState.getItems().addAll(stateChoice);
     }
 
 
     @FXML
-    void onSubmitButtonClicked(ActionEvent event){
-        signupUserTemp = signupUsername.getText();             /**Just Print Lines for Testing Input      */
+    void onSubmitButtonClicked(ActionEvent event) {
+        signupUserTemp = signupUsername.getText();          /**Just Print Lines for Testing Input      */
         signupPassTemp = signupPassword.getText();
+        signupNameTemp = signupName.getText;
+        signupConfirmPassTemp = signupConfirmPass.getText();
         signupGenderTemp = signupGender.getSelectionModel().getSelectedItem().toString();
-        signupICTemp = signupIC.getText();
         signupEmailTemp = signupEmail.getText();
+        signupICTemp = signupIC.getText();
+        signupPhoneTemp = signupPhone.getText;
         signupUnitNumTemp = signupUnitNum.getText();
         signupAddLine1Temp = signupAddLine1.getText();
         signupAddLine2Temp = signupAddLine2.getText();
         signupPostTemp = signupPostcode.getText();
         signupCityTemp = signupCity.getText();
         signupStateTemp = signupState.getSelectionModel().getSelectedItem().toString();
-        ArrayList<String> arrRegister = new ArrayList<>(Arrays.asList(signupUserTemp, signupPassTemp, signupGenderTemp, signupICTemp, signupEmailTemp, signupUnitNumTemp, signupAddLine1Temp, signupAddLine2Temp, signupPostTemp, signupCityTemp, signupStateTemp));
-        signUp(arrRegister);
+        flag1 = validateUsername(signupUserTemp);
+        flag2 = validateName(signupNameTemp);
+        flag3 = validatePassword(signupPassTemp);
+        flag4 = validateConfirmPassword(signupConfirmPassTemp);
+        flag5 = validateEmail(signupEmailTemp);
+        flag6 = validateIC(signupICTemp);
+        flag7 = validatePhone(signupPhoneTemp);
+        flag8 = validateUnitNum(signupUnitNumTemp);
+        flag9 = validateAdd1(signupAddLine1Temp);
+        flag10 = validateAdd2(signupAddLine2Temp);
+        flag11 = validatePostcode(signupPostTemp);
+        flag12 = validateCity(signupCityTemp);
 
-//        System.out.println(arrRegister.get(0));
-//        String temp = "Jun Xian";
-//        if (arrRegister.get(0).equals(temp)){
-//            System.out.println("Yes Equal");
-//        }
-
-        //APPEND ALL ENTRIES TO ARRAY, SAVE TO USERFILE
-
-        //POPUP WINDOW SHOW USERNAME AND PASSWORD
+        if(!flag1||!flag2||!flag3||!flag4||!flag5||!flag6||!flag7||!flag8||!flag9||!flag10||!flag11||!flag12){
+            signUp();
+        }
     }
 
     @FXML
     void returnToLogin(ActionEvent event) throws IOException {
         Parent root = FXMLLoader.load(getClass().getResource("Login.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
     }
 
-    public void signUp(ArrayList<String> arr) {
 
-        String usernameInput;
+    @FXML
+    public boolean validateUsername(String input) {
+        String usernameInput = input;
         String usernameRegex = "^[a-z][\\w\\-]{7,14}$"; //Condition: Must start with alphabet, length 8-15, can contain "_"/"-"
         Pattern usernamePattern = Pattern.compile(usernameRegex, Pattern.CASE_INSENSITIVE);
         Matcher usernameMatcher;
 
-        while (true) {
-            usernameInput = arr.get(0);
-            //To accept all alphabets input
-            usernameMatcher= usernamePattern.matcher(usernameInput);
-
-            if (usernameMatcher.matches()) {
-                break;
-            }
-            else{
-                System.out.println("name");
-//                popupERROR();
-                break;
-            }
-
+        usernameMatcher = usernamePattern.matcher(usernameInput);
+        if (usernameMatcher.matches()) {
+            return true;
+        } else {
+            return false;
         }
+    }
 
-        String passwordInput;
+    @FXML
+    public boolean validatePassword(String input) {
+        String passwordInput = input;
         String passwordRegex = "^(?=.*\\d)(?=.*[a-z])(?=.*[A-Z])(?=.*[\\W_]).{8,32}$";
         Pattern passwordPattern = Pattern.compile(passwordRegex);
         Matcher passwordMatcher;
 
-        while (true) {
-            passwordInput = arr.get(1);
-            passwordMatcher = passwordPattern.matcher(passwordInput);
-            if (passwordMatcher.matches()) {
-                break;
-            }
-            else{
-                System.out.println("pass");
-//                popupERROR();
-                break;
-            }
+        passwordMatcher = passwordPattern.matcher(passwordInput);
+        if (passwordMatcher.matches()) {
+            return true;
         }
-
-        String userIcInput;
-        String userIcRegex = "^[\\d]{12}$|^[\\d]{6}-[\\d]{2}-[\\d]{4}$";
-        Pattern userIcPattern = Pattern.compile(userIcRegex);
-        Matcher userIcMatcher;
-
-        while (true) {
-            userIcInput = arr.get(3).trim();
-            userIcMatcher = userIcPattern.matcher(userIcInput);
-
-            if (userIcMatcher.matches()) {
-                break;
-            }
-            System.out.println("ic");
-//            popupERROR();
-            break;
-
+        else{
+            return false;
         }
+    }
+
+    @FXML
+    public boolean validateName(String input) {
+        String nameInput = input;
+        String usernameRegex = "^[a-z][\\w\\-]{7,14}$"; //Condition: Must start with alphabet, length 8-15, can contain "_"/"-"
+        Pattern usernamePattern = Pattern.compile(usernameRegex, Pattern.CASE_INSENSITIVE);
+        Matcher usernameMatcher;
+
+        usernameMatcher = usernamePattern.matcher(usernameInput);
+        if (usernameMatcher.matches()) {
+            return true;
+        } else {
+            return false;
+        }
+    }
 
 
-        String emailInput;
+    /**
+     *
+     * Name Validate
+     */
+
+
+    @FXML
+    public boolean validateConfirmPassword(String input) {
+        if(input.equals(signupConfirmPassword.getText())){
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
+
+    @FXML
+    public boolean validateEmail(String input) {
+        String emailInput = input;
         String emailRegex = "^(?=.{1,64}@)[A-Za-z0-9_-]+(\\.[A-Za-z0-9_-]+)*@" + "[^-][A-Za-z0-9-]+(\\.[A-Za-z0-9-]+)*(\\.[A-Za-z]{2,})$";
         //Condition: Allow: 0-9, upper & lowercase, "-", "_", max 64 characters
         //Condition Not Allow: Dot at the start and end of local part, consecutive dots
         Matcher emailMatcher;
         Pattern emailPattern = Pattern.compile(emailRegex);
+        emailMatcher = emailPattern.matcher(emailInput);
 
-        while (true) {
+        if (emailMatcher.matches()) {
+            return true;
+        }
+        else{
+            return false;
+        }
+    }
 
-            System.out.println("\nPlease Enter Your Email:");
-            emailInput = arr.get(4).trim();
-            emailMatcher = emailPattern.matcher(emailInput);
+    @FXML
+    public boolean validateIC(String input) {
+        String userIcInput = input;
+        String userIcRegex = "^[\\d]{12}$|^[\\d]{6}-[\\d]{2}-[\\d]{4}$";
+        Pattern userIcPattern = Pattern.compile(userIcRegex);
+        Matcher userIcMatcher;
 
-            if (emailMatcher.matches()) {
-                break;
-            }
-            System.out.println("email");
-//            popupERROR();
-            break;
+        userIcMatcher = userIcPattern.matcher(userIcInput);
 
+        if (userIcMatcher.matches()) {
+            return true;
+        }
+        else {
+            return false;
         }
 
-//        String phoneNumInput;
-//        String phoneNumRegex = "^((\\+6|6)?01)([02-46-9]-?[\\d]{7}|1-?[\\d]{8})$";
-//        //Accepted format: \d{10}: 1234567890 | (?:\d{3}-){2}\d{4} : 123-456-7890 | \(\d{3}\)\d{3}-?\d{4} : (123)456-7890 or (123)4567890
-//        Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
-//        Matcher phoneNumMatcher;
-//
-//        while (true) {
-//
-//            System.out.println("\nPlease Enter Your Phone Number:");
-//            phoneNumInput = arr.get().trim();
-//            phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
-//
-//            if (phoneNumMatcher.matches()) {
-//                System.out.println("\nCorrect Phone Format! Your Email Has Been Recorded");
-//                break;
-//            }
-//
-//            System.out.println("\nInvalid Input! Please Try Again!");
-//            System.out.println("\nExample of accepted input: 1234567890 / 123-456-7890 / (123)456-7890 / (123)4567890");
-//
-//        }
+    }
 
-        String unitNumInput;
+    @FXML
+    public boolean validatePhone(String input) {
+        String phoneNumInput = input;
+        String phoneNumRegex = "^((\\+6|6)?01)([02-46-9]-?[\\d]{7}|1-?[\\d]{8})$";
+        //Accepted format: \d{10}: 1234567890 | (?:\d{3}-){2}\d{4} : 123-456-7890 | \(\d{3}\)\d{3}-?\d{4} : (123)456-7890 or (123)4567890
+        Pattern phoneNumPattern = Pattern.compile(phoneNumRegex);
+        Matcher phoneNumMatcher;
+        phoneNumMatcher = phoneNumPattern.matcher(phoneNumInput);
+
+        if (phoneNumMatcher.matches()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @FXML
+    public boolean validateUnitNum(String input) {
+        String unitNumInput = input;
         String unitNumRegex = "^[a-z\\d]{1,5}";
         Pattern unitNumPattern = Pattern.compile(unitNumRegex);
         Matcher unitNumMatcher;
 
-        while (true) {
+        unitNumMatcher = unitNumPattern.matcher(unitNumInput);
 
-            unitNumInput = arr.get(5).trim();
-            unitNumMatcher = unitNumPattern.matcher(unitNumInput);
-
-            if (unitNumMatcher.matches()) {
-                break;
-            }
-            System.out.println("unit");
-//            popupERROR();
-            break;
-
+        if (unitNumMatcher.matches()) {
+            return true;
         }
+        else {
+            return false;
+        }
+    }
 
-        String street1Input;
+    @FXML
+    public boolean validateAdd1(String input) {
+        String street1Input = input;
         String street1Regex = "^[a-z][\\s\\w\\-]*$";
         Pattern street1Pattern = Pattern.compile(street1Regex, Pattern.CASE_INSENSITIVE);
         Matcher street1Matcher;
 
-        while (true) {
-
-            street1Input = arr.get(6).trim();
-            street1Matcher = street1Pattern.matcher(street1Input);
-
-            if (street1Matcher.matches()) {
-                break;
-            }
-            System.out.println("street1");
-            break;
-
+        street1Matcher = street1Pattern.matcher(street1Input);
+        if (street1Matcher.matches()) {
+            return true;
         }
-
-        String street2Input;
-        String street2Regex = "^[a-z][\\s\\w\\-]*$";
-        Pattern street2Pattern = Pattern.compile(street2Regex, Pattern.CASE_INSENSITIVE);
-        Matcher street2Matcher;
-
-        while (true) {
-            street2Input = arr.get(7).trim();
-            street2Matcher = street1Pattern.matcher(street2Input);
-
-            if (street2Matcher.matches()) {
-                break;
-            }
-            System.out.println("street2");
-//            popupERROR();
-            break;
+        else {
+            return false;
         }
+    }
 
-        String postcodeInput;
+    @FXML
+    public boolean validateAdd2(String input) {
+        String street1Input = input;
+        String street1Regex = "^[a-z][\\s\\w\\-]*$";
+        Pattern street1Pattern = Pattern.compile(street1Regex, Pattern.CASE_INSENSITIVE);
+        Matcher street1Matcher;
+
+        street1Matcher = street1Pattern.matcher(street1Input);
+        if (street1Matcher.matches()) {
+            return true;
+        }
+        else {
+            return false;
+        }
+    }
+
+    @FXML
+    public boolean validatePostcode(String input) {
+        String postcodeInput = input;
         String postcodeRegex = "\\d{5}";
         Pattern postcodePattern = Pattern.compile(postcodeRegex, Pattern.CASE_INSENSITIVE);
         Matcher postcodeMatcher;
+        postcodeMatcher = postcodePattern.matcher(postcodeInput);
 
-        while (true) {
-            postcodeInput = arr.get(8).trim();
-            postcodeMatcher = postcodePattern.matcher(postcodeInput);
-
-            if (postcodeMatcher.matches()) {
-                break;
-            }
-//            popupERROR();
-            break;
+        if (postcodeMatcher.matches()) {
+            return true;
         }
+        return false;
+    }
 
-        String cityInput;
+    @FXML
+    public boolean validateCity(String input) {
+        String cityInput = input;
         String cityRegex = "[a-zA-Z]*";
         Pattern cityPattern = Pattern.compile(cityRegex, Pattern.CASE_INSENSITIVE);
         Matcher cityMatcher;
 
-        while (true) {
-
-            cityInput = arr.get(9).trim();
-            cityMatcher = cityPattern.matcher(cityInput);
-
-            if (cityMatcher.matches()) {
-                break;
-            }
-            System.out.println("city");
-            break;
+        cityMatcher = cityPattern.matcher(cityInput);
+        if (cityMatcher.matches()) {
+            return true;
         }
+        else{
+            return false;
+        }
+    }
 
+    public void signUp() {
 
-//        String newAccount = String.format("\n%s", String.join(" | ", "C", usernameInput, passwordInput, nameInput, gender, userIcInput, emailInput, phoneNumInput, unitNumInput, street1Input, street2Input, postcodeInput, cityInput, stateInput ));
-//
-//        try{
-//            Files.write(Path.of(userFilePath), newAccount.getBytes(), StandardOpenOption.APPEND);
-//        } catch (IOException e){
-//            e.printStackTrace();
-//        } finally {
-//            login();
-//        }
-        System.out.println("END OF CHECKING!!!!");
+        String newAccount = String.format("\n%s", String.join(" | ", "C", signupUserTemp, signupPassTemp, signupNameTemp, signupGenderTemp, signupEmailTemp, signupICTemp, signupPhoneTemp, signupUnitNumTemp, signupAddLine1Temp, signupAddLine2Temp, signupPostTemp, signupCityTemp, signupStateTemp));
+        try{
+            Files.write(Path.of(FilePath.USER.getDataFile()), newAccount.getBytes(), StandardOpenOption.APPEND);
+        } catch (IOException e){
+            e.printStackTrace();
+        }
     }
 
 
