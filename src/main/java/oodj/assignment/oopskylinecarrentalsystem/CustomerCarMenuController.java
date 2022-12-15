@@ -109,6 +109,8 @@ public class CustomerCarMenuController implements Initializable {
     static String carTypeLabel;
     static String carImageSource;
 
+    static Car currentCar;
+
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -190,6 +192,7 @@ public class CustomerCarMenuController implements Initializable {
 
     @FXML
     void onRentClick1(ActionEvent event) throws IOException {
+        this.currentCar = carListcol1.get(cnt);
         carImageSource = ImgAssign(carListcol1.get(cnt).getCarModel());
         carNameLabel = carListcol1.get(cnt).getCarBrand()+" "+carListcol1.get(cnt).getCarModel();
         carPriceLabel = carListcol1.get(cnt).getCarRentalPrice();
@@ -203,6 +206,7 @@ public class CustomerCarMenuController implements Initializable {
 
     @FXML
     void onRentClick2(ActionEvent event) throws IOException {
+        this.currentCar = carListcol2.get(cnt);
         carImageSource = ImgAssign(carListcol2.get(cnt).getCarModel());
         carNameLabel = carListcol2.get(cnt).getCarBrand()+" "+carListcol2.get(cnt).getCarModel();
         carPriceLabel = carListcol2.get(cnt).getCarRentalPrice();
@@ -216,6 +220,7 @@ public class CustomerCarMenuController implements Initializable {
 
     @FXML
     void onRentClick3(ActionEvent event) throws IOException {
+        this.currentCar = carListcol3.get(cnt);
         carImageSource = ImgAssign(carListcol3.get(cnt).getCarModel());
         carNameLabel = carListcol3.get(cnt).getCarBrand()+" "+carListcol3.get(cnt).getCarModel();
         carPriceLabel = carListcol3.get(cnt).getCarRentalPrice();

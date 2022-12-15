@@ -73,7 +73,7 @@ public class DriverDetailsController implements Initializable{
     @FXML
     private Label totalPriceLabel;
 
-    int subtotal;
+    static int subtotal;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle){
