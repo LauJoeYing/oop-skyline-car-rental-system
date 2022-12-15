@@ -1,0 +1,268 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+    <Pane layoutX="30.0" layoutY="37.0" prefHeight="483.0" prefWidth="900.0"
+          style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+        <Text fill="#153462" layoutX="35.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Car Rental Menu">
+            <font>
+                <Font name="Georgia Bold" size="39.0"/>
+            </font>
+        </Text>
+        <TextField layoutX="39.0" layoutY="77.0" prefHeight="19.0" prefWidth="296.0" promptText="Search"
+                   style="-fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
+            <font>
+                <Font name="Georgia" size="12.0"/>
+            </font>
+        </TextField>
+        <Text fill="#153462" layoutX="362.0" layoutY="94.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sort By:">
+            <font>
+                <Font name="Georgia" size="17.0"/>
+            </font>
+        </Text>
+        <ComboBox layoutX="442.0" layoutY="74.0" prefHeight="25.0" prefWidth="221.0" promptText="Sort"
+                  style="-fx-background-radius: 20; -fx-background-color: #FFFFFF; -fx-border-color: #000000; -fx-border-radius: 20;"/>
+        <Button layoutX="828.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;"
+                text="X">
+            <font>
+                <Font name="Berlin Sans FB" size="18.0"/>
+            </font>
+        </Button>
+        <Button layoutX="850.0" layoutY="444.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;"
+                text="&gt;">
+            <font>
+                <Font name="Berlin Sans FB" size="14.0"/>
+            </font>
+        </Button>
+        <Button layoutX="807.0" layoutY="444.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;"
+                text="&lt;">
+            <font>
+                <Font name="Berlin Sans FB" size="14.0"/>
+            </font>
+        </Button>
+        <Pane layoutX="38.0" layoutY="119.0" prefHeight="313.0" prefWidth="265.0"
+              style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
+            <Text fill="#153462" layoutX="27.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Toyota Camry 2019" textAlignment="CENTER" wrappingWidth="221.3125">
+                <font>
+                    <Font name="Georgia Bold Italic" size="16.0"/>
+                </font>
+            </Text>
+            <ImageView fitHeight="110.0" fitWidth="148.0" layoutX="62.0" layoutY="39.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="https://toyota-ninhbinh35.com/wp-content/uploads/2018/06/F8B33019CF708D9157E8B8F633DDB447.png"/>
+            </ImageView>
+            <Text fill="#153462" layoutX="23.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Rental Price: " textAlignment="CENTER" wrappingWidth="74.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="16.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Transmission:" textAlignment="CENTER" wrappingWidth="91.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="13.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Car Type:" textAlignment="CENTER" wrappingWidth="74.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="23.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Seater:" textAlignment="CENTER" wrappingWidth="43.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Button alignment="CENTER" layoutX="40.0" layoutY="267.0" mnemonicParsing="false" prefHeight="30.0"
+                    prefWidth="189.0"
+                    style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;"
+                    text="RESERVE NOW" textFill="WHITE">
+                <font>
+                    <Font name="Georgia Bold" size="13.0"/>
+                </font>
+            </Button>
+            <TextField layoutX="118.0" layoutY="158.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="RM 250.00">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="119.0" layoutY="184.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="Automatic">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="119.0" layoutY="210.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="Sedan">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="120.0" layoutY="234.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="5">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+        </Pane>
+        <Pane layoutX="317.0" layoutY="121.0" prefHeight="313.0" prefWidth="265.0"
+              style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
+            <children>
+                <Text fill="#153462" layoutX="27.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Honda CR-V 2019" textAlignment="CENTER" wrappingWidth="221.3125">
+                    <font>
+                        <Font name="Georgia Bold Italic" size="16.0"/>
+                    </font>
+                </Text>
+                <ImageView fitHeight="110.0" fitWidth="148.0" layoutX="62.0" layoutY="50.0" pickOnBounds="true"
+                           preserveRatio="true">
+                    <image>
+                        <Image url="https://evault.honda.com.my/pixelvault/2020-11/9c2d7e42ad534f2bfbf7307aec28e3d8e99dd61766214.png"/>
+                    </image>
+                </ImageView>
+                <Text fill="#153462" layoutX="23.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Rental Price: " textAlignment="CENTER" wrappingWidth="74.091796875">
+                    <font>
+                        <Font name="Georgia Italic" size="12.0"/>
+                    </font>
+                </Text>
+                <Text fill="#153462" layoutX="16.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Transmission:" textAlignment="CENTER" wrappingWidth="91.091796875">
+                    <font>
+                        <Font name="Georgia Italic" size="12.0"/>
+                    </font>
+                </Text>
+                <Text fill="#153462" layoutX="13.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Car Type:" textAlignment="CENTER" wrappingWidth="74.091796875">
+                    <font>
+                        <Font name="Georgia Italic" size="12.0"/>
+                    </font>
+                </Text>
+                <Text fill="#153462" layoutX="23.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Seater:" textAlignment="CENTER" wrappingWidth="43.091796875">
+                    <font>
+                        <Font name="Georgia Italic" size="12.0"/>
+                    </font>
+                </Text>
+                <Button alignment="CENTER" layoutX="40.0" layoutY="267.0" mnemonicParsing="false" prefHeight="30.0"
+                        prefWidth="189.0"
+                        style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;"
+                        text="RESERVE NOW" textFill="WHITE">
+                    <font>
+                        <Font name="Georgia Bold" size="13.0"/>
+                    </font>
+                </Button>
+                <TextField layoutX="118.0" layoutY="158.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                           text="RM 220.00">
+                    <font>
+                        <Font name="Georgia" size="10.0"/>
+                    </font>
+                </TextField>
+                <TextField layoutX="119.0" layoutY="184.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                           text="Automatic">
+                    <font>
+                        <Font name="Georgia" size="10.0"/>
+                    </font>
+                </TextField>
+                <TextField layoutX="119.0" layoutY="210.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                           text="SUV">
+                    <font>
+                        <Font name="Georgia" size="10.0"/>
+                    </font>
+                </TextField>
+                <TextField layoutX="120.0" layoutY="234.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                           text="5">
+                    <font>
+                        <Font name="Georgia" size="10.0"/>
+                    </font>
+                </TextField>
+            </children>
+        </Pane>
+        <Pane layoutX="596.0" layoutY="123.0" prefHeight="313.0" prefWidth="265.0"
+              style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
+            <Text fill="#153462" layoutX="27.0" layoutY="29.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Perodua Myvi 2020" textAlignment="CENTER" wrappingWidth="221.3125">
+                <font>
+                    <Font name="Georgia Bold Italic" size="16.0"/>
+                </font>
+            </Text>
+            <ImageView fitHeight="125.0" fitWidth="189.0" layoutX="62.0" layoutY="22.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="https://peroduapj.com.my/wp-content/uploads/2019/10/11-Spec4.png"/>
+            </ImageView>
+            <Text fill="#153462" layoutX="23.0" layoutY="172.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Rental Price: " textAlignment="CENTER" wrappingWidth="74.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="16.0" layoutY="198.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Transmission:" textAlignment="CENTER" wrappingWidth="91.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="13.0" layoutY="223.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Car Type:" textAlignment="CENTER" wrappingWidth="74.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="23.0" layoutY="247.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Seater:" textAlignment="CENTER" wrappingWidth="43.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Button alignment="CENTER" layoutX="40.0" layoutY="267.0" mnemonicParsing="false" prefHeight="30.0"
+                    prefWidth="189.0"
+                    style="-fx-background-color: #153462; -fx-background-radius: 40; -fx-border-radius: 40;"
+                    text="RESERVE NOW" textFill="WHITE">
+                <font>
+                    <Font name="Georgia Bold" size="13.0"/>
+                </font>
+            </Button>
+            <TextField layoutX="118.0" layoutY="158.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="RM 180.00">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="119.0" layoutY="184.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="Automatic">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="119.0" layoutY="210.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="Hatchback">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="120.0" layoutY="234.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="5">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+        </Pane>
+    </Pane>
+</AnchorPane>

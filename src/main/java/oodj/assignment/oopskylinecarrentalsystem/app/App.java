@@ -2,11 +2,13 @@ package oodj.assignment.oopskylinecarrentalsystem.app;
 
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig;
+import oodj.assignment.oopskylinecarrentalsystem.config.MailConfig;
 
 import java.io.IOException;
+import java.util.Objects;
 
 public class App extends Application {
 

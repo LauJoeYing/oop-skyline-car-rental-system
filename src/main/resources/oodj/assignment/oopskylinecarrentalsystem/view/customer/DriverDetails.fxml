@@ -1,149 +1,160 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
-<?import javafx.scene.layout.ColumnConstraints?>
-<?import javafx.scene.layout.GridPane?>
 <?import javafx.scene.layout.Pane?>
-<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.controller.customer.DriverDetailsController">
-    <Pane layoutX="30.0" layoutY="20.0" prefHeight="500.0" prefWidth="900.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
-        <children>
-            <Text fill="#153462" layoutX="314.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver Details">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+    <Pane layoutX="30.0" layoutY="45.0" prefHeight="444.0" prefWidth="902.0"
+          style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+        <Text fill="#153462" layoutX="281.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Driver Details">
+            <font>
+                <Font name="Georgia Bold" size="42.0"/>
+            </font>
+        </Text>
+        <Pane layoutX="57.0" layoutY="84.0" prefHeight="303.0" prefWidth="787.0"
+              style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
+            <Text fill="#153462" layoutX="82.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Honda CR-V 2019" textAlignment="CENTER" wrappingWidth="221.3125">
                 <font>
-                    <Font name="Georgia Bold" size="36.0" />
+                    <Font name="Georgia Bold Italic" size="16.0"/>
                 </font>
             </Text>
-            <Button layoutX="828.0" layoutY="24.0" mnemonicParsing="false" onAction="#toCustMain" prefHeight="25.0" prefWidth="29.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;" text="X">
+            <ImageView fitHeight="110.0" fitWidth="148.0" layoutX="117.0" layoutY="68.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="https://evault.honda.com.my/pixelvault/2020-11/9c2d7e42ad534f2bfbf7307aec28e3d8e99dd61766214.png"/>
+            </ImageView>
+            <Text fill="#153462" layoutX="78.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Rental Price: " textAlignment="CENTER" wrappingWidth="74.091796875">
                 <font>
-                    <Font name="Berlin Sans FB" size="18.0" />
+                    <Font name="Georgia Italic" size="12.0"/>
                 </font>
-            </Button>
-            <GridPane layoutX="328.0" layoutY="138.0" prefHeight="268.0" prefWidth="500.0">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="194.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="347.0" minWidth="10.0" prefWidth="325.0" />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="48.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="82.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-               <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="40.0" vgrow="SOMETIMES" />
-                    <RowConstraints maxHeight="102.0" minHeight="10.0" prefHeight="83.0" vgrow="SOMETIMES" />
-                </rowConstraints>
-                <children>
-                    <Text fill="#153462" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver's Name:" textAlignment="RIGHT" wrappingWidth="195.265625">
-                        <font>
-                            <Font name="Georgia" size="24.0" />
-                        </font>
-                    </Text>
-                    <Text fill="#153462" layoutX="10.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:" textAlignment="RIGHT" wrappingWidth="193.86328125" GridPane.rowIndex="1">
-                        <font>
-                            <Font name="Georgia" size="24.0" />
-                        </font>
-                    </Text>
-                    <Text fill="#153462" layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NRIC:" textAlignment="RIGHT" wrappingWidth="193.51171875" GridPane.rowIndex="2">
-                        <font>
-                            <Font name="Georgia" size="24.0" />
-                        </font>
-                    </Text>
-                    <Text fill="#153462" strokeType="OUTSIDE" strokeWidth="0.0" text="Sub-Total:" textAlignment="RIGHT" wrappingWidth="179.98828125" GridPane.rowIndex="4">
-                        <font>
-                            <Font name="Georgia Bold" size="24.0" />
-                        </font>
-                    </Text>
-                    <Label fx:id="totalPriceLabel" alignment="CENTER" layoutX="191.0" layoutY="171.0" prefHeight="27.0" prefWidth="347.0" text="0.00" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="4">
-                        <font>
-                            <Font name="Georgia" size="24.0" />
-                        </font>
-                    </Label>
-                    <Label fx:id="driverNameLabel" alignment="CENTER" layoutX="191.0" layoutY="231.0" prefHeight="27.0" prefWidth="347.0" text="Wong Fatt Choi" textAlignment="CENTER" GridPane.columnIndex="1">
-                        <font>
-                            <Font name="Georgia" size="24.0" />
-                        </font>
-                    </Label>
-                    <Label fx:id="currentBalLabel" alignment="CENTER" layoutX="191.0" layoutY="124.0" prefHeight="27.0" prefWidth="347.0" text="0.00" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="3">
-                        <font>
-                            <Font name="Georgia" size="24.0" />
-                        </font>
-                    </Label>
-               <Text fill="#153462" layoutX="10.0" layoutY="146.0" strokeType="OUTSIDE" strokeWidth="0.0" text="E-Wallet Balance:" textAlignment="RIGHT" wrappingWidth="195.51171875" GridPane.rowIndex="3">
-                  <font>
-                     <Font name="Georgia" size="24.0" />
-                  </font>
-               </Text>
-               <Button fx:id="licenseButton" alignment="CENTER" mnemonicParsing="false" onAction="#licensePicker" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #FFFFFF;" text="Choose File" textFill="#23a5f5" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="1">
-                  <font>
-                     <Font name="Georgia" size="12.0" />
-                  </font>
-               </Button>
-               <Button fx:id="icButton" alignment="CENTER" layoutX="277.0" layoutY="90.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="180.0" style="-fx-background-color: #FFFFFF;" text="Choose File" textFill="#23a5f5" underline="true" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.rowIndex="2">
-                  <font>
-                     <Font name="Georgia" size="12.0" />
-                  </font>
-               </Button>
-                </children>
-            </GridPane>
-            <Button layoutX="533.0" layoutY="406.0" mnemonicParsing="false" onAction="#confirmBooking" prefHeight="50.0" prefWidth="250.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 10;" text="Confirm Booking" textFill="#153462">
+            </Text>
+            <Text fill="#153462" layoutX="71.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Transmission:" textAlignment="CENTER" wrappingWidth="91.091796875">
                 <font>
-                    <Font name="Georgia Bold" size="24.0" />
+                    <Font name="Georgia Italic" size="12.0"/>
                 </font>
-            </Button>
-         <Pane layoutX="23.0" layoutY="138.0" prefHeight="321.0" prefWidth="293.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
-            <children>
-               <Text fx:id="carLabel" fill="#153462" layoutX="34.0" layoutY="31.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Toyota Camry" textAlignment="CENTER" wrappingWidth="236.0689697265625">
-                  <font>
-                     <Font name="Georgia Bold Italic" size="18.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="36.0" layoutY="189.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rental Price: " textAlignment="CENTER" wrappingWidth="74.091796875">
-                  <font>
-                     <Font name="Georgia Italic" size="12.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="19.0" layoutY="222.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transmission:" textAlignment="CENTER" wrappingWidth="91.091796875">
-                  <font>
-                     <Font name="Georgia Italic" size="12.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="36.0" layoutY="252.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Type:" textAlignment="CENTER" wrappingWidth="74.091796875">
-                  <font>
-                     <Font name="Georgia Italic" size="12.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="52.0" layoutY="282.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seater:" textAlignment="CENTER" wrappingWidth="43.091796875">
-                  <font>
-                     <Font name="Georgia Italic" size="12.0" />
-                  </font>
-               </Text>
-               <TextField fx:id="priceLabel" layoutX="133.0" layoutY="176.0" prefHeight="17.0" prefWidth="144.0" promptText="Search" text="RM 250.00">
-                  <font>
-                     <Font name="Georgia" size="10.0" />
-                  </font>
-               </TextField>
-               <TextField fx:id="transLabel" layoutX="133.0" layoutY="209.0" prefHeight="17.0" prefWidth="144.0" promptText="Search" text="Automatic">
-                  <font>
-                     <Font name="Georgia" size="10.0" />
-                  </font>
-               </TextField>
-               <TextField fx:id="typeLabel" layoutX="133.0" layoutY="239.0" prefHeight="17.0" prefWidth="144.0" promptText="Search" text="Sedan">
-                  <font>
-                     <Font name="Georgia" size="10.0" />
-                  </font>
-               </TextField>
-               <TextField layoutX="133.0" layoutY="269.0" prefHeight="17.0" prefWidth="144.0" promptText="Search" text="5">
-                  <font>
-                     <Font name="Georgia" size="10.0" />
-                  </font>
-               </TextField>
-               <ImageView fx:id="carImage" fitHeight="115.0" fitWidth="164.0" layoutX="71.0" layoutY="61.0" pickOnBounds="true" preserveRatio="true" />
-            </children>
-         </Pane>
-        </children></Pane>
+            </Text>
+            <Text fill="#153462" layoutX="68.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Car Type:" textAlignment="CENTER" wrappingWidth="74.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="78.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Seater:" textAlignment="CENTER" wrappingWidth="43.091796875">
+                <font>
+                    <Font name="Georgia Italic" size="12.0"/>
+                </font>
+            </Text>
+            <TextField layoutX="173.0" layoutY="176.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="RM 220.00">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="174.0" layoutY="202.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="Automatic">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="174.0" layoutY="228.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="SUV">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="175.0" layoutY="252.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
+                       text="5">
+                <font>
+                    <Font name="Georgia" size="10.0"/>
+                </font>
+            </TextField>
+            <Text layoutX="418.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver's Name:">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <Text layoutX="418.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <Text layoutX="417.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <Text layoutX="416.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <Button layoutX="572.0" layoutY="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0"
+                    text="Attach File"/>
+            <Text layoutX="416.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sub-Total:">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <Text layoutX="538.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <TextField layoutX="572.0" layoutY="40.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
+                       text="Chu Jun Rong">
+                <font>
+                    <Font name="Georgia" size="16.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="572.0" layoutY="89.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
+                       text="07/09/2000">
+                <font>
+                    <Font name="Georgia" size="16.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="572.0" layoutY="189.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
+                       text="RM 1500.00">
+                <font>
+                    <Font name="Georgia" size="16.0"/>
+                </font>
+            </TextField>
+            <TextField layoutX="572.0" layoutY="241.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
+                       text="RM 220.00">
+                <font>
+                    <Font name="Georgia" size="16.0"/>
+                </font>
+            </TextField>
+            <Line endX="-100.0" endY="288.0" layoutX="451.0" layoutY="-2.0" startX="-100.0" startY="20.0"/>
+        </Pane>
+        <Button layoutX="669.0" layoutY="397.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0"
+                style="-fx-background-color: #CDFCF6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;"
+                text="Confirm Booking" textFill="#153462">
+            <font>
+                <Font name="Georgia Bold" size="17.0"/>
+            </font>
+        </Button>
+        <Button layoutX="809.0" layoutY="27.0" mnemonicParsing="false"
+                style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
+            <font>
+                <Font name="Georgia Bold" size="12.0"/>
+            </font>
+        </Button>
+        <Button layoutX="27.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0"
+                style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="&lt; BACK">
+            <font>
+                <Font name="Georgia Bold" size="12.0"/>
+            </font>
+        </Button>
+    </Pane>
 </AnchorPane>

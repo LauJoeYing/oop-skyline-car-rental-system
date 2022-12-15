@@ -1,113 +1,135 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.text.*?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.shape.Line?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.Controller1">
-    <Pane layoutX="30.0" layoutY="26.0" prefHeight="482.0" prefWidth="900.0" style="-fx-background-color: #F9F9F9; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="26.0">
-        <children>
-            <Text fill="#153462" layoutX="33.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending Approval">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+    <Pane layoutX="30.0" layoutY="26.0" prefHeight="482.0" prefWidth="900.0"
+          style="-fx-background-color: #F9F9F9; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;"
+          AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="26.0">
+        <Pane layoutX="33.0" layoutY="89.0" prefHeight="241.0" prefWidth="409.0"
+              style="-fx-background-color: #F9F9F9; -fx-border-color: #000000;">
+            <Text layoutX="38.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username"
+                  wrappingWidth="93.291015625">
                 <font>
-                    <Font name="Georgia Bold" size="48.0" />
+                    <Font name="Georgia Bold" size="15.0"/>
                 </font>
             </Text>
-            <Button layoutX="828.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;" text="X">
+            <TextField fx:id="usernameTextbox" layoutX="38.0" layoutY="88.0" prefHeight="25.0" prefWidth="335.0"/>
+            <Text fill="#153462" layoutX="126.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Customer Details">
                 <font>
-                    <Font name="Berlin Sans FB" size="18.0" />
+                    <Font name="Georgia Bold" size="20.0"/>
                 </font>
-            </Button>
-         <Pane layoutX="439.0" layoutY="96.0" prefHeight="366.0" prefWidth="430.0" style="-fx-border-color: #000000; -fx-border-radius: 25;" />
-         <Pane layoutX="27.0" layoutY="96.0" prefHeight="366.0" prefWidth="395.0" style="-fx-border-radius: 25; -fx-background-radius: 25; -fx-border-color: #25316D;" />
-            <GridPane layoutX="33.0" layoutY="88.0" prefHeight="385.0" prefWidth="834.0">
-                <columnConstraints>
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="255.0" minWidth="10.0" prefWidth="137.0" />
-                    <ColumnConstraints hgrow="SOMETIMES" maxWidth="388.0" minWidth="-Infinity" prefWidth="267.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="347.0" minWidth="10.0" prefWidth="180.0" />
-               <ColumnConstraints hgrow="SOMETIMES" maxWidth="347.0" minWidth="10.0" prefWidth="250.0" />
-                </columnConstraints>
-                <rowConstraints>
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-               <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
-                </rowConstraints>
-                <children>
-                    <Text fill="#153462" strokeType="OUTSIDE" strokeWidth="0.0" text="Car ID:" wrappingWidth="125.953125" GridPane.halignment="RIGHT">
-                        <font>
-                            <Font name="Georgia" size="21.0" />
-                        </font>
-                    </Text>
-                    <Text fill="#153462" layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver Name:" wrappingWidth="125.7265625" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                        <font>
-                            <Font name="Georgia" size="21.0" />
-                        </font>
-                    </Text>
-                    <Text fill="#153462" layoutX="10.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="DOB:" wrappingWidth="125.7890625" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                        <font>
-                            <Font name="Georgia" size="21.0" />
-                        </font>
-                    </Text>
-                    <Text fill="#153462" layoutX="10.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:" wrappingWidth="125.453125" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-                        <font>
-                            <Font name="Georgia" size="21.0" />
-                        </font>
-                    </Text>
-               <Label alignment="TOP_LEFT" contentDisplay="TOP" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" GridPane.columnIndex="1">
-                  <font>
-                     <Font name="Georgia" size="12.0" />
-                  </font></Label>
-               <Label alignment="CENTER" layoutX="183.0" layoutY="44.0" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="1" />
-               <Label alignment="CENTER" layoutX="183.0" layoutY="140.0" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.rowIndex="2" />
-               <Label alignment="CENTER" layoutX="183.0" layoutY="332.0" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" textAlignment="CENTER" GridPane.columnIndex="3" />
-               <Text fill="#153462" layoutX="123.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NRIC:" textAlignment="CENTER" wrappingWidth="88.453125" GridPane.rowIndex="4">
-                  <font>
-                     <Font name="Georgia" size="21.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="105.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Model:" wrappingWidth="165.06640625" GridPane.columnIndex="2" GridPane.halignment="RIGHT">
-                  <font>
-                     <Font name="Georgia" size="21.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="426.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick-up Date:" wrappingWidth="165.16015625" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="1">
-                  <font>
-                     <Font name="Georgia" size="21.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="426.0" layoutY="134.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick-Up Time:" wrappingWidth="163.171875" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="2">
-                  <font>
-                     <Font name="Georgia" size="21.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="426.0" layoutY="211.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Date:" wrappingWidth="161.7890625" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="3">
-                  <font>
-                     <Font name="Georgia" size="21.0" />
-                  </font>
-               </Text>
-               <Text fill="#153462" layoutX="426.0" layoutY="288.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Return Time:" wrappingWidth="161.453125" GridPane.columnIndex="2" GridPane.halignment="RIGHT" GridPane.rowIndex="4">
-                  <font>
-                     <Font name="Georgia" size="21.0" />
-                  </font>
-               </Text>
-               <Label alignment="CENTER" layoutX="600.0" layoutY="34.0" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="1" />
-               <Label alignment="CENTER" layoutX="600.0" layoutY="111.0" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="2" />
-               <Label alignment="CENTER" layoutX="600.0" layoutY="188.0" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="3" />
-               <Label alignment="CENTER" layoutX="600.0" layoutY="265.0" prefHeight="24.0" prefWidth="198.0" style="-fx-background-radius: 20; -fx-border-radius: 20; -fx-background-color: #DFDFDF;" textAlignment="CENTER" GridPane.columnIndex="3" GridPane.rowIndex="4" />
-               <Button mnemonicParsing="false" prefHeight="25.0" prefWidth="110.0" text="View File" GridPane.columnIndex="1" GridPane.rowIndex="3" />
-               <Button layoutX="273.0" layoutY="267.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="112.0" text="View File" GridPane.columnIndex="1" GridPane.rowIndex="4" />
-                </children>
-            </GridPane>
-         <Button layoutX="516.0" layoutY="45.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #990000;" text="Reject" textFill="WHITE">
+            </Text>
+            <Text layoutX="38.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:"
+                  wrappingWidth="124.291015625">
+                <font>
+                    <Font name="Georgia Bold" size="15.0"/>
+                </font>
+            </Text>
+            <Button fx:id="viewLicenseButton" layoutX="162.0" layoutY="134.0" mnemonicParsing="false"
+                    prefHeight="25.0" prefWidth="210.0" text="View Image"/>
+            <Text layoutX="38.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NRIC:"
+                  wrappingWidth="105.291015625">
+                <font>
+                    <Font name="Georgia Bold" size="15.0"/>
+                </font>
+            </Text>
+            <Button fx:id="viewNRICButton" layoutX="162.0" layoutY="181.0" mnemonicParsing="false" prefHeight="25.0"
+                    prefWidth="210.0" text="View Image"/>
+            <Line endX="68.173828125" endY="1.0" layoutX="236.0" layoutY="41.0" startX="-110.0" startY="1.0"/>
+        </Pane>
+        <Text fill="#153462" layoutX="33.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Pending Approval">
             <font>
-               <Font name="Georgia Bold" size="16.0" />
+                <Font name="Georgia Bold" size="48.0"/>
             </font>
-         </Button>
-         <Button layoutX="642.0" layoutY="45.0" mnemonicParsing="false" prefHeight="29.0" prefWidth="113.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #799351;" text="Approve" textFill="WHITE">
+        </Text>
+        <Button fx:id="backToManageBooking" layoutX="828.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0"
+                prefWidth="29.0"
+                style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;"
+                text="X">
             <font>
-               <Font name="Georgia Bold" size="16.0" />
+                <Font name="Berlin Sans FB" size="18.0"/>
             </font>
-         </Button>
-        </children></Pane>
+        </Button>
+        <Pane layoutX="455.0" layoutY="89.0" prefHeight="389.0" prefWidth="409.0"
+              style="-fx-background-color: #F9F9F9; -fx-border-color: #000000;">
+            <children>
+                <Text layoutX="30.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Car ID(Car Number Plate)" wrappingWidth="210.0">
+                    <font>
+                        <Font name="Georgia Bold" size="15.0"/>
+                    </font>
+                </Text>
+                <TextField fx:id="carIdTextbox" layoutX="30.0" layoutY="89.0" prefHeight="25.0" prefWidth="335.0"/>
+                <Text layoutX="31.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Model"
+                      wrappingWidth="93.291015625">
+                    <font>
+                        <Font name="Georgia Bold" size="15.0"/>
+                    </font>
+                </Text>
+                <TextField fx:id="carModelTextbox" layoutX="31.0" layoutY="157.0" prefHeight="25.0" prefWidth="335.0"/>
+                <Text layoutX="32.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Rate (RM)"
+                      wrappingWidth="140.0">
+                    <font>
+                        <Font name="Georgia Bold" size="15.0"/>
+                    </font>
+                </Text>
+                <TextField fx:id="dailyRateTextbox" layoutX="32.0" layoutY="232.0" prefHeight="25.0" prefWidth="335.0"/>
+                <Text fill="#153462" layoutX="157.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                      text="Car Details">
+                    <font>
+                        <Font name="Georgia Bold" size="20.0"/>
+                    </font>
+                </Text>
+                <Line endX="11.0" endY="1.0" layoutX="264.0" layoutY="41.0" startX="-110.0" startY="1.0"/>
+                <Text layoutX="31.0" layoutY="289.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Subtotal (RM)"
+                      wrappingWidth="140.0">
+                    <font>
+                        <Font name="Georgia Bold" size="15.0"/>
+                    </font>
+                </Text>
+                <TextField fx:id="subTotalTextbox" layoutX="31.0" layoutY="304.0" prefHeight="25.0" prefWidth="335.0"/>
+                <Button layoutX="32.0" layoutY="343.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0"
+                        style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #990000;"
+                        text="Reject" textFill="WHITE">
+                    <font>
+                        <Font name="Georgia Bold" size="16.0"/>
+                    </font>
+                </Button>
+                <Button layoutX="211.0" layoutY="343.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="154.0"
+                        style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #799351;"
+                        text="Approve" textFill="WHITE">
+                    <font>
+                        <Font name="Georgia Bold" size="16.0"/>
+                    </font>
+                </Button>
+            </children>
+        </Pane>
+        <TableView fx:id="bookingSlotTable" layoutX="33.0" layoutY="335.0" prefHeight="142.0" prefWidth="409.0"
+                   style="-fx-border-color: #000000;">
+            <columns>
+                <TableColumn prefWidth="91.0" text="Start Date"/>
+                <TableColumn prefWidth="87.0" text="End Date"/>
+                <TableColumn prefWidth="118.0" text="Duration (Day)"/>
+                <TableColumn prefWidth="111.0" text="Pick-Up Slot"/>
+            </columns>
+        </TableView>
+        <Button layoutX="504.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="154.0"
+                style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #DFF6FF;"
+                text="HOME" textFill="#153462">
+            <font>
+                <Font name="Georgia Bold" size="16.0"/>
+            </font>
+        </Button>
+    </Pane>
 </AnchorPane>

@@ -2,7 +2,7 @@ package oodj.assignment.oopskylinecarrentalsystem.config;
 
 public enum FilePath {
 
-    USER("C:\\Users\\User\\Documents\\GitHub\\oop-skyline-car-rental-system\\src\\main\\resources\\oodj\\assignment\\oopskylinecarrentalsystem\\textfiles\\user.txt"),
+    USER("C:\\Users\\User\\Documents\\GitHub\\oop-skyline-car-rental-system\\src\\main\\resources\\oodj\\assignment\\oopskylinecarrentalsystem\\textfiles\\User.txt"),
     CAR("C:\\Users\\User\\Documents\\GitHub\\oop-skyline-car-rental-system\\src\\main\\resources\\oodj\\assignment\\oopskylinecarrentalsystem\\textfiles\\car.txt"),
     BOOKING(""),
     WALLET("C:\\Users\\User\\Documents\\GitHub\\oop-skyline-car-rental-system\\src\\main\\resources\\oodj\\assignment\\oopskylinecarrentalsystem\\textfiles\\wallet.txt"),

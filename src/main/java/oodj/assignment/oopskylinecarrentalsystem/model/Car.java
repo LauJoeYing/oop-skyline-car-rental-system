@@ -1,92 +1,111 @@
 package oodj.assignment.oopskylinecarrentalsystem.model;
 
-public class Car {
+import java.util.ArrayList;
+import java.util.List;
 
-    private String carId;
-    private String carBrand;
-    private String carModel;
-    private String carType;
-    private String carTransmission;
-    private String carRentalPrice;
-    private String carStatus;
+public class Car implements FileWrite, Searchable {
+    private String id;
+    private String brand;
+    private String model;
+    private int manufactureYear;
+    private String type;
+    private String transmissionType;
+    private float dailyRate;
 
-    public Car(String[] carDetails ) {
-
-
-        for (String carDetail: carDetails ){
-            carDetail = carDetail.trim();
-        }
-
-        this.carId = carDetails[0];
-        this.carBrand = carDetails[1];
-        this.carModel = carDetails[2];
-        this.carType = carDetails[3];
-        this.carTransmission = carDetails[4];
-        this.carRentalPrice = carDetails[5];
-        this.carStatus = carDetails[6];
-
+    public Car(String id, String brand, String model, int manufactureYear, String type, String transmissionType, float dailyRate) {
+        this.id = id;
+        this.brand = brand;
+        this.model = model;
+        this.manufactureYear = manufactureYear;
+        this.type = type;
+        this.transmissionType = transmissionType;
+        this.dailyRate = dailyRate;
     }
 
-
-
-    public String getCarId() {
-        return carId;
+    public Car(String[] registeredCar) {
+        this.id = registeredCar[0];
+        this.brand = registeredCar[1];
+        this.model = registeredCar[2];
+        this.manufactureYear = Integer.parseInt(registeredCar[3]);
+        this.type = registeredCar[4];
+        this.transmissionType = registeredCar[5];
+        this.dailyRate = Float.parseFloat(registeredCar[6]);
     }
 
-    public void setCarId(String carId) {
-        this.carId = carId;
+    public String getId() {
+        return id;
     }
 
-    public String getCarBrand() {
-        return carBrand;
+    public void setId(String id) {
+        this.id = id;
     }
 
-    public void setCarBrand(String carBrand) {
-        this.carBrand = carBrand;
+    public String getBrand() {
+        return brand;
     }
 
-    public String getCarModel() {
-        return carModel;
+    public void setBrand(String brand) {
+        this.brand = brand;
     }
 
-    public void setCarModel(String carModel) {
-        this.carModel = carModel;
+    public String getModel() {
+        return model;
     }
 
-    public String getCarType() {
-        return carType;
+    public void setModel(String model) {
+        this.model = model;
     }
 
-    public void setCarType(String carType) {
-        this.carType = carType;
+    public int getManufactureYear() {
+        return manufactureYear;
     }
 
-    public String getCarTransmission() {
-        return carTransmission;
+    public void setManufactureYear(int manufactureYear) {
+        this.manufactureYear = manufactureYear;
     }
 
-    public void setCarTransmission(String carTransmission) {
-        this.carTransmission = carTransmission;
+    public String getType() {
+        return type;
     }
 
-    public String getCarRentalPrice() {
-        return carRentalPrice;
+    public void setType(String type) {
+        this.type = type;
     }
 
-    public void setCarRentalPrice(String carRentalPrice) {
-        this.carRentalPrice = carRentalPrice;
+    public String getTransmissionType() {
+        return transmissionType;
     }
 
-    public String getCarStatus() {
-        return carStatus;
+    public void setTransmissionType(String transmissionType) {
+        this.transmissionType = transmissionType;
     }
 
-    public void setCarStatus(String carStatus) {
-        this.carStatus = carStatus;
+    public float getDailyRate() {
+        return dailyRate;
+    }
+
+    public void setDailyRate(float dailyRate) {
+        this.dailyRate = (float) (Math.round(dailyRate * 100.0) / 100.0);
+    }
+
+    public String emailFormat() {
+        return String.format("<a style=\"font-weight:bold\">%s %s (%s)</a>", brand, model, id);
     }
 
     @Override
-    public String toString() {
-        return String.join(" | ", carId, carBrand, carModel, carType, carTransmission, carRentalPrice, carStatus);
+    public List<String> getSearchableProperties() {
+        List<String> searchableProperties = new ArrayList<>();
+        searchableProperties.add(id);
+        searchableProperties.add(brand);
+        searchableProperties.add(model);
+        searchableProperties.add(String.valueOf(manufactureYear));
+        searchableProperties.add(type);
+        searchableProperties.add(transmissionType);
+
+        return searchableProperties;
+    }
+    @Override
+    public String fileFormat() {
+        return String.join(" || ", id, brand, model, String.valueOf(manufactureYear), type, transmissionType, String.valueOf(dailyRate));
     }
 }

@@ -10,84 +10,96 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.controller.customer.CheckoutController">
-    <Pane layoutX="39.0" layoutY="50.0" prefHeight="450.0" prefWidth="883.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
-        <children>
-         <Pane layoutX="20.0" layoutY="103.0" prefHeight="310.0" prefWidth="843.0" style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
-            <children>
-               <Button layoutX="445.0" layoutY="251.0" mnemonicParsing="false" onAction="#CheckoutConfirm" prefHeight="35.0" prefWidth="357.0" style="-fx-background-color: #153462; -fx-background-radius: 10;" text="Checkout" textFill="#f5f5f5">
-                  <font>
-                     <Font name="Georgia Bold" size="16.0" />
-                  </font>
-               </Button>
-               <Line endX="253.0" layoutX="545.0" layoutY="145.0" startX="-100.0" />
-               <Text fill="#153462" layoutX="447.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Total Price:" textAlignment="RIGHT">
-                  <font>
-                     <Font name="Georgia" size="20.0" />
-                  </font>
-               </Text>
-               <TextField fx:id="totalPrice" editable="false" layoutX="648.0" layoutY="165.0" prefHeight="27.0" prefWidth="148.0" style="-fx-background-color: #CDFCF6; -fx-border-color: #000000;" />
-               <Line endX="253.0" layoutX="548.0" layoutY="215.0" startX="-100.0" />
-               <Line endX="253.0" layoutX="545.0" layoutY="141.0" startX="-100.0" />
-               <Line endX="253.0" layoutX="548.0" layoutY="211.0" startX="-100.0" />
-               <Text fill="#153462" layoutX="444.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" textAlignment="RIGHT">
-                  <font>
-                     <Font name="Georgia" size="20.0" />
-                  </font>
-               </Text>
-               <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="593.0" layoutY="157.0" pickOnBounds="true" preserveRatio="true">
-                  <image>
-                     <Image url="https://drive.google.com/uc?id=1rbCHG1HapQTGAYuX2MWh2WdLy7cjT_6W" />
-                  </image>
-               </ImageView>
-               <TextField fx:id="payDuration" editable="false" layoutX="586.0" layoutY="32.0" prefHeight="25.0" prefWidth="212.0" />
-            </children>
-         </Pane>
-            <Text fill="#153462" layoutX="263.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout Page" wrappingWidth="376.40625">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+    <Pane layoutX="39.0" layoutY="50.0" prefHeight="450.0" prefWidth="883.0"
+          style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+        <Pane layoutX="20.0" layoutY="103.0" prefHeight="310.0" prefWidth="843.0"
+              style="-fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+            <Button layoutX="445.0" layoutY="251.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="357.0"
+                    style="-fx-background-color: #153462; -fx-background-radius: 10;" text="Checkout"
+                    textFill="#f5f5f5">
                 <font>
-                    <Font name="Georgia Bold" size="46.0" />
-                </font>
-            </Text>
-            <Button layoutX="828.0" layoutY="24.0" mnemonicParsing="false" onAction="#toCustMain" prefHeight="25.0" prefWidth="29.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;" text="X">
-                <font>
-                    <Font name="Berlin Sans FB" size="18.0" />
+                    <Font name="Georgia Bold" size="16.0"/>
                 </font>
             </Button>
-         <Text fill="#153462" layoutX="59.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car ID:" textAlignment="RIGHT">
+            <Line endX="253.0" layoutX="545.0" layoutY="145.0" startX="-100.0"/>
+            <Text fill="#153462" layoutX="447.0" layoutY="184.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Total Price:" textAlignment="RIGHT">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <TextField layoutX="648.0" layoutY="165.0" prefHeight="27.0" prefWidth="148.0"
+                       style="-fx-background-color: #CDFCF6; -fx-border-color: #000000;"/>
+            <Line endX="253.0" layoutX="548.0" layoutY="215.0" startX="-100.0"/>
+            <Line endX="253.0" layoutX="545.0" layoutY="141.0" startX="-100.0"/>
+            <Line endX="253.0" layoutX="548.0" layoutY="211.0" startX="-100.0"/>
+            <Text fill="#153462" layoutX="444.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0"
+                  text="Duration:" textAlignment="RIGHT">
+                <font>
+                    <Font name="Georgia" size="20.0"/>
+                </font>
+            </Text>
+            <ImageView fitHeight="35.0" fitWidth="36.0" layoutX="593.0" layoutY="157.0" pickOnBounds="true"
+                       preserveRatio="true">
+                <Image url="https://drive.google.com/uc?id=1rbCHG1HapQTGAYuX2MWh2WdLy7cjT_6W"/>
+            </ImageView>
+            <TextField layoutX="586.0" layoutY="32.0" prefHeight="25.0" prefWidth="212.0"/>
+        </Pane>
+        <Text fill="#153462" layoutX="263.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Checkout Page"
+              wrappingWidth="376.40625">
             <font>
-               <Font name="Georgia" size="20.0" />
+                <Font name="Georgia Bold" size="46.0"/>
             </font>
-         </Text>
-         <Text fill="#153462" layoutX="59.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Model:" textAlignment="RIGHT">
+        </Text>
+        <Button layoutX="828.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0"
+                style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;"
+                text="X">
             <font>
-               <Font name="Georgia" size="20.0" />
+                <Font name="Berlin Sans FB" size="18.0"/>
             </font>
-         </Text>
-         <Text fill="#153462" layoutX="60.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date:" textAlignment="RIGHT">
+        </Button>
+        <Text fill="#153462" layoutX="59.0" layoutY="151.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car ID:"
+              textAlignment="RIGHT">
             <font>
-               <Font name="Georgia" size="20.0" />
+                <Font name="Georgia" size="20.0"/>
             </font>
-         </Text>
-         <Text fill="#153462" layoutX="60.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date:" textAlignment="RIGHT">
+        </Text>
+        <Text fill="#153462" layoutX="59.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Model:"
+              textAlignment="RIGHT">
             <font>
-               <Font name="Georgia" size="20.0" />
+                <Font name="Georgia" size="20.0"/>
             </font>
-         </Text>
-         <Text fill="#153462" layoutX="59.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick-Up Slot:" textAlignment="RIGHT">
+        </Text>
+        <Text fill="#153462" layoutX="60.0" layoutY="267.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date:"
+              textAlignment="RIGHT">
             <font>
-               <Font name="Georgia" size="20.0" />
+                <Font name="Georgia" size="20.0"/>
             </font>
-         </Text>
-         <Text fill="#153462" layoutX="464.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Price Per Day:" textAlignment="RIGHT">
+        </Text>
+        <Text fill="#153462" layoutX="60.0" layoutY="323.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date:"
+              textAlignment="RIGHT">
             <font>
-               <Font name="Georgia" size="20.0" />
+                <Font name="Georgia" size="20.0"/>
             </font>
-         </Text>
-         <TextField fx:id="payID" editable="false" layoutX="193.0" layoutY="132.0" prefHeight="25.0" prefWidth="212.0" />
-         <TextField fx:id="payModel" editable="false" layoutX="193.0" layoutY="190.0" prefHeight="25.0" prefWidth="212.0" />
-         <TextField fx:id="payStart" editable="false" layoutX="195.0" layoutY="247.0" prefHeight="25.0" prefWidth="212.0" />
-         <TextField fx:id="payEnd" editable="false" layoutX="195.0" layoutY="304.0" prefHeight="25.0" prefWidth="212.0" />
-         <TextField fx:id="paypickup" editable="false" layoutX="195.0" layoutY="361.0" prefHeight="25.0" prefWidth="212.0" />
-         <TextField fx:id="priceDay" editable="false" layoutX="607.0" layoutY="190.0" prefHeight="25.0" prefWidth="212.0" />
-        </children></Pane>
+        </Text>
+        <Text fill="#153462" layoutX="59.0" layoutY="382.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pick-Up Slot:"
+              textAlignment="RIGHT">
+            <font>
+                <Font name="Georgia" size="20.0"/>
+            </font>
+        </Text>
+        <Text fill="#153462" layoutX="464.0" layoutY="209.0" strokeType="OUTSIDE" strokeWidth="0.0"
+              text="Price Per Day:" textAlignment="RIGHT">
+            <font>
+                <Font name="Georgia" size="20.0"/>
+            </font>
+        </Text>
+        <TextField layoutX="193.0" layoutY="132.0" prefHeight="25.0" prefWidth="212.0"/>
+        <TextField layoutX="193.0" layoutY="190.0" prefHeight="25.0" prefWidth="212.0"/>
+        <TextField layoutX="195.0" layoutY="247.0" prefHeight="25.0" prefWidth="212.0"/>
+        <TextField layoutX="195.0" layoutY="304.0" prefHeight="25.0" prefWidth="212.0"/>
+        <TextField layoutX="195.0" layoutY="361.0" prefHeight="25.0" prefWidth="212.0"/>
+        <TextField layoutX="607.0" layoutY="190.0" prefHeight="25.0" prefWidth="212.0"/>
+    </Pane>
 </AnchorPane>
