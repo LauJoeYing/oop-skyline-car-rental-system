@@ -58,17 +58,19 @@ public class CheckoutController implements Initializable {
 
     @FXML
     void CheckoutConfirm(ActionEvent event) throws IOException {
-        int temp = Integer.parseInt(currentUserWallet.getBalance());
+        Double temp = Double.parseDouble(currentUserWallet.getBalance());
         if(temp >= subtotal){
-            currentUserWallet.setBalance(Integer.toString(temp - subtotal));
+            currentUserWallet.setBalance(Double.toString(temp - subtotal));
 
             Alert alert = new Alert(Alert.AlertType.CONFIRMATION);
             alert.setTitle("Confirmation of Process");
             alert.setHeaderText("Payment Confirmation");
             alert.setContentText("Are you sure you want to make this payment?");
 
+            System.out.println(currentUserWallet.getBalance());
+
             if(alert.showAndWait().get() == ButtonType.OK){
-                Parent root = FXMLLoader.load(getClass().getResource("Receipt.fxml"));
+                Parent root = FXMLLoader.load(getClass().getResource("Topup.fxml"));
                 stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
                 stage.setScene(new Scene(root));
                 stage.show();

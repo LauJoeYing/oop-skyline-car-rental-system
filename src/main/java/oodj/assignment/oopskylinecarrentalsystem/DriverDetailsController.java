@@ -92,7 +92,7 @@ public class DriverDetailsController implements Initializable{
 
     @FXML
     void confirmBooking(ActionEvent event) throws IOException{
-        Parent root = FXMLLoader.load(getClass().getResource("Payment.fxml"));
+        Parent root = FXMLLoader.load(getClass().getResource("Checkout.fxml"));
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
