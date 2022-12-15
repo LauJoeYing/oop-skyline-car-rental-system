@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
 
 import java.io.BufferedReader;
 import java.io.FileReader;
@@ -40,9 +41,6 @@ public class AdminMainController implements Initializable {
         profimg.setImage(myImage);
         usernameText.setText(currentUser.getUsername());
     }
-
-
-
 
     @FXML
     void genReport(ActionEvent event) {

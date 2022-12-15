@@ -54,10 +54,17 @@ public class LoginController {
         flagHolder = login();
         //IF VALIDATED CHANGE TO MAIN MENU
         if(flagHolder == 1) {
-            Parent root = FXMLLoader.load(getClass().getResource("MainCustomer.fxml"));
-            stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-            stage.setScene(new Scene(root));
-            stage.show();
+            if (currentUser.getUserType() == "C") {
+                Parent root = FXMLLoader.load(getClass().getResource("MainCustomer.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            } else if (currentUser.getUserType() == "A") {
+                Parent root = FXMLLoader.load(getClass().getResource("MainAdmin.fxml"));
+                stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+                stage.setScene(new Scene(root));
+                stage.show();
+            }
         }
         else{
             Alert alert = new Alert(Alert.AlertType.ERROR);

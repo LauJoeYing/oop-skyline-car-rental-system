@@ -52,7 +52,9 @@
          </children>
       </Pane>
       <ImageView fx:id="imageLogo" fitHeight="200.0" fitWidth="200.0" layoutX="117.0" layoutY="73.0" pickOnBounds="true" preserveRatio="true">
-         <Image url="https://drive.google.com/uc?id=1LDHbO2CjukOBAgf7L023NnKhoOoSmH9q" />
+         <image>
+            <Image url="@img/City%20Skyline.png" />
+         </image>
       </ImageView>
    </children>
 </AnchorPane>
