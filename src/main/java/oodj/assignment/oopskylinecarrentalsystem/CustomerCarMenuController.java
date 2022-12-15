@@ -96,7 +96,7 @@ public class CustomerCarMenuController implements Initializable {
     @FXML
     private TextField typeLabel3;
 
-
+    ArrayList<Car> carList = new ArrayList<>();
     ArrayList<Car> carListcol1 = new ArrayList<>();
     ArrayList<Car> carListcol2 = new ArrayList<>();
     ArrayList<Car> carListcol3 = new ArrayList<>();
@@ -327,6 +327,21 @@ public class CustomerCarMenuController implements Initializable {
         });
 
     }
+
+    ArrayList<Car> initializeCar() {
+        ArrayList<Car> carList = new ArrayList<>();
+        try (Stream<String> stream = Files.lines(Path.of(FilePath.CAR.getDataFile()))) {
+            stream.parallel().forEach(car -> {
+                String[] carData = car.split(" \\| ");
+                carList.add(new Car(carData));
+            });
+        }
+        catch (IOException e){
+        }
+        carList.sort(Comparator.comparing(Car::getCarBrand));
+        return carList;
+    }
+
 
     String ImgAssign(String model){
         switch(model){

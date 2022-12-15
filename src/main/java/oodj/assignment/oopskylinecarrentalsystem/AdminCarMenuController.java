@@ -1,158 +1,88 @@
 package oodj.assignment.oopskylinecarrentalsystem;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Node;
-import javafx.scene.Parent;
-import javafx.scene.Scene;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.Label;
+import javafx.scene.control.TableColumn;
+import javafx.scene.control.TableView;
 import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.stage.Stage;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.InputMethodEvent;
 
 import java.io.IOException;
 import java.net.URL;
+import java.nio.file.Files;
+import java.nio.file.Path;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.ResourceBundle;
+import java.util.stream.Stream;
 
-public class AdminCarMenuController implements Initializable {
-
-
-    @FXML
-    private Button addCarButton;
+public class AdminCarMenuController extends CustomerCarMenuController  {
 
     @FXML
-    private ImageView carImage1;
+    private TableColumn<Car, String> carBrandCol;
 
     @FXML
-    private ImageView carImage2;
+    private TableColumn<Car, String>carIDCol;
 
     @FXML
-    private ImageView carImage3;
+    private TableView<Car> carMenuTable;
 
     @FXML
-    private Label carLabel1;
+    private TableColumn<Car, String> carModelCol;
 
     @FXML
-    private Label carLabel2;
+    private TableColumn<Car, String> carPriceCol;
 
     @FXML
-    private Label carLabel3;
+    private TableColumn<Car, String> carTransmissionCol;
 
     @FXML
-    private Button editButton1;
+    private TableColumn<Car, String> carTypeCol;
 
     @FXML
-    private Button editButton2;
-
-    @FXML
-    private Button editButton3;
-
-    @FXML
-    private ComboBox<String> filterChoice;
-
-    @FXML
-    private Button leftButton;
-
-    @FXML
-    private Button rightButton;
-
-    @FXML
-    private TextField searchTextField;
-
-    @FXML
-    private ComboBox<String> sortbyChoice;
-
-    //
-    //
-    //
-    private Stage stage;
-    private Scene scene;
-    private Parent root;
-
-    int count = 0;
-    ArrayList<String> carImageSource = new ArrayList<String>(3);
-
-    private ArrayList<String> getThreeImage(int cnt){
-
-        //READ LINES OF cnt + 1, cnt + 2, and cnt + 3
-        //APPEND IMAGE SOURCE INTO carImageSource ArrayList with reference to MODEL NAME, SOURCES ARE ENUMURATED
-
-
-        return carImageSource;
-    }
-
+    private TextField searchInput;
 
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle){
-        //CALL READ FILE FUNCTION
-            //WRITE LINES INTO LIST
-        //CALL GET IMAGE FUNCTION
+    public void initialize(URL url, ResourceBundle resourceBundle) {
+//        ObservableList<Transaction> list = FXCollections.observableArrayList(
+//                new Car();
+//    );
 
-        //Images Load
-        carImageSource = getThreeImage(count);
-        Image myImage1 = new Image(carImageSource.get(0));
-        carImage1.setImage(myImage1);
-        Image myImage2 = new Image(carImageSource.get(1));
-        carImage2.setImage(myImage2);
-        Image myImage3 = new Image(carImageSource.get(2));
-        carImage3.setImage(myImage3);
-        //
+        carList = initializeCar();
+        carIDCol.setCellValueFactory(new PropertyValueFactory<Car, String>("Car ID"));
+        carBrandCol.setCellValueFactory(new PropertyValueFactory<Car, String>("Car Brand"));
+        carModelCol.setCellValueFactory(new PropertyValueFactory<Car, String>("Car Model"));
+        carTypeCol.setCellValueFactory(new PropertyValueFactory<Car, String>("Car Type"));
+        carTransmissionCol.setCellValueFactory(new PropertyValueFactory<Car, String>("Transmission"));
+        carPriceCol.setCellValueFactory(new PropertyValueFactory<Car, String>("Rental Price (RM)"));
 
-        //Label Load
+    }
 
 
-        //
-
-        //Car Details Load Table
-            //Table View
-        //
+    @FXML
+    void listen(InputMethodEvent event) {
 
     }
 
     @FXML
-    void nextThreeCars(ActionEvent event) {
-        //Images Load
-        carImageSource = getThreeImage(count);
-        Image myImage1 = new Image(carImageSource.get(0));
-        carImage1.setImage(myImage1);
-        Image myImage2 = new Image(carImageSource.get(1));
-        carImage2.setImage(myImage2);
-        Image myImage3 = new Image(carImageSource.get(2));
-        carImage3.setImage(myImage3);
-        //
-
-        //Label Load
-
-
-        //
-
-        //Car Details Load Table
-            //Table View
-        //
+    void toAddCar(ActionEvent event) {
 
     }
 
     @FXML
-    void AddCar(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Add_Car.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+    void toAdminMain(ActionEvent event) {
+
     }
 
     @FXML
-    void ToAdminMain(ActionEvent event) throws IOException {
-        Parent root = FXMLLoader.load(getClass().getResource("Main_Admin.fxml"));
-        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
-        stage.setScene(new Scene(root));
-        stage.show();
+    void toModCar(ActionEvent event) {
+
     }
 
 }
+
