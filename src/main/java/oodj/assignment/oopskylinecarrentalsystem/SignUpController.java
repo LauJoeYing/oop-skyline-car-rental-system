@@ -7,10 +7,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.Alert;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
+import javafx.scene.control.*;
 import javafx.stage.Stage;
 
 import java.io.IOException;
@@ -30,7 +27,10 @@ public class SignUpController implements Initializable {
     private Scene scene;
     private Parent root;
 
-    private String signupUserTemp, signupPassTemp, signupGenderTemp, signupICTemp, signupEmailTemp, signupUnitNumTemp, signupAddLine1Temp, signupAddLine2Temp, signupPostTemp, signupCityTemp, signupStateTemp;
+    private String signupUserTemp, signupPassTemp, signupNameTemp, signupConfirmPassTemp, signupPhoneTemp, signupGenderTemp, signupICTemp, signupEmailTemp, signupUnitNumTemp, signupAddLine1Temp, signupAddLine2Temp, signupPostTemp, signupCityTemp, signupStateTemp;
+
+    @FXML
+    private TextArea RequirementTextBox;
 
     @FXML
     private TextField signupAddLine1;
@@ -42,6 +42,9 @@ public class SignUpController implements Initializable {
     private TextField signupCity;
 
     @FXML
+    private TextField signupConfirmPass;
+
+    @FXML
     private TextField signupEmail;
 
     @FXML
@@ -51,7 +54,13 @@ public class SignUpController implements Initializable {
     private TextField signupIC;
 
     @FXML
+    private TextField signupName;
+
+    @FXML
     private TextField signupPassword;
+
+    @FXML
+    private TextField signupPhone;
 
     @FXML
     private TextField signupPostcode;
@@ -68,9 +77,12 @@ public class SignUpController implements Initializable {
     @FXML
     private TextField signupUsername;
 
+    @FXML
+    private TextField signupVerifyCode;
+
     static ArrayList<String> arrRegister = new ArrayList<>();
 
-    private Boolean flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9, flag10, flag11, flag12;
+    private Boolean flag1, flag2, flag3, flag4, flag5, flag6, flag7, flag8, flag9, flag10, flag11, flag12, flag13;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
@@ -85,12 +97,12 @@ public class SignUpController implements Initializable {
     void onSubmitButtonClicked(ActionEvent event) {
         signupUserTemp = signupUsername.getText();          /**Just Print Lines for Testing Input      */
         signupPassTemp = signupPassword.getText();
-        signupNameTemp = signupName.getText;
+        signupNameTemp = signupName.getText();
         signupConfirmPassTemp = signupConfirmPass.getText();
         signupGenderTemp = signupGender.getSelectionModel().getSelectedItem().toString();
         signupEmailTemp = signupEmail.getText();
         signupICTemp = signupIC.getText();
-        signupPhoneTemp = signupPhone.getText;
+        signupPhoneTemp = signupPhone.getText();
         signupUnitNumTemp = signupUnitNum.getText();
         signupAddLine1Temp = signupAddLine1.getText();
         signupAddLine2Temp = signupAddLine2.getText();
@@ -109,11 +121,20 @@ public class SignUpController implements Initializable {
         flag10 = validateAdd2(signupAddLine2Temp);
         flag11 = validatePostcode(signupPostTemp);
         flag12 = validateCity(signupCityTemp);
+        flag13 = verifyCode();
 
-        if(!flag1||!flag2||!flag3||!flag4||!flag5||!flag6||!flag7||!flag8||!flag9||!flag10||!flag11||!flag12){
+        if(!flag1||!flag2||!flag3||!flag4||!flag5||!flag6||!flag7||!flag8||!flag9||!flag10||!flag11||!flag12||!flag13){
             signUp();
         }
     }
+
+    /**
+     *
+     * TIPS textbox not done
+     * Email verify function not implemented
+     *
+     */
+
 
     @FXML
     void returnToLogin(ActionEvent event) throws IOException {
@@ -121,6 +142,16 @@ public class SignUpController implements Initializable {
         stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
         stage.setScene(new Scene(root));
         stage.show();
+    }
+
+    @FXML
+    boolean verifyCode(){
+        if(signupVerifyCode.getText().equals("123456")){
+            return true;
+        }
+        else{
+            return false;
+        }
     }
 
 
@@ -155,31 +186,16 @@ public class SignUpController implements Initializable {
         }
     }
 
+
     @FXML
-    public boolean validateName(String input) {
-        String nameInput = input;
-        String usernameRegex = "^[a-z][\\w\\-]{7,14}$"; //Condition: Must start with alphabet, length 8-15, can contain "_"/"-"
-        Pattern usernamePattern = Pattern.compile(usernameRegex, Pattern.CASE_INSENSITIVE);
-        Matcher usernameMatcher;
-
-        usernameMatcher = usernamePattern.matcher(usernameInput);
-        if (usernameMatcher.matches()) {
-            return true;
-        } else {
-            return false;
-        }
+    public boolean validateName(String input){
+        return true;
     }
-
-
-    /**
-     *
-     * Name Validate
-     */
 
 
     @FXML
     public boolean validateConfirmPassword(String input) {
-        if(input.equals(signupConfirmPassword.getText())){
+        if(input.equals(signupConfirmPass.getText())){
             return true;
         }
         else{
@@ -328,6 +344,7 @@ public class SignUpController implements Initializable {
             e.printStackTrace();
         }
     }
+
 
 
     public void popupERROR() {
