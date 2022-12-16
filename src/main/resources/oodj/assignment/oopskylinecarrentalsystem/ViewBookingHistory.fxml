@@ -16,7 +16,6 @@
                 <TableView fx:id="tbData" layoutX="23.0" layoutY="137.0" prefHeight="297.0" prefWidth="857.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="38.0" AnchorPane.leftAnchor="22.0" AnchorPane.rightAnchor="21.0" AnchorPane.topAnchor="136.0">
                     <columns>
                         <TableColumn fx:id="studentId" prefWidth="75.0" text="Booking ID" />
-                        <TableColumn fx:id="lastName" prefWidth="124.0" text="Username" />
                         <TableColumn prefWidth="95.0" text="Booking Date" />
                         <TableColumn prefWidth="112.0" text="Booking Amount (RM)" />
                         <TableColumn prefWidth="145.0" text="Car ID" />
