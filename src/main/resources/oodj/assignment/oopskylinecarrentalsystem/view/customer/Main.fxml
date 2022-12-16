@@ -35,7 +35,7 @@
                 <Font name="Georgia Bold" size="13.0" />
             </font>
         </Button>
-        <Button layoutX="54.0" layoutY="306.0" mnemonicParsing="false" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Edit Personal Details" textFill="#555879">
+        <Button fx:id="editPersonalDetailsButton" layoutX="54.0" layoutY="306.0" mnemonicParsing="false" onAction="#onEditPersonalDetailsButtonClick" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Edit Personal Details" textFill="#555879">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>
@@ -60,9 +60,6 @@
         </Button>
         <ImageView fitHeight="50.0" fitWidth="62.0" layoutX="453.0" layoutY="144.0" pickOnBounds="true" preserveRatio="true">
             <Image url="https://img.icons8.com/dusk/64/null/wallet.png" />
-        </ImageView>
-        <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="450.0" layoutY="289.0" pickOnBounds="true" preserveRatio="true">
-            <Image url="https://img.icons8.com/dusk/64/null/user-male-circle--v1.png" />
         </ImageView>
         <ImageView fitHeight="50.0" fitWidth="68.0" layoutX="448.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
             <Image url="https://img.icons8.com/plasticine/100/null/test-partial-passed.png" />

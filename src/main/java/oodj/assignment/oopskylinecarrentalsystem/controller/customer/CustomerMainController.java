@@ -13,6 +13,8 @@ import java.io.IOException;
 public class CustomerMainController extends LabelledViewController {
 
     @FXML
+    private Button editPersonalDetailsButton;
+    @FXML
     private Button modifyPasswordButton;
     @FXML
     private Button rentCarButton;
@@ -30,6 +32,11 @@ public class CustomerMainController extends LabelledViewController {
     private TextField accountBalanceTextField;
 
     @FXML
+    void onEditPersonalDetailsButtonClick(ActionEvent event) throws IOException {
+        switchLabelledUserScene(event, "EditAccountDetails");
+    }
+
+    @FXML
     void onModifyPasswordButtonClick(ActionEvent event) {
 
     }
@@ -42,11 +49,6 @@ public class CustomerMainController extends LabelledViewController {
     @FXML
     void onTopUpButtonClick(ActionEvent event) throws IOException {
         switchLabelledUserScene(event, "TopUp");
-    }
-
-    @FXML
-    void onViewApprovalButtonClick(ActionEvent event) {
-
     }
 
     @FXML

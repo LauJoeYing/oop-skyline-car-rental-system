@@ -50,7 +50,7 @@
             <TextField fx:id="topUpAmountTextField" layoutX="325.0" layoutY="146.0" prefHeight="27.0" prefWidth="108.0" promptText="Enter Amount" style="-fx-border-color: #000000;" />
             <Line endX="365.0" layoutX="138.0" layoutY="94.0" startX="-100.0" />
         </Pane>
-        <Text fill="#25459e" layoutX="247.0" layoutY="62.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Topup" wrappingWidth="173.63671875">
+        <Text fill="#25459e" layoutX="240.0" layoutY="57.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Top-Up" wrappingWidth="188.83673095703125">
             <font>
                 <Font name="Georgia Bold" size="49.0" />
             </font>
