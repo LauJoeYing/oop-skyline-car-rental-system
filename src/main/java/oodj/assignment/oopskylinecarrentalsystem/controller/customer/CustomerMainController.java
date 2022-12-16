@@ -13,6 +13,8 @@ import java.io.IOException;
 public class CustomerMainController extends LabelledViewController {
 
     @FXML
+    private Button logOutButton;
+    @FXML
     private Button editPersonalDetailsButton;
     @FXML
     private Button modifyPasswordButton;
@@ -52,8 +54,13 @@ public class CustomerMainController extends LabelledViewController {
     }
 
     @FXML
-    void onViewBookingHistoryButtonClick(ActionEvent event) {
+    void onViewBookingHistoryButtonClick(ActionEvent event) throws IOException {
+        switchLabelledUserScene(event, "ViewBookingHistory");
+    }
 
+    @FXML
+    void onLogOutButtonClick(ActionEvent event) throws IOException {
+        switchSharedScene(event, "Login");
     }
 
     public void setLabelData() {
