@@ -53,12 +53,7 @@
                 <Font name="Georgia Bold" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="viewApprovalButton" graphicTextGap="5.0" layoutX="520.0" layoutY="226.0" mnemonicParsing="false" onAction="#onViewApprovalButtonClick" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="View Approval" textFill="#555879">
-            <font>
-                <Font name="Georgia Bold" size="13.0" />
-            </font>
-        </Button>
-        <Button fx:id="viewBookingHistoryButton" layoutX="520.0" layoutY="295.0" mnemonicParsing="false" onAction="#onViewBookingHistoryButtonClick" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="View Booking History" textAlignment="CENTER" textFill="#555879" wrapText="true">
+        <Button fx:id="viewBookingHistoryButton" layoutX="520.0" layoutY="227.0" mnemonicParsing="false" onAction="#onViewBookingHistoryButtonClick" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="View Booking History" textAlignment="CENTER" textFill="#555879" wrapText="true">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>

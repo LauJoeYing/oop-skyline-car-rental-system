@@ -49,7 +49,7 @@ public final class WarningConfig {
                             2. Car number plate must be unique.
                             """;
 
-        public final static String DAILYRATE = "Car daily rate must be in decimals format";
+        public final static String DAILYRATE = "Car daily rate must be in decimals format.";
     }
 
     public static void resetLabel(Label... labels) {

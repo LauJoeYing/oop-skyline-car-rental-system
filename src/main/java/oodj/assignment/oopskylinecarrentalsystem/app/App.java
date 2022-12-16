@@ -4,7 +4,10 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import oodj.assignment.oopskylinecarrentalsystem.config.AdminConfig;
 import oodj.assignment.oopskylinecarrentalsystem.config.BookingConfig;
+import oodj.assignment.oopskylinecarrentalsystem.controller.admin.AdminMainController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Booking;
 import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
 
@@ -14,8 +17,11 @@ public class App extends Application {
 
     @Override
     public void start(Stage primaryStage) throws IOException {
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oodj/assignment/oopskylinecarrentalsystem/view/shared/Login.fxml"));
+        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oodj/assignment/oopskylinecarrentalsystem/view/admin/Main.fxml"));
         Scene loginScene = new Scene(fxmlLoader.load());
+        AdminMainController controller = fxmlLoader.getController();
+        controller.setUser(AdminConfig.getAdminList().get(0));
+        controller.setLabelData();
         primaryStage.setTitle("Skyline Car Rental");
         primaryStage.setScene(loginScene);
         primaryStage.show();

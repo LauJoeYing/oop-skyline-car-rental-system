@@ -18,3 +18,4 @@ USB 3858 || Perodua || Myvi 2020 || Hatchback || Automatic || 180.0
 CJK 0808 || Perodua || Bezza 2022 || Sedan || Automatic || 220.0
 VDK 3633 || Honda || CR-V 2019 || SUV || Automatic || 220.0
 BHV 9868 || Toyota || Vios 2005 || Sedan || Automatic || 160.0
+VEV 8102 || Perodua || Myvi 2022 || Hatchback || Automatic || 150.0

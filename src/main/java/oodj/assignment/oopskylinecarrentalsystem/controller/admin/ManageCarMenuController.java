@@ -22,34 +22,24 @@ public class ManageCarMenuController extends CommonViewController implements Ini
 
     @FXML
     private Button addNewCarButton;
-
     @FXML
     private TableColumn<Car, String> brandColumn;
-
     @FXML
     private TableColumn<Car, String> carIdColumn;
-
     @FXML
     private TableView<Car> carTableView;
-
     @FXML
     private TableColumn<Car, Float> dailyRateColumn;
-
     @FXML
     private Button homeButton;
-
     @FXML
     private TableColumn<Car, String> modelColumn;
-
     @FXML
     private Button modifyCarButton;
-
     @FXML
     private TextField searchTextField;
-
     @FXML
     private TableColumn<Car, String> transmissionTypeColumn;
-
     @FXML
     private TableColumn<Car, String> typeColumn;
 
@@ -91,12 +81,12 @@ public class ManageCarMenuController extends CommonViewController implements Ini
     }
 
     @FXML
-    void onAddNewCarButtonClick(ActionEvent event) {
-
+    void onAddNewCarButtonClick(ActionEvent event) throws IOException {
+        switchUserScene(event, "AddCar");
     }
 
     @FXML
-    void onSearceTextFileKeyTyped(KeyEvent event) {
+    void onSearchTextFileKeyTyped(KeyEvent event) {
         searchCar();
     }
 
