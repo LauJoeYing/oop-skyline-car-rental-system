@@ -9,7 +9,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
 import oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig;
-import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
 
 import java.io.IOException;
@@ -25,7 +25,7 @@ import static oodj.assignment.oopskylinecarrentalsystem.config.StringConfig.isAn
 import static oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig.resetLabel;
 import static org.apache.commons.lang.WordUtils.capitalize;
 
-public class EditCarController extends LabelledController implements Initializable {
+public class EditCarController extends LabelledViewController implements Initializable {
 
     private Car car;
     private Alert alertConfirmation;

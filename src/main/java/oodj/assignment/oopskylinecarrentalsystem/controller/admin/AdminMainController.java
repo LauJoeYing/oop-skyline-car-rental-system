@@ -5,12 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Admin;
 
 import java.io.IOException;
 
-public class AdminMainController extends LabelledController {
+public class AdminMainController extends LabelledViewController {
 
     @FXML
     private Button generateAnalysedReportButton;

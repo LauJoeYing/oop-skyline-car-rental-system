@@ -18,19 +18,19 @@
                 <Font name="Georgia Bold" size="39.0" />
             </font>
         </Text>
-        <TextField fx:id="searchTextField" layoutX="39.0" layoutY="77.0" prefHeight="19.0" prefWidth="296.0" promptText="Search" style="-fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
+        <TextField fx:id="searchTextField" layoutX="39.0" layoutY="77.0" onKeyPressed="#searchTextFieldKeyPressed" prefHeight="19.0" prefWidth="296.0" promptText="Search" style="-fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
             <font>
                 <Font name="Georgia" size="12.0" />
             </font>
         </TextField>
         <TableView fx:id="carTableView" layoutX="39.0" layoutY="117.0" prefHeight="147.0" prefWidth="832.0" style="-fx-background-color: #FCFFE7; -fx-border-color: #000000;">
             <columns>
-                <TableColumn prefWidth="146.0" text="Number Plate " />
-                <TableColumn prefWidth="113.0" text="Brand" />
-                <TableColumn prefWidth="91.5" text="Model" />
-                <TableColumn prefWidth="148.0" text="Type" />
-                <TableColumn prefWidth="137.0" text="Transmission" />
-                <TableColumn prefWidth="195.5" text="Daily Rate (RM/Day)" />
+                <TableColumn fx:id="idColumn" prefWidth="121.5999755859375" text="Number Plate " />
+                <TableColumn fx:id="brandColumn" prefWidth="103.20002746582031" text="Brand" />
+                <TableColumn fx:id="modelColumn" prefWidth="152.0" text="Model" />
+                <TableColumn fx:id="typeColumn" prefWidth="149.60003662109375" text="Type" />
+                <TableColumn fx:id="transmissionTypeColumn" prefWidth="148.0" text="Transmission" />
+                <TableColumn fx:id="dailyRateColumn" prefWidth="152.800048828125" text="Daily Rate (RM/Day)" />
             </columns>
         </TableView>
         <Button fx:id="homeButton" layoutX="807.0" layoutY="20.0" mnemonicParsing="false" onAction="#onHomeButtonClick" prefHeight="25.0" prefWidth="71.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
@@ -47,26 +47,26 @@
                 </Text>
                 <Pane layoutX="22.0" layoutY="47.0" prefHeight="174.0" prefWidth="449.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
                     <children>
-                        <TextField layoutX="28.0" layoutY="33.0" prefHeight="25.0" prefWidth="186.0" />
+                        <TextField fx:id="idTextField" editable="false" focusTraversable="false" layoutX="28.0" layoutY="33.0" mouseTransparent="true" prefHeight="25.0" prefWidth="186.0" />
                         <Text layoutX="28.0" layoutY="28.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Number Plate" />
-                        <TextField layoutX="28.0" layoutY="82.0" prefHeight="25.0" prefWidth="186.0" />
+                        <TextField fx:id="brandTextField" editable="false" focusTraversable="false" layoutX="28.0" layoutY="82.0" mouseTransparent="true" prefHeight="25.0" prefWidth="186.0" />
                         <Text layoutX="28.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Brand" />
-                        <TextField layoutX="28.0" layoutY="133.0" prefHeight="25.0" prefWidth="186.0" />
-                        <Text layoutX="28.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Brand" />
-                        <TextField layoutX="235.0" layoutY="32.0" prefHeight="25.0" prefWidth="186.0" />
+                        <TextField fx:id="modelTextField" editable="false" focusTraversable="false" layoutX="28.0" layoutY="133.0" mouseTransparent="true" prefHeight="25.0" prefWidth="186.0" />
+                        <Text layoutX="28.0" layoutY="128.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Model" />
+                        <TextField fx:id="typeTextField" editable="false" focusTraversable="false" layoutX="235.0" layoutY="32.0" mouseTransparent="true" prefHeight="25.0" prefWidth="186.0" />
                         <Text layoutX="235.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Type" />
-                        <TextField layoutX="235.0" layoutY="81.0" prefHeight="25.0" prefWidth="186.0" />
+                        <TextField fx:id="transmissionTypeTextField" editable="false" focusTraversable="false" layoutX="235.0" layoutY="81.0" mouseTransparent="true" prefHeight="25.0" prefWidth="186.0" />
                         <Text layoutX="235.0" layoutY="76.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transmission" />
-                        <TextField layoutX="235.0" layoutY="132.0" prefHeight="25.0" prefWidth="186.0" />
-                        <Text layoutX="235.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Rate (RM/Day)" />
+                        <TextField fx:id="dailyRateTextField" editable="false" focusTraversable="false" layoutX="235.0" layoutY="132.0" mouseTransparent="true" prefHeight="25.0" prefWidth="186.0" />
+                        <Text layoutX="235.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Rate" />
                     </children>
                 </Pane>
                 <Pane layoutX="488.0" layoutY="47.0" prefHeight="174.0" prefWidth="322.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;">
                     <children>
                         <Text layoutX="45.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date" />
                         <Text layoutX="45.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date" />
-                        <DatePicker layoutX="45.0" layoutY="48.0" prefHeight="25.0" prefWidth="235.0" />
-                        <DatePicker layoutX="45.0" layoutY="106.0" prefHeight="25.0" prefWidth="235.0" />
+                        <DatePicker fx:id="startDateDatePicker" editable="false" layoutX="45.0" layoutY="48.0" prefHeight="25.0" prefWidth="235.0" />
+                        <DatePicker fx:id="endDateDatePicker" editable="false" layoutX="45.0" layoutY="106.0" prefHeight="25.0" prefWidth="235.0" />
                         <Label layoutX="45.0" layoutY="137.0" prefHeight="17.0" prefWidth="235.0">
                             <font>
                                 <Font name="Georgia" size="10.0" />
@@ -74,7 +74,7 @@
                         </Label>
                     </children>
                 </Pane>
-                <Button fx:id="bookCarButton" layoutX="690.0" layoutY="8.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #DFF6FF; -fx-border-color: #000000; -fx-border-radius: 20;" text="Book Car">
+                <Button fx:id="bookCarButton" layoutX="690.0" layoutY="8.0" mnemonicParsing="false" onAction="#onBookCarButton" prefHeight="25.0" prefWidth="120.0" style="-fx-background-color: #DFF6FF; -fx-border-color: #000000; -fx-border-radius: 20;" text="Book Car">
                     <font>
                         <Font name="Georgia Bold" size="12.0" />
                     </font>

@@ -5,12 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 
 import java.io.IOException;
 
-public class CustomerMainController extends LabelledController {
+public class CustomerMainController extends LabelledViewController {
 
     @FXML
     private Button modifyPasswordButton;

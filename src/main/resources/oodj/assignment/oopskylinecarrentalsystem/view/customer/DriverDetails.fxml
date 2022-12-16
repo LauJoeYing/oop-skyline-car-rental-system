@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.DatePicker?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -10,150 +11,118 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
-    <Pane layoutX="30.0" layoutY="45.0" prefHeight="444.0" prefWidth="902.0"
-          style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
-        <Text fill="#153462" layoutX="281.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0"
-              text="Driver Details">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.controller.customer.DriverDetailsController">
+    <Pane layoutX="30.0" layoutY="45.0" prefHeight="444.0" prefWidth="902.0" style="-fx-background-color: #EFEFEF; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;">
+        <Text fill="#153462" layoutX="281.0" layoutY="64.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver Details">
             <font>
-                <Font name="Georgia Bold" size="42.0"/>
+                <Font name="Georgia Bold" size="42.0" />
             </font>
         </Text>
-        <Pane layoutX="57.0" layoutY="84.0" prefHeight="303.0" prefWidth="787.0"
-              style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
-            <Text fill="#153462" layoutX="82.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                  text="Honda CR-V 2019" textAlignment="CENTER" wrappingWidth="221.3125">
+        <Pane layoutX="57.0" layoutY="84.0" prefHeight="303.0" prefWidth="787.0" style="-fx-background-color: #FFFFFF; -fx-background-radius: 20; -fx-border-color: #000000; -fx-border-radius: 20;">
+            <Text fx:id="brandModelText" fill="#153462" layoutX="82.0" layoutY="47.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Honda CR-V 2019" textAlignment="CENTER" wrappingWidth="221.3125">
                 <font>
-                    <Font name="Georgia Bold Italic" size="16.0"/>
+                    <Font name="Georgia Bold Italic" size="16.0" />
                 </font>
             </Text>
-            <ImageView fitHeight="110.0" fitWidth="148.0" layoutX="117.0" layoutY="68.0" pickOnBounds="true"
-                       preserveRatio="true">
-                <Image url="https://evault.honda.com.my/pixelvault/2020-11/9c2d7e42ad534f2bfbf7307aec28e3d8e99dd61766214.png"/>
+            <ImageView fx:id="carImage" fitHeight="110.0" fitWidth="148.0" layoutX="117.0" layoutY="68.0" pickOnBounds="true" preserveRatio="true">
+                <Image url="https://evault.honda.com.my/pixelvault/2020-11/9c2d7e42ad534f2bfbf7307aec28e3d8e99dd61766214.png" />
             </ImageView>
-            <Text fill="#153462" layoutX="78.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                  text="Rental Price: " textAlignment="CENTER" wrappingWidth="74.091796875">
+            <Text fill="#153462" layoutX="78.0" layoutY="190.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Rental Price: " textAlignment="CENTER" wrappingWidth="74.091796875">
                 <font>
-                    <Font name="Georgia Italic" size="12.0"/>
+                    <Font name="Georgia Italic" size="12.0" />
                 </font>
             </Text>
-            <Text fill="#153462" layoutX="71.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                  text="Transmission:" textAlignment="CENTER" wrappingWidth="91.091796875">
+            <Text fill="#153462" layoutX="71.0" layoutY="216.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transmission:" textAlignment="CENTER" wrappingWidth="91.091796875">
                 <font>
-                    <Font name="Georgia Italic" size="12.0"/>
+                    <Font name="Georgia Italic" size="12.0" />
                 </font>
             </Text>
-            <Text fill="#153462" layoutX="68.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                  text="Car Type:" textAlignment="CENTER" wrappingWidth="74.091796875">
+            <Text fill="#153462" layoutX="68.0" layoutY="241.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Type:" textAlignment="CENTER" wrappingWidth="74.091796875">
                 <font>
-                    <Font name="Georgia Italic" size="12.0"/>
+                    <Font name="Georgia Italic" size="12.0" />
                 </font>
             </Text>
-            <Text fill="#153462" layoutX="78.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0"
-                  text="Seater:" textAlignment="CENTER" wrappingWidth="43.091796875">
+            <Text fill="#153462" layoutX="78.0" layoutY="265.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Seater:" textAlignment="CENTER" wrappingWidth="43.091796875">
                 <font>
-                    <Font name="Georgia Italic" size="12.0"/>
+                    <Font name="Georgia Italic" size="12.0" />
                 </font>
             </Text>
-            <TextField layoutX="173.0" layoutY="176.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
-                       text="RM 220.00">
+            <TextField fx:id="dailyRateTextField" editable="false" focusTraversable="false" layoutX="173.0" layoutY="176.0" mouseTransparent="true" prefHeight="17.0" prefWidth="114.0" promptText="Search" text="RM 220.00">
                 <font>
-                    <Font name="Georgia" size="10.0"/>
+                    <Font name="Georgia" size="10.0" />
                 </font>
             </TextField>
-            <TextField layoutX="174.0" layoutY="202.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
-                       text="Automatic">
+            <TextField fx:id="transmissionTypeTextField" editable="false" focusTraversable="false" layoutX="174.0" layoutY="202.0" mouseTransparent="true" prefHeight="17.0" prefWidth="114.0" promptText="Search" text="Automatic">
                 <font>
-                    <Font name="Georgia" size="10.0"/>
+                    <Font name="Georgia" size="10.0" />
                 </font>
             </TextField>
-            <TextField layoutX="174.0" layoutY="228.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
-                       text="SUV">
+            <TextField fx:id="typeTextField" editable="false" focusTraversable="false" layoutX="174.0" layoutY="228.0" mouseTransparent="true" prefHeight="17.0" prefWidth="114.0" promptText="Search" text="SUV">
                 <font>
-                    <Font name="Georgia" size="10.0"/>
+                    <Font name="Georgia" size="10.0" />
                 </font>
             </TextField>
-            <TextField layoutX="175.0" layoutY="252.0" prefHeight="17.0" prefWidth="114.0" promptText="Search"
-                       text="5">
+            <TextField editable="false" focusTraversable="false" layoutX="175.0" layoutY="252.0" mouseTransparent="true" prefHeight="17.0" prefWidth="114.0" promptText="Search" text="5">
                 <font>
-                    <Font name="Georgia" size="10.0"/>
+                    <Font name="Georgia" size="10.0" />
                 </font>
             </TextField>
-            <Text layoutX="418.0" layoutY="61.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver's Name:">
+            <Text layoutX="414.0" layoutY="82.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver's Name:">
                 <font>
-                    <Font name="Georgia" size="20.0"/>
+                    <Font name="Georgia" size="20.0" />
                 </font>
             </Text>
-            <Text layoutX="418.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
+            <Text layoutX="414.0" layoutY="131.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Date of Birth:">
                 <font>
-                    <Font name="Georgia" size="20.0"/>
+                    <Font name="Georgia" size="20.0" />
                 </font>
             </Text>
-            <Text layoutX="417.0" layoutY="159.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:">
+            <Text layoutX="413.0" layoutY="180.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:">
                 <font>
-                    <Font name="Georgia" size="20.0"/>
+                    <Font name="Georgia" size="20.0" />
                 </font>
             </Text>
-            <Text layoutX="416.0" layoutY="210.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:">
+            <Text layoutX="412.0" layoutY="231.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Balance:">
                 <font>
-                    <Font name="Georgia" size="20.0"/>
-                </font>
-            </Text>
-            <Button layoutX="572.0" layoutY="140.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="141.0"
-                    text="Attach File"/>
-            <Text layoutX="416.0" layoutY="263.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Sub-Total:">
-                <font>
-                    <Font name="Georgia" size="20.0"/>
+                    <Font name="Georgia" size="20.0" />
                 </font>
             </Text>
             <Text layoutX="538.0" layoutY="271.0" strokeType="OUTSIDE" strokeWidth="0.0">
                 <font>
-                    <Font name="Georgia" size="20.0"/>
+                    <Font name="Georgia" size="20.0" />
                 </font>
             </Text>
-            <TextField layoutX="572.0" layoutY="40.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
-                       text="Chu Jun Rong">
+            <TextField fx:id="driverNameTextField" layoutX="568.0" layoutY="61.0" prefHeight="29.0" prefWidth="160.0" promptText="Full Name">
                 <font>
-                    <Font name="Georgia" size="16.0"/>
+                    <Font name="Georgia" size="11.0" />
                 </font>
             </TextField>
-            <TextField layoutX="572.0" layoutY="89.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
-                       text="07/09/2000">
+            <TextField fx:id="customerAccountBalanceTextField" layoutX="568.0" layoutY="210.0" prefHeight="29.0" prefWidth="160.0">
                 <font>
-                    <Font name="Georgia" size="16.0"/>
+                    <Font name="Georgia" size="11.0" />
                 </font>
             </TextField>
-            <TextField layoutX="572.0" layoutY="189.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
-                       text="RM 1500.00">
-                <font>
-                    <Font name="Georgia" size="16.0"/>
-                </font>
-            </TextField>
-            <TextField layoutX="572.0" layoutY="241.0" prefHeight="29.0" prefWidth="141.0" promptText="Search"
-                       text="RM 220.00">
-                <font>
-                    <Font name="Georgia" size="16.0"/>
-                </font>
-            </TextField>
-            <Line endX="-100.0" endY="288.0" layoutX="451.0" layoutY="-2.0" startX="-100.0" startY="20.0"/>
+            <Line endX="-100.0" endY="288.0" layoutX="451.0" layoutY="-2.0" startX="-100.0" startY="20.0" />
+         <TextField fx:id="driverLicenseURL" layoutX="568.0" layoutY="158.0" prefHeight="29.0" prefWidth="160.0" promptText="License URL">
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
+         </TextField>
+         <DatePicker fx:id="dateOfBirthDatePicker" layoutX="568.0" layoutY="112.0" prefHeight="25.0" prefWidth="160.0" promptText="Date of Birth" />
         </Pane>
-        <Button layoutX="669.0" layoutY="397.0" mnemonicParsing="false" prefHeight="35.0" prefWidth="210.0"
-                style="-fx-background-color: #CDFCF6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;"
-                text="Confirm Booking" textFill="#153462">
+        <Button fx:id="confirmBooking" layoutX="669.0" layoutY="397.0" mnemonicParsing="false" onAction="#onConfirmBookingClick" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: #CDFCF6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;" text="Confirm Booking" textFill="#153462">
             <font>
-                <Font name="Georgia Bold" size="17.0"/>
+                <Font name="Georgia Bold" size="17.0" />
             </font>
         </Button>
-        <Button layoutX="809.0" layoutY="27.0" mnemonicParsing="false"
-                style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
+        <Button fx:id="homeButton" layoutX="809.0" layoutY="27.0" mnemonicParsing="false" onAction="#onHomeButtonClick" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
             <font>
-                <Font name="Georgia Bold" size="12.0"/>
+                <Font name="Georgia Bold" size="12.0" />
             </font>
         </Button>
-        <Button layoutX="27.0" layoutY="26.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="82.0"
-                style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="&lt; BACK">
+        <Button fx:id="backButton" layoutX="27.0" layoutY="26.0" mnemonicParsing="false" onAction="#onBackButtonClick" prefHeight="25.0" prefWidth="82.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="&lt; BACK">
             <font>
-                <Font name="Georgia Bold" size="12.0"/>
+                <Font name="Georgia Bold" size="12.0" />
             </font>
         </Button>
     </Pane>

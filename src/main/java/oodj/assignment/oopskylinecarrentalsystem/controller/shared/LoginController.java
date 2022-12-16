@@ -58,7 +58,7 @@ public class LoginController extends CommonViewController {
             setUser(UserConfig.login(usernameInput, passwordInput));
             User user = getUser();
             if (user != null) {
-                LabelledController mainController = (LabelledController) switchUserScene(event, "Main");
+                LabelledViewController mainController = (LabelledViewController) switchUserScene(event, "Main");
                 mainController.setLabelData();
             } else {
                 warningLabel.setText("Incorrect username or password. Please try again!");

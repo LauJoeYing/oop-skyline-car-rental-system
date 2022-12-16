@@ -31,13 +31,13 @@ public class CommonViewController {
     }
 
     public void switchLabelledUserSceneWithObject(Event event, String fxmlFile, Object object) throws IOException {
-        LabelledController labelledController = (LabelledController) switchUserScene(event, fxmlFile);
+        LabelledViewController labelledController = (LabelledViewController) switchUserScene(event, fxmlFile);
         labelledController.setObject(object);
         labelledController.setLabelData();
     }
 
     public void switchLabelledUserScene(Event event, String fxmlFile) throws IOException {
-        LabelledController labelledController = (LabelledController) switchUserScene(event, fxmlFile);
+        LabelledViewController labelledController = (LabelledViewController) switchUserScene(event, fxmlFile);
         labelledController.setLabelData();
     }
 

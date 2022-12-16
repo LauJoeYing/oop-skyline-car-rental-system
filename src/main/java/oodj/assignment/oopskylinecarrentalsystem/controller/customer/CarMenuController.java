@@ -1,217 +1,213 @@
 package oodj.assignment.oopskylinecarrentalsystem.controller.customer;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Button;
-import javafx.scene.control.ComboBox;
-import javafx.scene.control.TextField;
-import javafx.scene.image.Image;
-import javafx.scene.image.ImageView;
-import javafx.scene.text.Text;
+import javafx.scene.control.*;
+import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.scene.input.KeyEvent;
 import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
-import oodj.assignment.oopskylinecarrentalsystem.controller.shared.CommonViewController;
-import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
+import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
+import oodj.assignment.oopskylinecarrentalsystem.model.UnprocessedBooking;
 
 import java.io.IOException;
 import java.net.URL;
-import java.util.*;
+import java.time.LocalDate;
+import java.util.List;
+import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.ImageConfig.ImgAssign;
+import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
+import static oodj.assignment.oopskylinecarrentalsystem.config.CarConfig.getCarUnavailableDatesFromId;
 
-public class CarMenuController extends CommonViewController implements Initializable {
-
-    private List<Car> carList = CarConfig.getCarList();
-
+public class CarMenuController extends LabelledViewController implements Initializable {
+    private ObservableList<Car> carList = FXCollections.observableList(CarConfig.getCarList());
+    private Car carSelected;
+    private Alert alertConfirmation;
     @FXML
-    private ImageView carImage1;
+    private Button bookCarButton;
     @FXML
-    private ImageView carImage2;
+    private TextField brandTextField;
     @FXML
-    private ImageView carImage3;
+    private TextField modelTextField;
     @FXML
-    private Text carLabel1;
+    private TableView<Car> carTableView;
     @FXML
-    private Text carLabel2;
+    private TableColumn<Car, String> idColumn;
     @FXML
-    private Text carLabel3;
+    private TableColumn<Car, String> brandColumn;
     @FXML
-    private Button nextPageButton;
+    private TableColumn<Car, String> modelColumn;
     @FXML
-    private Button previousPageButton;
+    private TableColumn<Car, String> typeColumn;
     @FXML
-    private TextField priceTextField1;
+    private TableColumn<Car, String> transmissionTypeColumn;
     @FXML
-    private TextField priceTextField2;
+    private TableColumn<Car, Float> dailyRateColumn;
     @FXML
-    private TextField priceTextField3;
+    private Button clearButton;
+    @FXML
+    private TextField dailyRateTextField;
+    @FXML
+    private DatePicker endDateDatePicker;
+    @FXML
+    private Button homeButton;
+    @FXML
+    private TextField idTextField;
     @FXML
     private TextField searchTextField;
     @FXML
-    private TextField seaterTextField1;
+    private DatePicker startDateDatePicker;
     @FXML
-    private TextField seaterTextField2;
+    private TextField transmissionTypeTextField;
     @FXML
-    private TextField seaterTextField3;
-    @FXML
-    private ComboBox<String> sortComboBox;
-    @FXML
-    private TextField transmissionTypeTextField1;
-    @FXML
-    private TextField transmissionTypeTextField2;
-    @FXML
-    private TextField transmissionTypeTextField3;
-    @FXML
-    private TextField typeTextField1;
-    @FXML
-    private TextField typeTextField2;
-    @FXML
-    private TextField typeTextField3;
-
-    ArrayList<Car> carListcol1 = new ArrayList<>();
-    ArrayList<Car> carListcol2 = new ArrayList<>();
-    ArrayList<Car> carListcol3 = new ArrayList<>();
-    int cnt;
-
-    static String carNameLabel;
-    static String carPriceLabel;
-    static String carTransLabel;
-    static String carTypeLabel;
-    static String carImageSource;
-    static Car currentCar;
+    private TextField typeTextField;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        cnt = 0;
-        previousPageButton.setVisible(false);
-        sortComboBox.getItems().addAll(
-                "Sort by Price (High-Low)",
-                "Sort by Price (Low-High)",
-                "Sort by Brand Model"
-        );
-        sortComboBox.setValue("Sort by Brand Model");
-        sortComboBox.setOnAction((event) -> {
-            switch (sortComboBox.getValue()) {
-                case "Sort by Price (High-Low)" -> carList.sort((car1, car2) -> Float.compare(car2.getDailyRate(), car1.getDailyRate()));
-                case "Sort by Price (Low-High)" -> carList.sort((car1, car2) -> Float.compare(car1.getDailyRate(), car2.getDailyRate()));
-                case "Sort by Brand Model" -> carList.sort(Comparator.comparing(Car::getBrand));
+        alertConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
+        alertConfirmation.setResizable(false);
+
+        idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
+        brandColumn.setCellValueFactory(new PropertyValueFactory<>("brand"));
+        modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
+        typeColumn.setCellValueFactory(new PropertyValueFactory<>("type"));
+        transmissionTypeColumn.setCellValueFactory(new PropertyValueFactory<>("transmissionType"));
+        dailyRateColumn.setCellValueFactory(new PropertyValueFactory<>("dailyRate"));
+        dailyRateColumn.setCellFactory(dailyRateCell -> new TableCell<>() {
+            @Override
+            protected void updateItem(Float dailyRate, boolean empty) {
+                super.updateItem(dailyRate, empty);
+                if (empty) {
+                    setText(null);
+                } else {
+                    setText(String.format("%.2f", dailyRate));
+                }
             }
-            initCar();
-            setData();
         });
 
-        initCar();
-        setData();
-    }
+        carTableView.setItems(carList);
 
-    private void setData() {
-        setCar(carListcol1, carImage1, carLabel1, priceTextField1, transmissionTypeTextField1, typeTextField1, seaterTextField1);
-        setCar(carListcol2, carImage2, carLabel2, priceTextField2, transmissionTypeTextField2, typeTextField2, seaterTextField2);
-        setCar(carListcol3, carImage3, carLabel3, priceTextField3, transmissionTypeTextField3, typeTextField3, seaterTextField3);
-    }
-
-    private void setCar(ArrayList<Car> carListcol1, ImageView carImage1, Text carLabel1, TextField priceTextField1, TextField transmissionTypeTextField1, TextField typeTextField1, TextField seaterTextField1) {
-        Image myImagecol1 = new Image(ImgAssign(carListcol1.get(cnt).getModel()));
-        carImage1.setImage(myImagecol1);
-        carLabel1.setText(carListcol1.get(cnt).getBrand()+" "+ carListcol1.get(cnt).getModel());
-        priceTextField1.setText("RM "+ carListcol1.get(cnt).getDailyRate());
-        transmissionTypeTextField1.setText(carListcol1.get(cnt).getTransmissionType());
-        typeTextField1.setText(carListcol1.get(cnt).getType());
-        seaterTextField1.setText("5");
+        carTableView.setRowFactory(tv -> {
+            TableRow<Car> row = new TableRow<>();
+            row.setOnMouseClicked(mouseEvent -> {
+                if (!row.isEmpty()) {
+                    setBookingSelectionDetails();
+                }
+            });
+            return row;
+        });
     }
 
     @FXML
-    void onNextPageButtonClick(ActionEvent event) {
-        cnt++;
-        if(cnt == 5){
-            previousPageButton.setVisible(true);
-            nextPageButton.setVisible(false);
+    void onBookCarButton(ActionEvent event) throws IOException {
+        LocalDate startDate = startDateDatePicker.getValue();
+        LocalDate endDate = endDateDatePicker.getValue();
+
+        if (startDate != null && endDate != null) {
+            DateRange dateRangeSelected = new DateRange(startDate, endDate);
+
+            setAlert(
+                    alertConfirmation,
+                    "Confirm Book Car",
+                    "Are you sure to book this car?"
+            );
+
+            switchLabelledUserSceneWithObject(event, "DriverDetails", new UnprocessedBooking(carSelected, dateRangeSelected));
         }
-        else if(cnt < 5){
-            previousPageButton.setVisible(true);
-            nextPageButton.setVisible(true);
-        }
-
-        setData();
     }
 
     @FXML
-    void onReserveNowButton1Click(ActionEvent event) throws IOException {
-        rentCar(event, carListcol1);
+    void onClearButtonClick(ActionEvent event) {
+        clearButton.setVisible(false);
+        searchTextField.setText("");
+        resetCarTableView();
     }
 
     @FXML
-    void onReserveNowButton2Click(ActionEvent event) throws IOException {
-        rentCar(event, carListcol2);
+    void onHomeButtonClick(ActionEvent event) throws IOException {
+        switchLabelledUserScene(event, "Main");
     }
 
     @FXML
-    void onReserveNowButton3Click(ActionEvent event) throws IOException {
-        rentCar(event, carListcol3);
-    }
-
-    @FXML
-    private void onSearchTextFieldKeyTyped() {
+    void searchTextFieldKeyPressed(KeyEvent event) {
         String searchKey = searchTextField.getText();
-        if (searchKey.length() == 0) {
-            carList = CarConfig.getCarList();
-        } else {
-            carList = CarConfig.searchCar(searchKey);
-        }
-        initCar();
-        setData();
+        clearButton.setVisible(searchKey.length() >= 1);
+        searchCar();
     }
 
-    private void rentCar(ActionEvent event, ArrayList<Car> carList) throws IOException {
-        currentCar = carList.get(cnt);
-        carImageSource = ImgAssign(carList.get(cnt).getModel());
-        carNameLabel = carList.get(cnt).getBrand()+" "+ carList.get(cnt).getModel();
-        carPriceLabel = String.format("RM %.2f", carListcol3.get(cnt).getDailyRate());
-        carTransLabel = carList.get(cnt).getTransmissionType();
-        carTypeLabel = carList.get(cnt).getType();
-        LabelledController mainController = (LabelledController) switchUserSceneWithObject(event, "RentCar", currentCar);
-        mainController.setLabelData();
-    }
+    private void setBookingSelectionDetails() {
+        carSelected = carTableView.getSelectionModel().getSelectedItem();
+        setCarDetailsInBookingSelection();
 
-    @FXML
-    void onPreviousPageButtonClick(ActionEvent event) {
-        cnt--;
-        if(cnt == 0){
-            previousPageButton.setVisible(false);
-            nextPageButton.setVisible(true);
-        }
-        else if(cnt > 0){
-            previousPageButton.setVisible(true);
-            nextPageButton.setVisible(true);
-        }
+        List<LocalDate> selectedCarUnavailableDates = getCarUnavailableDatesFromId(carSelected.getId());
+        LocalDate today = LocalDate.now();
 
-        setData();
-    }
+        startDateDatePicker.setDayCellFactory(datePicker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate startDate, boolean empty) {
+                super.updateItem(startDate, empty);
 
-    @FXML
-    void onCrossButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "Main");
-    }
-    void initCar() {
-        cnt = 0;
-        carListcol1 = new ArrayList<>();
-        carListcol2 = new ArrayList<>();
-        carListcol3 = new ArrayList<>();
-        carList.sort(Comparator.comparing(Car::getBrand));
-        carList.forEach(car -> {
-            cnt++;
-            cnt = cnt%3;
-            if(cnt == 1){
-                carListcol1.add(car);
-            }
-            else if (cnt == 2){
-                carListcol2.add(car);
-            }
-            else if (cnt == 0){
-                carListcol3.add(car);
+                if (startDate.isBefore(today)
+                        || selectedCarUnavailableDates.contains(startDate)
+                        || startDate.minusDays(1).isBefore(today) && selectedCarUnavailableDates.contains(startDate.plusDays(1))
+                        || (endDateDatePicker.getValue() != null && startDate.isAfter(endDateDatePicker.getValue().minusDays(1)))) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
             }
         });
+
+        endDateDatePicker.setDayCellFactory(datePicker -> new DateCell() {
+            @Override
+            public void updateItem(LocalDate endDate, boolean empty) {
+                super.updateItem(endDate, empty);
+
+                if (endDate.isBefore(today)
+                        || selectedCarUnavailableDates.contains(endDate)
+                        || endDate.minusDays(1).isBefore(today) && selectedCarUnavailableDates.contains(endDate.plusDays(1))
+                        ||(startDateDatePicker.getValue() != null && endDate.isBefore(startDateDatePicker.getValue().plusDays(1)))) {
+                    setDisable(true);
+                    setStyle("-fx-background-color: #ffc0cb;");
+                }
+            }
+        });
+    }
+
+    private void resetCarTableView() {
+        carList = FXCollections.observableList(CarConfig.getCarList());
+    }
+
+    private void searchCar() {
+        String searchKey = searchTextField.getText().trim();
+
+        if (searchKey.equals("")) {
+            resetCarTableView();
+        } else {
+            carList = FXCollections.observableList(CarConfig.searchCar((searchKey)));
+        }
+    }
+
+    @Override
+    public void setLabelData() {
+        UnprocessedBooking unprocessedBooking = (UnprocessedBooking) getObject();
+        carSelected = unprocessedBooking.getCar();
+        DateRange bookingDateRange = unprocessedBooking.getBookingDateRange();
+        setCarDetailsInBookingSelection();
+        startDateDatePicker.setValue(bookingDateRange.getStartDate());
+        endDateDatePicker.setValue(bookingDateRange.getEndDate());
+    }
+
+    private void setCarDetailsInBookingSelection() {
+        idTextField.setText(carSelected.getId());
+        brandTextField.setText(carSelected.getBrand());
+        modelTextField.setText(carSelected.getModel());
+        typeTextField.setText(carSelected.getType());
+        transmissionTypeTextField.setText(carSelected.getTransmissionType());
+        dailyRateTextField.setText(String.format("RM %.2f", carSelected.getDailyRate()));
     }
 
 
