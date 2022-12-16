@@ -37,8 +37,8 @@ public class CustomerMainController extends LabelledViewController {
     }
 
     @FXML
-    void onModifyPasswordButtonClick(ActionEvent event) {
-
+    void onModifyPasswordButtonClick(ActionEvent event) throws IOException {
+        switchUserScene(event, "EditPassword");
     }
 
     @FXML

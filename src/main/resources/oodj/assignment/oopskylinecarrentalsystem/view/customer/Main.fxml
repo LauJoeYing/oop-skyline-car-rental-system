@@ -12,7 +12,7 @@
 <AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.controller.customer.CustomerMainController">
     <Text fx:id="welcomeText" fill="#153462" layoutX="42.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Welcome,  NAME!">
         <font>
-            <Font name="Georgia Bold" size="44.0" />
+            <Font name="Georgia Bold" size="40.0" />
         </font>
     </Text>
     <Text fill="#153462" layoutX="652.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Current Balance:">
