@@ -40,8 +40,8 @@ public class CustomerMainController extends LabelledViewController {
     }
 
     @FXML
-    void onTopUpButtonClick(ActionEvent event) {
-
+    void onTopUpButtonClick(ActionEvent event) throws IOException {
+        switchLabelledUserScene(event, "TopUp");
     }
 
     @FXML

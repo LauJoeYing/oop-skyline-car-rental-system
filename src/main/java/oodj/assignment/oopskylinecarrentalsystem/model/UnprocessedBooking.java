@@ -3,6 +3,7 @@ package oodj.assignment.oopskylinecarrentalsystem.model;
 public class UnprocessedBooking {
     Car car;
     DateRange bookingDateRange;
+    String licenseURL;
 
     public UnprocessedBooking(Car car, DateRange bookingDateRange) {
         this.car = car;
@@ -23,5 +24,17 @@ public class UnprocessedBooking {
 
     public void setBookingDateRange(DateRange bookingDateRange) {
         this.bookingDateRange = bookingDateRange;
+    }
+
+    public String getLicenseURL() {
+        return licenseURL;
+    }
+
+    public void setLicenseURL(String licenseURL) {
+        this.licenseURL = licenseURL;
+    }
+
+    public float getUnprocessedBookingAmount() {
+        return car.getDailyRate() * bookingDateRange.getDuration();
     }
 }

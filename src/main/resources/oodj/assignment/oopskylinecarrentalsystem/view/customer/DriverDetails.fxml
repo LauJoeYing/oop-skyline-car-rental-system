@@ -97,18 +97,18 @@
                     <Font name="Georgia" size="11.0" />
                 </font>
             </TextField>
-            <TextField fx:id="customerAccountBalanceTextField" layoutX="568.0" layoutY="210.0" prefHeight="29.0" prefWidth="160.0">
+         <DatePicker fx:id="dateOfBirthDatePicker" layoutX="568.0" layoutY="112.0" prefHeight="25.0" prefWidth="160.0" promptText="Date of Birth" />
+         <TextField fx:id="driverLicenseURLTextField" layoutX="568.0" layoutY="158.0" prefHeight="29.0" prefWidth="160.0" promptText="License URL">
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
+         </TextField>
+            <TextField fx:id="customerAccountBalanceTextField" editable="false" focusTraversable="false" layoutX="568.0" layoutY="210.0" mouseTransparent="true" prefHeight="29.0" prefWidth="160.0">
                 <font>
                     <Font name="Georgia" size="11.0" />
                 </font>
             </TextField>
             <Line endX="-100.0" endY="288.0" layoutX="451.0" layoutY="-2.0" startX="-100.0" startY="20.0" />
-         <TextField fx:id="driverLicenseURL" layoutX="568.0" layoutY="158.0" prefHeight="29.0" prefWidth="160.0" promptText="License URL">
-            <font>
-               <Font name="Georgia" size="11.0" />
-            </font>
-         </TextField>
-         <DatePicker fx:id="dateOfBirthDatePicker" layoutX="568.0" layoutY="112.0" prefHeight="25.0" prefWidth="160.0" promptText="Date of Birth" />
         </Pane>
         <Button fx:id="confirmBooking" layoutX="669.0" layoutY="397.0" mnemonicParsing="false" onAction="#onConfirmBookingClick" prefHeight="35.0" prefWidth="210.0" style="-fx-background-color: #CDFCF6; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;" text="Confirm Booking" textFill="#153462">
             <font>

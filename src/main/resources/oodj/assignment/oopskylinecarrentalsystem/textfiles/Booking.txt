@@ -1,16 +1,20 @@
-a4df3d95-2da4-4d49-a0a0-196349fe19ca || 2023-01-24 14:51:45 || 280.0 || dark_night || BNV 9101: 2023-01-25 - 2023-01-26 = 280.0 || Accepted
-1a4b186c-89bc-4c0c-a20b-aab4a961761c || 2023-02-05 13:59:31 || 1160.0 || prestriction || PGH 3895: 2023-03-01 - 2023-03-03 = 440.0 | VEV 8101: 2023-02-09 - 2023-02-11 = 360.0, 2023-02-16 - 2023-02-18 = 360.0 || Accepted
-b6114e87-34cb-4ed2-8105-2165c22b59c0 || 2023-02-27 07:29:29 || 660.0 || dark_night || BED 3810: 2023-03-15 - 2023-03-18 = 660.0 || Accepted
-4976f1d4-e123-476b-bb8f-7ad3acc9ed17 || 2023-02-13 05:31:07 || 240.0 || prestriction || WVW 8923: 2023-02-16 - 2023-02-17 = 240.0 || Rejected
-7aaa688e-61a6-4099-8339-df0ed850ec58 || 2022-11-29 14:07:27 || 880.0 || purplusseton || PGH 3895: 2022-11-30 - 2022-12-04 = 880.0 || Accepted
-683cbfb2-bc80-4bff-9e9b-f08608e3400f || 2022-11-30 05:20:53 || 960.0 || pill_head || UGH 9777: 2022-12-10 - 2022-12-14 = 960.0 || Rejected
-7f11e221-825d-42bb-9522-a83cc8631f76 || 2023-03-10 10:18:08 || 1480.0 || jeanclaud || BED 3810: 2023-03-12 - 2023-03-16 = 880.0 | DHD 2324: 2023-03-12 - 2023-03-16 = 600.0 || Rejected
-ff1840d5-ed19-4343-9375-aaf9e77307dd || 2022-11-16 08:03:20 || 1200.0 || dark_night || KSD 8933: 2022-11-17 - 2022-11-20 = 720.0 | WVW 8923: 2022-12-02 - 2022-12-04 = 480.0 || Pending
-8d7ce457-e8d7-40d8-bc24-16fe823d5579 || 2022-11-19 23:24:38 || 1540.0 || prestriction || CKX 3739: 2022-11-22 - 2022-11-29 = 1540 || Pending
-1ce89f5f-8078-4410-bb2a-f3d72fab3a30 || 2022-11-27 14:06:33 || 440.0 || quamoclit || VID 8037: 2022-12-14 - 2022-12-16 = 440.0 || Rejected
-2f9fe7e8-ce40-40dc-9cd1-765106726d0a || 2023-02-19 16:33:32 || 720.0 || cyberwarrior || USB 3858: 2023-02-23 - 2023-02-27 = 720.0 || Accepted
-b896c91f-5007-4d57-a269-c72ca05355ef || 2023-02-11 04:38:29 || 460.0 || pill_head || UGH 9777: 2023-02-26 - 2023-02-27 = 240.0 | CJK 0808: 2023-02-19 - 2023-02-20 = 220.0 || Pending
-f4c15db1-1b77-4acc-ab15-57096c28ae44 || 2022-12-06 12:35:23 || 150.0 || jeanclaud || KLF 0120: 2022-12-08 - 2022-12-09 = 150.0 || Rejected
-730ad66c-f654-4442-89ec-239e66a7d7f8 || 2023-03-09 15:37:18 || 1500.0 || dark_night || VEV 8101: 2023-03-12 - 2023-03-15 = 540.0 | BJV 2845: 2023-03-11 - 2023-03-15 = 960.0 || Rejected
-9f52e9f2-26b5-4e89-8123-dd534608a0cd || 2022-11-23 21:18:03 || 1400.0 || prestriction || HGT 2943: 2022-11-30 - 2022-12-05 = 1400.0 || Accepted
-219cbba7-9b3a-465f-89ef-f8115294dba9 || 2022-11-21 23:08:37 || 1080.0 || daphnebeal || VEV 8101: 2022-10-22 - 2022-10-28 = 1080.0 || Pending
+ded971b6-afec-4820-98f1-4f8131f05929 || 2019-08-24 11:15:36 || mona123 || 1120 || BNV 9101 || 2022-12-01 || 2022-12-04 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+082c7db5-f1b6-457b-ba2d-99d560f0c8b5 || 2019-02-02 01:41:53 || angel_girl || 180 || VEV 8101 || 2022-12-04 || 2022-12-05 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Rejected
+99e02088-2edd-4be9-93fa-2d310555f74d || 2022-05-29 00:30:18 || angelberry || 440 || BED 3810 || 2022-12-07 || 2022-12-09 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+d1184cbc-8f4b-463b-b91d-7f50907eaeb4 || 2022-06-07 03:12:32 || awesome_chocolate || 480 || WVW 8923 || 2022-12-27 || 2022-12-29 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Pending
+27b2a37d-de10-4790-a7ee-8380d94982de || 2020-01-31 02:31:44 || beautiful_brutal || 440 || PGH 3895 || 2022-12-15 || 2022-12-17 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+09b9c8c1-abf0-4e66-b612-254faf4146a3 || 2020-02-07 22:40:32 || beecall02 || 960 || UGH 9777 || 2022-12-24 || 2022-12-28 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Pending
+4e7f38ba-0c10-403a-8fa1-f05159089cc4 || 2022-12-06 10:01:26 || beloved009 || 1540 || AOP 5012 || 2022-12-30 || 2023-01-06 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+fab7310b-3629-4b29-ad23-c5e26c6f4783 || 2019-05-31 06:01:28 || blossom_wild || 660 || AOP 5012 || 2022-12-31 || 2023-01-03 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Pending
+62a2bae2-50ba-4321-9b4d-6ddff653e0f2 || 2020-03-08 23:32:04 || born-confused || 360 || KLF 0120 || 2022-12-10 || 2022-12-12 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+448724ae-1161-4f77-a7b2-b29565b87aaf || 2022-01-25 07:43:51 || bornbubbly || 720 || BJV 2845 || 2022-12-01 || 2022-12-04 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+e9cd94f2-547d-4666-a864-1cd76014d53c || 2022-11-25 00:56:45 || buttercup88 || 560 || HGT 2943 || 2022-12-15 || 2022-12-17 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+2d25daa5-13e0-42c8-9707-560cad73cb16 || 2022-03-22 07:27:35 || cute_sugar || 180 || USB 3858 || 2022-12-22 || 2022-12-23 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Pending
+933e14a3-b3cd-470d-82cc-556e67f6b7d9 || 2020-05-08 00:34:23 || cyberking_bubbles || 900 || DHD 2324 || 2023-01-28 || 2023-02-02 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+fcc72798-75f9-4f68-a7e1-ada750b55f17 || 2020-04-10 03:53:25 || cyberwarrior || 880 || AOP 5012 || 2023-01-02 || 2023-01-06 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+0daa4924-22ac-47cf-8607-cc92396edec0 || 2019-11-04 18:37:12 || dimples999 || 1100 || CKX 3739 || 2022-12-10 || 2022-12-15 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Rejected
+69d27dd8-864d-40b7-b1d0-5d729a5f96b8 || 2019-09-11 23:29:01 || garden_heart || 440 || VID 8037 || 2022-11-01 || 2022-11-03 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+a9b8d951-73ba-4f06-8109-4773feec349a || 2019-07-04 04:06:10 || grey_mare || 540 || USB 3858 || 2022-11-09 || 2022-11-12 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Pending
+06b46327-aa82-4008-a7da-7047a4a4dacc || 2022-02-13 00:01:28 || groovy_angel || 220 || CJK 0808 || 2022-12-15 || 2022-12-16 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+0a06e1bb-d3f3-43ed-88ee-b2fb94676b33 || 2022-02-27 04:55:45 || little_miss_piggy || 880 || VDK 3633 || 2022-11-30 || 2022-12-10 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted
+67833a3e-f820-409d-8589-a07490aa5246 || 2022-08-12 01:46:57 || manic_psycho || 1400 || PAJ 8267 || 2023-01-06 || 2023-01-11 || https://drive.google.com/uc?id=1zGB6iNFssesKlIuJ0tRNgEDzmUM3F1Nd || Accepted

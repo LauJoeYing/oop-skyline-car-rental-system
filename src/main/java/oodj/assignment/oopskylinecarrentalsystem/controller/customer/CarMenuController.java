@@ -11,6 +11,7 @@ import javafx.scene.input.KeyEvent;
 import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
+import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
 import oodj.assignment.oopskylinecarrentalsystem.model.UnprocessedBooking;
 
@@ -27,6 +28,7 @@ public class CarMenuController extends LabelledViewController implements Initial
     private ObservableList<Car> carList = FXCollections.observableList(CarConfig.getCarList());
     private Car carSelected;
     private Alert alertConfirmation;
+
     @FXML
     private Button bookCarButton;
     @FXML
@@ -178,7 +180,7 @@ public class CarMenuController extends LabelledViewController implements Initial
     }
 
     private void resetCarTableView() {
-        carList = FXCollections.observableList(CarConfig.getCarList());
+        carTableView.setItems(FXCollections.observableList(CarConfig.getCarList()));
     }
 
     private void searchCar() {
@@ -187,7 +189,7 @@ public class CarMenuController extends LabelledViewController implements Initial
         if (searchKey.equals("")) {
             resetCarTableView();
         } else {
-            carList = FXCollections.observableList(CarConfig.searchCar((searchKey)));
+            carTableView.setItems(FXCollections.observableList(CarConfig.searchCar((searchKey))));
         }
     }
 

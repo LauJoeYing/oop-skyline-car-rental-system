@@ -1,7 +1,6 @@
 package oodj.assignment.oopskylinecarrentalsystem.config;
 
 import oodj.assignment.oopskylinecarrentalsystem.model.Booking;
-import oodj.assignment.oopskylinecarrentalsystem.model.BookingSlot;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
 import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
 import org.apache.commons.io.FileUtils;
@@ -12,7 +11,6 @@ import java.net.URLDecoder;
 import java.nio.charset.Charset;
 import java.nio.charset.StandardCharsets;
 import java.time.LocalDate;
-import java.time.Year;
 import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
@@ -58,7 +56,6 @@ public class CarConfig {
                 return car;
             }
         }
-
         return null;
     }
 
@@ -76,14 +73,7 @@ public class CarConfig {
         List<LocalDate> unavailableDates = new ArrayList<>();
 
         for (Booking booking: BookingConfig.getBookingListByStatus("Accepted")) {
-            for (Map.Entry<String, List<BookingSlot>> carBooking : booking.getCarBookingList().entrySet()) {
-                if (carBooking.getKey().equals(id)) {
-                    for(BookingSlot bookingSlot: carBooking.getValue()) {
-                        DateRange bookingSlotDateRange = bookingSlot.getDateRange();
-                        unavailableDates.addAll(bookingSlotDateRange.getDateList());
-                    }
-                }
-            }
+            unavailableDates.addAll(booking.getBookingDateRange().getDateList());
         }
 
         return unavailableDates;

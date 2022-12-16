@@ -4,6 +4,9 @@ import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import oodj.assignment.oopskylinecarrentalsystem.config.BookingConfig;
+import oodj.assignment.oopskylinecarrentalsystem.model.Booking;
+import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
 
 import java.io.IOException;
 

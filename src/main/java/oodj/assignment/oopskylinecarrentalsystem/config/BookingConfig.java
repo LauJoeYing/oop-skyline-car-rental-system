@@ -57,7 +57,7 @@ public class BookingConfig {
         return bookingList
                 .stream()
                 .filter(booking -> booking.getStatus().equals(status))
-                .collect(Collectors.toList());
+                .toList();
     }
 
     public static Booking getBookingFromUUID(UUID id) {
@@ -72,35 +72,11 @@ public class BookingConfig {
     }
 
     public static List<Booking> getBookingFromCustomerUsername(String customerUsername) {
-        List<Booking> bookings = new ArrayList<>();
-
-        for (Booking booking: bookingList) {
-            if (booking.getCustomerUsername().equals(customerUsername)) {
-                bookings.add(booking);
-            }
-        }
-
-        if (bookings.isEmpty()) {
-            return null;
-        }
-
-        return bookings;
+        return bookingList.stream().filter(booking -> booking.getCustomerUsername().equals(customerUsername)).toList();
     }
 
     public static List<Booking> getBookingFromCarId(String carId) {
-        List<Booking> bookings = new ArrayList<>();
-
-        for (Booking booking: bookingList) {
-            if (booking.getCarBookingList().containsKey(carId)) {
-                bookings.add(booking);
-            }
-        }
-
-        if (bookings.isEmpty()) {
-            return null;
-        }
-
-        return bookings;
+        return bookingList.stream().filter(booking -> booking.getCarId().equals(carId)).toList();
     }
 
     public static void addBooking(Booking booking) {

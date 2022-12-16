@@ -13,147 +13,37 @@ import static oodj.assignment.oopskylinecarrentalsystem.config.MailConfig.sendBo
 
 public class Booking implements FileWrite, Searchable {
     private final UUID id;
+    private final LocalDateTime bookingDateTime;
     private final String customerUsername;
-    private final LocalDateTime bookingDate;
-    private Map<String, List<BookingSlot>> carBookingList;
     private float bookingAmount;
+    private String carId;
+    private DateRange bookingDateRange;
+    private String licenseURL;
     private String status;
+
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
 
-    public Booking(String customerUsername, String carId, DateRange bookingDateRange) {
+    public Booking(String customerUsername, String carId, DateRange bookingDateRange, String licenseURL) {
         this.id = UUID.randomUUID();
         this.customerUsername = customerUsername;
-        this.bookingDate = LocalDateTime.now();
-        this.carBookingList = new HashMap<>();
+        this.bookingDateTime = LocalDateTime.now();
         this.bookingAmount = CarConfig.getCarDailyRateFromId(carId) * bookingDateRange.getDuration();
-
-        List<BookingSlot> bookingSlots = new ArrayList<>();
-        bookingSlots.add(new BookingSlot(bookingDateRange, bookingAmount));
-
-        this.carBookingList.put(carId, bookingSlots);
-        this.setStatus("Pending");
-    }
-
-    public Booking(String customerUsername, String carId, List<DateRange> bookingDateRanges) {
-        this.id = UUID.randomUUID();
-        this.customerUsername = customerUsername;
-        this.bookingDate = LocalDateTime.now();
-        this.carBookingList = new HashMap<>();
-        this.bookingAmount = 0.0F;
-        float carDailyRate = CarConfig.getCarDailyRateFromId(carId);
-
-        List<BookingSlot> bookingSlots = new ArrayList<>();
-
-        for (DateRange bookingDateRange: bookingDateRanges) {
-            float slotAmount = carDailyRate * bookingDateRange.getDuration();
-            bookingSlots.add(new BookingSlot(bookingDateRange, slotAmount));
-            this.bookingAmount += slotAmount;
-        }
-
-        this.carBookingList.put(carId, bookingSlots);
-
-        this.setStatus("Pending");
-    }
-
-    public Booking(String customerUsername, List<String> carIdList, DateRange bookingDateRange) {
-        this.id = UUID.randomUUID();
-        this.customerUsername = customerUsername;
-        this.bookingDate = LocalDateTime.now();
-        this.carBookingList = new HashMap<>();
-        this.bookingAmount = 0.0F;
-
-        for(String carId: carIdList) {
-            List<BookingSlot> bookingSlots = new ArrayList<>();
-            float carDailyRate = CarConfig.getCarDailyRateFromId(carId);
-            float slotAmount = carDailyRate * bookingDateRange.getDuration();
-            bookingSlots.add(new BookingSlot(bookingDateRange, slotAmount));
-
-            this.carBookingList.put(carId, bookingSlots);
-            this.bookingAmount += CarConfig.getCarDailyRateFromId(carId) * bookingDateRange.getDuration();
-        }
-
-        this.setStatus("Pending");
-    }
-
-    public Booking(String customerUsername, Map<String, List<BookingSlot>> carBookingList) {
-        this.id = UUID.randomUUID();
-        this.customerUsername = customerUsername;
-        this.bookingDate = LocalDateTime.now();
-        this.carBookingList = carBookingList;
-        this.bookingAmount = 0.0F;
-
-        for (Map.Entry<String, List<BookingSlot>> carBooking : carBookingList.entrySet()) {
-            String carId = carBooking.getKey();
-            for (BookingSlot bookingSlot : carBooking.getValue()) {
-                float slotAmount = bookingSlot.getSlotAmount();
-                bookingAmount += slotAmount;
-            }
-        }
-
+        this.carId = carId;
+        this.bookingDateRange = bookingDateRange;
+        this.licenseURL = licenseURL;
         this.setStatus("Pending");
     }
 
     public Booking(String[] registeredBooking) {
         this.id = UUID.fromString(registeredBooking[0]);
-        this.bookingDate = LocalDateTime.parse(registeredBooking[1], formatter);
-        this.bookingAmount = Float.parseFloat(registeredBooking[2]);
-        this.customerUsername = registeredBooking[3];
-        this.carBookingList = new HashMap<>();
-
-        String[] carBookings = registeredBooking[4].split(" \\| ");
-
-        for (String carBooking: carBookings) {
-            String[] bookingData = carBooking.split(": ");
-            String carId = bookingData[0];
-            List<BookingSlot> bookingSlots = new ArrayList<>();
-
-            String[] unprocessedBookingSlots = bookingData[1].split(", ");
-            for (String unprocessedBookingSlot: unprocessedBookingSlots) {
-                String[] bookingSlotData = unprocessedBookingSlot.split(" = ");
-                float slotAmount = Float.parseFloat(bookingSlotData[1]);
-                String[] stringDateRange = bookingSlotData[0].split(" - ");
-                DateRange dateRange = new DateRange(stringDateRange);
-                bookingSlots.add(new BookingSlot(dateRange, slotAmount));
-            }
-
-            carBookingList.put(carId, bookingSlots);
-        }
-
-        this.status = registeredBooking[5];
-    }
-
-    public UUID getId() {
-        return id;
-    }
-
-    public String getCustomerUsername() {
-        return customerUsername;
-    }
-
-    public LocalDateTime getBookingDate() {
-        return bookingDate;
-    }
-
-    public Map<String, List<BookingSlot>> getCarBookingList() {
-        return carBookingList;
-    }
-
-    public void setCarBookingList(Map<String, List<BookingSlot>> carBookingList) {
-        this.carBookingList = carBookingList;
-    }
-
-    public float getBookingAmount() {
-        return bookingAmount;
-    }
-
-    public void recalculateBookingAmount(){
-        this.bookingAmount = 0.0F;
-        for (Map.Entry<String, List<BookingSlot>> carBooking : carBookingList.entrySet()) {
-            for (BookingSlot bookingSlot : carBooking.getValue()) {
-                this.bookingAmount += bookingSlot.getSlotAmount();
-            }
-        }
+        this.bookingDateTime = LocalDateTime.parse(registeredBooking[1], formatter);
+        this.customerUsername = registeredBooking[2];
+        this.bookingAmount = Float.parseFloat(registeredBooking[3]);
+        this.carId = registeredBooking[4];
+        this.bookingDateRange = new DateRange(registeredBooking[5], registeredBooking[6]);
+        this.licenseURL = registeredBooking[7];
+        this.status = registeredBooking[8];
     }
 
     @Override
@@ -161,10 +51,54 @@ public class Booking implements FileWrite, Searchable {
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(String.valueOf(id));
         searchableProperties.add(customerUsername);
-        searchableProperties.addAll(carBookingList.keySet());
+        searchableProperties.add(carId);
         searchableProperties.add(status);
 
         return searchableProperties;
+    }
+
+    public UUID getId() {
+        return id;
+    }
+
+    public LocalDateTime getBookingDateTime() {
+        return bookingDateTime;
+    }
+
+    public String getCustomerUsername() {
+        return customerUsername;
+    }
+
+    public float getBookingAmount() {
+        return bookingAmount;
+    }
+
+    public void setBookingAmount(float bookingAmount) {
+        this.bookingAmount = bookingAmount;
+    }
+
+    public String getCarId() {
+        return carId;
+    }
+
+    public void setCarId(String carId) {
+        this.carId = carId;
+    }
+
+    public DateRange getBookingDateRange() {
+        return bookingDateRange;
+    }
+
+    public void setBookingDateRange(DateRange bookingDateRange) {
+        this.bookingDateRange = bookingDateRange;
+    }
+
+    public String getLicenseURL() {
+        return licenseURL;
+    }
+
+    public void setLicenseURL(String licenseURL) {
+        this.licenseURL = licenseURL;
     }
 
     public String getStatus() {
@@ -200,45 +134,21 @@ public class Booking implements FileWrite, Searchable {
     }
 
     public String emailFormat() {
-        List<String> carBookingData = new ArrayList<>();
-
-        for(Map.Entry<String, List<BookingSlot>> carBooking : carBookingList.entrySet()){
-            List<String> dateRangeData = new ArrayList<>();
-            Car car = Objects.requireNonNull(CarConfig.getCarFromId(carBooking.getKey()));
-            int index = 1;
-            for (BookingSlot bookingSlot: carBooking.getValue()) {
-                dateRangeData.add(String.format("<li>Booking Slot %d:%s</li>", index, bookingSlot.getDateRange().emailFormat()));
-                index++;
-            }
-            String listedDateRangeData = String.format("<ul style=\"padding-left: 1rem;\">%s</ul>", String.join("<br>", dateRangeData));
-            carBookingData.add(String.format("<li>%s%s</li>", car.emailFormat(), listedDateRangeData));
-        }
-
-        return String.format("<ul style=\"padding-left: 1rem;\">%s</ul>", String.join("<br>", carBookingData));
+        return String.format("%s%s", CarConfig.getCarFromId(carId).emailFormat(), bookingDateRange.emailFormat());
     }
 
     @Override
     public String fileFormat() {
-        List<String> carBookingData = new ArrayList<>();
-
-        for(Map.Entry<String, List<BookingSlot>> carBooking : carBookingList.entrySet()){
-            List<String> bookingSlots = new ArrayList<>();
-            for (BookingSlot bookingSlot: carBooking.getValue()) {
-                bookingSlots.add(bookingSlot.fileFormat());
-            }
-            String delimitedBookingSlotData = String.join(", ", bookingSlots);
-            carBookingData.add(String.join(": ", carBooking.getKey(), delimitedBookingSlotData));
-        }
-
-        String delimitedCarBookingData = String.join(" | ", carBookingData);
-
         return String.join(
                 " || ",
                 id.toString(),
-                bookingDate.format(formatter),
-                String.valueOf(bookingAmount),
+                bookingDateTime.format(formatter),
                 customerUsername,
-                delimitedCarBookingData,
-                status);
+                String.valueOf(bookingAmount),
+                carId,
+                bookingDateRange.fileFormat(),
+                licenseURL,
+                status
+        );
     }
 }
