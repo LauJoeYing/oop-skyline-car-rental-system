@@ -7,16 +7,14 @@ public class Car implements FileWrite, Searchable {
     private String id;
     private String brand;
     private String model;
-    private int manufactureYear;
     private String type;
     private String transmissionType;
     private float dailyRate;
 
-    public Car(String id, String brand, String model, int manufactureYear, String type, String transmissionType, float dailyRate) {
+    public Car(String id, String brand, String model, String type, String transmissionType, float dailyRate) {
         this.id = id;
         this.brand = brand;
         this.model = model;
-        this.manufactureYear = manufactureYear;
         this.type = type;
         this.transmissionType = transmissionType;
         this.dailyRate = dailyRate;
@@ -26,10 +24,9 @@ public class Car implements FileWrite, Searchable {
         this.id = registeredCar[0];
         this.brand = registeredCar[1];
         this.model = registeredCar[2];
-        this.manufactureYear = Integer.parseInt(registeredCar[3]);
-        this.type = registeredCar[4];
-        this.transmissionType = registeredCar[5];
-        this.dailyRate = Float.parseFloat(registeredCar[6]);
+        this.type = registeredCar[3];
+        this.transmissionType = registeredCar[4];
+        this.dailyRate = Float.parseFloat(registeredCar[5]);
     }
 
     public String getId() {
@@ -54,14 +51,6 @@ public class Car implements FileWrite, Searchable {
 
     public void setModel(String model) {
         this.model = model;
-    }
-
-    public int getManufactureYear() {
-        return manufactureYear;
-    }
-
-    public void setManufactureYear(int manufactureYear) {
-        this.manufactureYear = manufactureYear;
     }
 
     public String getType() {
@@ -98,7 +87,6 @@ public class Car implements FileWrite, Searchable {
         searchableProperties.add(id);
         searchableProperties.add(brand);
         searchableProperties.add(model);
-        searchableProperties.add(String.valueOf(manufactureYear));
         searchableProperties.add(type);
         searchableProperties.add(transmissionType);
 
@@ -106,6 +94,6 @@ public class Car implements FileWrite, Searchable {
     }
     @Override
     public String fileFormat() {
-        return String.join(" || ", id, brand, model, String.valueOf(manufactureYear), type, transmissionType, String.valueOf(dailyRate));
+        return String.join(" || ", id, brand, model, type, transmissionType, String.valueOf(dailyRate));
     }
 }

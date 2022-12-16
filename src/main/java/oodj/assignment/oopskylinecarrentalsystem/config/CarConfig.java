@@ -158,14 +158,6 @@ public class CarConfig {
         return isRegexMatchCaseInsensitive(carId, "^[A-Z]{3}\\s\\d{4}(?:\\s[A-Z])?$|^[A-Z]{2}\\s\\?d{4}\\s[A-Z]$");
     }
 
-    public static boolean isValidManufactureYear(String manufactureYearInString) {
-        if (manufactureYearInString.matches("^\\d{4}$")) {
-            int manufactureYear = Integer.parseInt(manufactureYearInString);
-            return manufactureYear >= 2000 && manufactureYear <= Year.now().getValue();
-        }
-        return false;
-    }
-
     public static boolean isValidDailyRate(String dailyRateInString) {
         return dailyRateInString.matches("^\\d*\\.?\\d+$");
     }

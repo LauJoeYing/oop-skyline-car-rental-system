@@ -1,6 +1,8 @@
 package oodj.assignment.oopskylinecarrentalsystem.config;
 
-public final class Warning {
+import javafx.scene.control.Label;
+
+public final class WarningConfig {
 
     public static final String FILLINALLFIELDS = "Please fill in all the fields.";
 
@@ -41,5 +43,18 @@ public final class Warning {
         public static final String UNMATCHEDPASSWORD = "Passwords do not match.";
     }
 
+    public static final class CAR {
+        public final static String CARID = """
+                            1. Car number plate must be in the correct format.
+                            2. Car number plate must be unique.
+                            """;
 
+        public final static String DAILYRATE = "Car daily rate must be in decimals format";
+    }
+
+    public static void resetLabel(Label... labels) {
+        for (Label label:labels) {
+            label.setText("");
+        }
+    }
 }

@@ -5,10 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import oodj.assignment.oopskylinecarrentalsystem.controller.shared.MainController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Admin;
 
-public class AdminMainController extends MainController {
+import java.io.IOException;
+
+public class AdminMainController extends LabelledController {
 
     @FXML
     private Button generateAnalysedReportButton;
@@ -36,8 +38,8 @@ public class AdminMainController extends MainController {
     }
 
     @FXML
-    void onManageCarMenuButtonClick(ActionEvent event) {
-
+    void onManageCarMenuButtonClick(ActionEvent event) throws IOException {
+        switchUserScene(event, "ManageCarMenu");
     }
 
     @FXML

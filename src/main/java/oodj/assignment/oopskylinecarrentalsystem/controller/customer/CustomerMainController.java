@@ -5,10 +5,12 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
-import oodj.assignment.oopskylinecarrentalsystem.controller.shared.MainController;
+import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 
-public class CustomerMainController extends MainController {
+import java.io.IOException;
+
+public class CustomerMainController extends LabelledController {
 
     @FXML
     private Button modifyPasswordButton;
@@ -33,8 +35,8 @@ public class CustomerMainController extends MainController {
     }
 
     @FXML
-    void onRentCarButtonClick(ActionEvent event) {
-
+    void onRentCarButtonClick(ActionEvent event) throws IOException {
+        switchUserScene(event, "CarMenu");
     }
 
     @FXML

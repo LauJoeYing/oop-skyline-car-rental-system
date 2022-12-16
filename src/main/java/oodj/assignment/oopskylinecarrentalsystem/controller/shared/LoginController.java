@@ -7,7 +7,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
-import oodj.assignment.oopskylinecarrentalsystem.controller.customer.CustomerMainController;
 import oodj.assignment.oopskylinecarrentalsystem.model.User;
 
 import java.io.IOException;
@@ -59,7 +58,7 @@ public class LoginController extends CommonViewController {
             setUser(UserConfig.login(usernameInput, passwordInput));
             User user = getUser();
             if (user != null) {
-                MainController mainController = (MainController) switchUserScene(event, "Main");
+                LabelledController mainController = (LabelledController) switchUserScene(event, "Main");
                 mainController.setLabelData();
             } else {
                 warningLabel.setText("Incorrect username or password. Please try again!");

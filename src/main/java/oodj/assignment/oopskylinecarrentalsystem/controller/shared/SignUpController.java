@@ -10,7 +10,7 @@ import javafx.scene.input.KeyEvent;
 import oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig;
 import oodj.assignment.oopskylinecarrentalsystem.config.MailConfig;
 import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.Warning;
+import oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig;
 import oodj.assignment.oopskylinecarrentalsystem.model.Address;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 
@@ -190,7 +190,7 @@ public class SignUpController extends CommonViewController implements Initializa
                 confirmPassword
         )
         ) {
-            signUpTipsTextArea.setText(Warning.FILLINALLFIELDS);
+            signUpTipsTextArea.setText(WarningConfig.FILLINALLFIELDS);
             return false;
         } else {
             username = username.trim();
@@ -205,35 +205,35 @@ public class SignUpController extends CommonViewController implements Initializa
             state = capitalize(state.trim());
 
             if (!isValidUsername(username)) {
-                signUpTipsTextArea.setText(Warning.USER.USERNAME);
+                signUpTipsTextArea.setText(WarningConfig.USER.USERNAME);
                 return false;
             }
             if (!isValidName(name)) {
-                signUpTipsTextArea.setText(Warning.USER.NAME);
+                signUpTipsTextArea.setText(WarningConfig.USER.NAME);
                 return false;
             }
             if (!isValidEmailToCreate(email)) {
-                signUpTipsTextArea.setText(Warning.USER.EMAIL);
+                signUpTipsTextArea.setText(WarningConfig.USER.EMAIL);
                 return false;
             }
             if (!isValidIcNumber(icNumber)) {
-                signUpTipsTextArea.setText(Warning.USER.IC);
+                signUpTipsTextArea.setText(WarningConfig.USER.IC);
                 return false;
             }
             if (!isValidPhoneNumberToCreate(phoneNumber)) {
-                signUpTipsTextArea.setText(Warning.USER.PHONENUMBER);
+                signUpTipsTextArea.setText(WarningConfig.USER.PHONENUMBER);
                 return false;
             }
             if (!isValidPostcode(postcode)) {
-                signUpTipsTextArea.setText(Warning.USER.POSTCODE);
+                signUpTipsTextArea.setText(WarningConfig.USER.POSTCODE);
                 return false;
             }
             if (!isValidPassword(password)) {
-                signUpTipsTextArea.setText(Warning.USER.PASSWORD);
+                signUpTipsTextArea.setText(WarningConfig.USER.PASSWORD);
                 return false;
             }
             if (!password.equals(confirmPassword)) {
-                signUpTipsTextArea.setText(Warning.USER.UNMATCHEDPASSWORD);
+                signUpTipsTextArea.setText(WarningConfig.USER.UNMATCHEDPASSWORD);
                 return false;
             }
             customer = new Customer(

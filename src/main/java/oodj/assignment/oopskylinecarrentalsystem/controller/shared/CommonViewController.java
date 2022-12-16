@@ -30,6 +30,17 @@ public class CommonViewController {
         this.object = object;
     }
 
+    public void switchLabelledUserSceneWithObject(Event event, String fxmlFile, Object object) throws IOException {
+        LabelledController labelledController = (LabelledController) switchUserScene(event, fxmlFile);
+        labelledController.setObject(object);
+        labelledController.setLabelData();
+    }
+
+    public void switchLabelledUserScene(Event event, String fxmlFile) throws IOException {
+        LabelledController labelledController = (LabelledController) switchUserScene(event, fxmlFile);
+        labelledController.setLabelData();
+    }
+
     public void switchSharedSceneWithUserAndObject(Event event, String fxmlFile, Object object) throws IOException {
         CommonViewController newSceneController = switchSharedSceneWithUser(event, fxmlFile);
         newSceneController.setObject(object);
@@ -41,9 +52,10 @@ public class CommonViewController {
         return newSceneController;
     }
 
-    public void switchUserSceneWithObject(Event event, String fxmlFile, Object object) throws IOException {
+    public CommonViewController switchUserSceneWithObject(Event event, String fxmlFile, Object object) throws IOException {
         CommonViewController newSceneController = switchUserScene(event, fxmlFile);
         newSceneController.setObject(object);
+        return newSceneController;
     }
 
     public CommonViewController switchUserScene(Event event, String fxmlFile) throws IOException {
@@ -65,7 +77,7 @@ public class CommonViewController {
 
         Scene newScene = new Scene(fxmlLoader.load());
         Stage newStage = new Stage();
-        newStage.setTitle("Carri Rental");
+        newStage.setTitle("Skyline Car Rental");
         newStage.setScene(newScene);
 
         Node node = (Node) event.getSource();
