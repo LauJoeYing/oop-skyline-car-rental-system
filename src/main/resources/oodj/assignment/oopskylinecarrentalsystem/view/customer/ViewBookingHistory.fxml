@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TableColumn?>
+<?import javafx.scene.control.TableView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.controller.customer.ViewBookingHistoryController">
+    <AnchorPane layoutX="30.0" layoutY="40.0" prefHeight="471.0" prefWidth="900.0" style="-fx-background-color: #EFEFEF; -fx-background-radius: 20; -fx-border-radius: 20; -fx-border-color: #000000;">
+        <TableView fx:id="bookingTableView" layoutX="24.0" layoutY="99.0" prefHeight="334.0" prefWidth="855.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="98.0">
+            <columns>
+                <TableColumn fx:id="idColumn" prefWidth="194.40003204345703" text="Booking ID" />
+                <TableColumn fx:id="bookingDateColumn" prefWidth="152.0" text="Booking Date" />
+                <TableColumn fx:id="startDateColumn" prefWidth="112.0" text="Start Date" />
+                <TableColumn fx:id="endDateColumn" prefWidth="112.0" text="End Date" />
+                <TableColumn fx:id="bookingAmountColumn" minWidth="0.0" prefWidth="168.79998779296875" text="Booking Amount (RM)" />
+            <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="107.2000732421875" text="Status" />
+            </columns>
+        </TableView>
+        <Label layoutX="22.0" layoutY="29.0" text="Booking History" textFill="#153462">
+            <font>
+                <Font name="Georgia Bold" size="43.0" />
+            </font>
+        </Label>
+        <Button fx:id="homeButton" layoutX="817.0" layoutY="16.0" mnemonicParsing="false" onAction="#onHomeButtonClick" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
+            <font>
+                <Font name="Georgia Bold" size="12.0" />
+            </font>
+        </Button>
+    </AnchorPane>
+</AnchorPane>

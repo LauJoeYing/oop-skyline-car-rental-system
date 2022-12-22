@@ -1,0 +1,193 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.Pane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefHeight="650.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.controller.customer.EditAccountDetailsController">
+    <Pane layoutX="30.0" layoutY="102.0" prefHeight="243.0" prefWidth="894.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;">
+        <Text fill="#153462" layoutX="63.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
+            <font>
+                <Font name="Georgia" size="15.0" />
+            </font>
+        </Text>
+        <Text fill="#153462" layoutX="332.0" layoutY="161.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Gender:">
+            <font>
+                <Font name="Georgia" size="15.0" />
+            </font>
+        </Text>
+        <Text fill="#153462" layoutX="333.0" layoutY="35.0" strokeType="OUTSIDE" strokeWidth="0.0">
+            <font>
+                <Font name="Georgia" size="15.0" />
+            </font>
+        </Text>
+        <Text fill="#153462" layoutX="63.0" layoutY="163.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Identification Number (IC):">
+            <font>
+                <Font name="Georgia" size="15.0" />
+            </font>
+        </Text>
+        <TextField fx:id="icNumberTextField" disable="true" editable="false" focusTraversable="false" layoutX="63.0" layoutY="169.0" mouseTransparent="true" prefHeight="25.0" prefWidth="221.0" style="-fx-border-color: #000000;">
+            <font>
+                <Font name="Georgia" size="11.0" />
+            </font>
+        </TextField>
+        <Text fill="#153462" layoutX="332.0" layoutY="84.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Email:">
+            <font>
+                <Font name="Georgia" size="15.0" />
+            </font>
+        </Text>
+        <TextField fx:id="usernameTextField" disable="true" editable="false" focusTraversable="false" layoutX="63.0" layoutY="90.0" mouseTransparent="true" prefHeight="25.0" prefWidth="221.0" style="-fx-border-color: #000000;">
+            <font>
+                <Font name="Georgia" size="11.0" />
+            </font>
+        </TextField>
+        <ImageView fitHeight="52.0" fitWidth="73.0" layoutX="205.0" layoutY="-68.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="https://img.icons8.com/bubbles/50/null/home-page.png" />
+            </image>
+        </ImageView>
+        <Text fill="#153462" layoutX="610.0" layoutY="164.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Phone Number">
+            <font>
+                <Font name="Georgia" size="15.0" />
+            </font>
+        </Text>
+        <TextField fx:id="emailAddressTextField" layoutX="332.0" layoutY="90.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" promptText="Email Address" style="-fx-border-color: #000000;">
+            <font>
+                <Font name="Georgia" size="11.0" />
+            </font>
+        </TextField>
+        <TextField fx:id="nameTextField" layoutX="609.0" layoutY="88.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" promptText="Full Name" style="-fx-border-color: #000000;">
+            <font>
+                <Font name="Georgia" size="11.0" />
+            </font>
+        </TextField>
+        <ComboBox fx:id="genderComboBox" layoutX="332.0" layoutY="169.0" prefHeight="25.0" prefWidth="221.0" promptText="Gender" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+        <TextField fx:id="phoneNumberTextField" layoutX="609.0" layoutY="170.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" promptText="Phone Number" style="-fx-border-color: #000000;">
+            <font>
+                <Font name="Georgia" size="11.0" />
+            </font>
+        </TextField>
+        <Text fill="#153462" layoutX="609.0" layoutY="81.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Name:">
+            <font>
+                <Font name="Georgia" size="15.0" />
+            </font>
+        </Text>
+        <Text fill="#153462" layoutX="65.0" layoutY="50.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Personal Details">
+            <font>
+                <Font name="Georgia Bold" size="25.0" />
+            </font>
+        </Text>
+      <Label fx:id="emailAddressWarningLabel" layoutX="332.0" layoutY="114.0" prefHeight="32.0" prefWidth="221.0" textFill="RED" wrapText="true">
+         <font>
+            <Font name="Georgia" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="nameWarningLabel" layoutX="618.0" layoutY="114.0" prefHeight="32.0" prefWidth="221.0" textFill="RED" wrapText="true">
+         <font>
+            <Font name="Georgia" size="11.0" />
+         </font>
+      </Label>
+      <Label fx:id="phoneNumberWarningLabel" layoutX="618.0" layoutY="197.0" prefHeight="32.0" prefWidth="221.0" textFill="RED" wrapText="true">
+         <font>
+            <Font name="Georgia" size="11.0" />
+         </font>
+      </Label>
+    </Pane>
+    <Text fill="#153462" layoutX="321.0" layoutY="73.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Edit Personal Details">
+        <font>
+            <Font name="Georgia Bold" size="35.0" />
+        </font>
+    </Text>
+    <Pane layoutX="30.0" layoutY="378.0" prefHeight="184.0" prefWidth="893.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000; -fx-border-radius: 20; -fx-background-radius: 20;">
+        <children>
+            <Text fill="#153462" layoutX="613.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="State:">
+                <font>
+                    <Font name="Georgia" size="15.0" />
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="337.0" layoutY="126.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Postcode:">
+                <font>
+                    <Font name="Georgia" size="15.0" />
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="614.0" layoutY="71.0" strokeType="OUTSIDE" strokeWidth="0.0" text="City:">
+                <font>
+                    <Font name="Georgia" size="15.0" />
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="64.0" layoutY="74.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address Unit Number:">
+                <font>
+                    <Font name="Georgia" size="15.0" />
+                </font>
+            </Text>
+            <TextField fx:id="unitTextField" layoutX="61.0" layoutY="78.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" style="-fx-border-color: #000000;">
+                <font>
+                    <Font name="Georgia" size="11.0" />
+                </font>
+            </TextField>
+            <Text fill="#153462" layoutX="64.0" layoutY="129.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address Street Line 1:">
+                <font>
+                    <Font name="Georgia" size="15.0" />
+                </font>
+            </Text>
+            <TextField fx:id="streetLine1TextField" layoutX="61.0" layoutY="133.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" style="-fx-border-color: #000000;">
+                <font>
+                    <Font name="Georgia" size="11.0" />
+                </font>
+            </TextField>
+            <Text fill="#153462" layoutX="63.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address Details">
+                <font>
+                    <Font name="Georgia Bold" size="25.0" />
+                </font>
+            </Text>
+            <Text fill="#153462" layoutX="337.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Address Street Line 2:">
+                <font>
+                    <Font name="Georgia" size="15.0" />
+                </font>
+            </Text>
+            <TextField fx:id="streetLine2TextField" layoutX="336.0" layoutY="78.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" style="-fx-border-color: #000000;">
+                <font>
+                    <Font name="Georgia" size="11.0" />
+                </font>
+            </TextField>
+            <TextField fx:id="postcodeTextField" layoutX="336.0" layoutY="133.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" style="-fx-border-color: #000000;">
+                <font>
+                    <Font name="Georgia" size="11.0" />
+                </font>
+            </TextField>
+            <TextField fx:id="cityTextField" layoutX="614.0" layoutY="77.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" style="-fx-border-color: #000000;">
+                <font>
+                    <Font name="Georgia" size="11.0" />
+                </font>
+            </TextField>
+            <ComboBox fx:id="stateComboBox" layoutX="614.0" layoutY="131.0" onKeyPressed="#onUpdateEnterKeyPressed" prefHeight="25.0" prefWidth="221.0" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" />
+         <Label fx:id="postcodeWarningLabel" layoutX="337.0" layoutY="158.0" prefHeight="25.0" prefWidth="221.0" textFill="RED" wrapText="true">
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
+         </Label>
+         <Label fx:id="warningLabel" layoutX="339.0" layoutY="14.0" prefHeight="32.0" prefWidth="221.0" textFill="RED" wrapText="true">
+            <font>
+               <Font name="Georgia" size="11.0" />
+            </font>
+         </Label>
+        </children>
+    </Pane>
+    <Button fx:id="updateDetailsButton" layoutX="742.0" layoutY="590.0" mnemonicParsing="false" onAction="#onUpdateDetailsButtonClick" prefHeight="31.0" prefWidth="184.0" style="-fx-background-color: #CDFCF6; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Update Details">
+        <font>
+            <Font name="Georgia Bold" size="15.0" />
+        </font>
+    </Button>
+    <Button fx:id="homeButton" layoutX="864.0" layoutY="41.0" mnemonicParsing="false" onAction="#onHomeButtonClick" style="-fx-background-color: #ffffff; -fx-border-color: #000000;" text="HOME">
+        <font>
+            <Font name="Georgia Bold" size="12.0" />
+        </font>
+    </Button>
+</AnchorPane>
