@@ -1,4 +1,4 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.util;
 
 import oodj.assignment.oopskylinecarrentalsystem.model.Booking;
 import org.apache.commons.io.FileUtils;
@@ -14,9 +14,8 @@ import java.util.Objects;
 import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
-import java.util.stream.Collectors;
 
-public class BookingConfig {
+public class BookingUtils {
     private static final String bookingFilePath;
     private static final List<Booking> bookingList;
 
@@ -25,7 +24,7 @@ public class BookingConfig {
 
         String bookingFilePathRegex = "(?<=IdeaProjects/oop-skyline-car-rental-system/)(target/classes)(?=oodj/assignment/oopskylinecarrentalsystem/textfiles/Booking\\.txt$)";
         Pattern bookingFilePathPattern = Pattern.compile(bookingFilePathRegex);
-        Matcher bookingFilePathMatcher = bookingFilePathPattern.matcher(Objects.requireNonNull(BookingConfig.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/Booking.txt")).getPath());
+        Matcher bookingFilePathMatcher = bookingFilePathPattern.matcher(Objects.requireNonNull(BookingUtils.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/Booking.txt")).getPath());
         String pathReplacement = "src/main/resources";
 
         String incompleteUserFilePath = bookingFilePathMatcher.replaceFirst(pathReplacement);
@@ -83,16 +82,16 @@ public class BookingConfig {
         bookingList.add(booking);
     }
 
-    public static List<Booking> searchBooking(String searchKeys) {
+    public static List<Booking> searchPendingBooking(String searchKeys) {
         String[] searchKeyList = searchKeys.split(" ");
-        List<Booking> matchingBookingList = new ArrayList<>(List.copyOf(bookingList));
+        List<Booking> matchingBookingList = new ArrayList<>(List.copyOf(getBookingListByStatus("Pending")));
 
         for (String searchKey: searchKeyList) {
             String searchKeyRegex = String.format("^.*%s.*$", searchKey);
             Pattern searchKeyPattern = Pattern.compile(searchKeyRegex, Pattern.CASE_INSENSITIVE);
 
             matchingBookingList.retainAll(
-                    bookingList.stream()
+                    List.copyOf(getBookingListByStatus("Pending")).stream()
                             .filter(booking ->
                                     booking.getSearchableProperties()
                                             .stream()

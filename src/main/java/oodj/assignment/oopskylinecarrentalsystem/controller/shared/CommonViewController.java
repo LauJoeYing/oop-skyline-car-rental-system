@@ -41,23 +41,6 @@ public class CommonViewController {
         labelledController.setLabelData();
     }
 
-    public void switchSharedSceneWithUserAndObject(Event event, String fxmlFile, Object object) throws IOException {
-        CommonViewController newSceneController = switchSharedSceneWithUser(event, fxmlFile);
-        newSceneController.setObject(object);
-    }
-
-    public CommonViewController switchSharedSceneWithUser(Event event, String fxmlFile) throws IOException {
-        CommonViewController newSceneController = switchScene(event, String.format("shared/%s", fxmlFile)).getController();
-        newSceneController.setUser(user);
-        return newSceneController;
-    }
-
-    public CommonViewController switchUserSceneWithObject(Event event, String fxmlFile, Object object) throws IOException {
-        CommonViewController newSceneController = switchUserScene(event, fxmlFile);
-        newSceneController.setObject(object);
-        return newSceneController;
-    }
-
     public CommonViewController switchUserScene(Event event, String fxmlFile) throws IOException {
         CommonViewController newSceneController = switchScene(event, String.format("%s/%s", getDirectoryPrefix(user), fxmlFile)).getController();
         newSceneController.setUser(user);

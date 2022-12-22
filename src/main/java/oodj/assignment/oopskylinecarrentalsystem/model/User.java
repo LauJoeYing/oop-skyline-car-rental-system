@@ -1,5 +1,7 @@
 package oodj.assignment.oopskylinecarrentalsystem.model;
 
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.FileWrite;
+
 public abstract class User implements FileWrite {
     private String username;
     private String password;

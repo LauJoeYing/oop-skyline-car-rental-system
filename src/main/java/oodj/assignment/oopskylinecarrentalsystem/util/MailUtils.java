@@ -1,4 +1,4 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.util;
 
 import io.github.cdimascio.dotenv.Dotenv;
 import oodj.assignment.oopskylinecarrentalsystem.model.Booking;
@@ -9,7 +9,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.*;
 
-public class MailConfig {
+public class MailUtils {
     static Dotenv dotenv;
     static Map<String, String> pendingVerification;
 

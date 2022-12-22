@@ -1,11 +1,11 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.util;
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
 
-public class AlertConfig {
+public class AlertUtils {
     public static void setAlert(Alert alert, String title, String contentText) {
         alert.setTitle(title);
         alert.setContentText(contentText);

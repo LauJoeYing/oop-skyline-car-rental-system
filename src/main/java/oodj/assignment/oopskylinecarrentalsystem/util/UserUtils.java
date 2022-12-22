@@ -1,4 +1,4 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.util;
 
 
 
@@ -15,7 +15,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserConfig {
+public class UserUtils {
     private static final List<User> userList;
     private static String userFilePath = "";
 
@@ -24,7 +24,7 @@ public class UserConfig {
 
         String userFilePathRegex = "(?<=IdeaProjects/oop-skyline-car-rental-system/)(target/classes)(?=/oodj/assignment/oopskylinecarrentalsystem/textfiles/User\\.txt$)";
         Pattern userFilePathPattern = Pattern.compile(userFilePathRegex);
-        Matcher userFilePathMatcher = userFilePathPattern.matcher(Objects.requireNonNull(UserConfig.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/User.txt")).getPath());
+        Matcher userFilePathMatcher = userFilePathPattern.matcher(Objects.requireNonNull(UserUtils.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/User.txt")).getPath());
         String pathReplacement = "src/main/resources";
 
         String incompleteUserFilePath = userFilePathMatcher.replaceFirst(pathReplacement);
@@ -73,7 +73,7 @@ public class UserConfig {
     }
 
     public static void updateUserList() {
-        for(Customer customer: CustomerConfig.getCustomerList()) {
+        for(Customer customer: CustomerUtils.getCustomerList()) {
             if (!userList.contains(customer)) {
                 userList.add(customer);
             }

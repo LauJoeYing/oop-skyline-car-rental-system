@@ -1,14 +1,16 @@
 package oodj.assignment.oopskylinecarrentalsystem.controller.customer;
 
 import javafx.event.ActionEvent;
+import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils;
+import oodj.assignment.oopskylinecarrentalsystem.util.UserUtils;
+import oodj.assignment.oopskylinecarrentalsystem.constant.WARNING;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Address;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
@@ -17,11 +19,10 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.alertResultOk;
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
-import static oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig.*;
-import static oodj.assignment.oopskylinecarrentalsystem.config.StringConfig.isAnyContainsBlank;
-import static oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig.resetLabel;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.StringUtils.isAnyContainsBlank;
+import static oodj.assignment.oopskylinecarrentalsystem.util.WarningUtils.resetLabel;
 import static org.apache.commons.lang.WordUtils.capitalize;
 
 public class EditAccountDetailsController extends LabelledViewController implements Initializable {
@@ -100,18 +101,18 @@ public class EditAccountDetailsController extends LabelledViewController impleme
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "Main");
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @FXML
-    void onUpdateDetailsButtonClick(ActionEvent event) {
-        updateAccountDetails();
+    void onUpdateDetailsButtonClick(ActionEvent event) throws IOException {
+        updateAccountDetails(event);
     }
 
     @FXML
-    void onUpdateEnterKeyPressed(KeyEvent event) {
+    void onUpdateEnterKeyPressed(KeyEvent event) throws IOException {
         if(event.getCode() == KeyCode.ENTER){
-            updateAccountDetails();
+            updateAccountDetails(event);
         }
     }
 
@@ -121,7 +122,7 @@ public class EditAccountDetailsController extends LabelledViewController impleme
         usernameTextField.setText(customer.getUsername());
         icNumberTextField.setText(customer.getIcNumber());
         emailAddressTextField.setText(customer.getEmailAddress());
-        genderComboBox.setValue("Male");
+        genderComboBox.setValue(customer.getGender());
         nameTextField.setText(customer.getName());
         phoneNumberTextField.setText(customer.getPhoneNumber());
         Address address = customer.getAddress();
@@ -134,27 +135,29 @@ public class EditAccountDetailsController extends LabelledViewController impleme
         stateComboBox.setValue(address.getState());
     }
 
-    private void updateAccountDetails() {
+    private void updateAccountDetails(Event event) throws IOException {
         if (validateAccountDetailsModification()) {
-            updateAccount();
+            updateAccount(event);
         }
     }
 
-    private void updateAccount() {
+    private void updateAccount(Event event) throws IOException {
         setAlert(
                 alertConfirmation,
                 "Confirm Update",
                 "Are you sure to update the account details?"
         );
         if (alertResultOk(alertConfirmation.showAndWait())) {
-            CustomerConfig.updateCustomer(customer);
-            UserConfig.updateFile();
+            CustomerUtils.updateCustomer(customer);
+            UserUtils.updateFile();
             setAlert(
                     alertInformation,
                     "Complete Update",
                     "You've updated the account details successfully."
             );
-            alertInformation.show();
+            if (alertResultEmptyOrOk(alertInformation.showAndWait())) {
+                switchLabelledUserScene(event, FILEPATH.USER_MAIN);
+            };
         }
     }
 
@@ -172,6 +175,7 @@ public class EditAccountDetailsController extends LabelledViewController impleme
         String name = nameTextField.getText();
         String email = emailAddressTextField.getText();
         String phoneNumber = phoneNumberTextField.getText();
+        String gender = genderComboBox.getValue();
         String houseNo = unitTextField.getText();
         String street1 = streetLine1TextField.getText();
         String street2 = streetLine2TextField.getText();
@@ -190,7 +194,7 @@ public class EditAccountDetailsController extends LabelledViewController impleme
                 state
         )
         ) {
-            warningLabel.setText(WarningConfig.FILLINALLFIELDS);
+            warningLabel.setText(WARNING.FILL_IN_ALL_THE_FIELDS);
         } else {
             name = toStandardName(name.trim());
             email = toStandardEmail(email.trim());
@@ -202,25 +206,26 @@ public class EditAccountDetailsController extends LabelledViewController impleme
             state = capitalize(state.trim());
 
             if (!isValidName(name)) {
-                nameWarningLabel.setText(WarningConfig.USER.NAME);
+                nameWarningLabel.setText(WARNING.USER.NAME);
                 isValidModification = false;
             }
             if (!isValidEmailToModify(customer, email)) {
-                emailAddressWarningLabel.setText(WarningConfig.USER.EMAIL);
+                emailAddressWarningLabel.setText(WARNING.USER.EMAIL);
                 isValidModification = false;
             }
             if (!isValidPhoneNumberToModify(customer, phoneNumber)) {
-                phoneNumberWarningLabel.setText(WarningConfig.USER.PHONENUMBER);
+                phoneNumberWarningLabel.setText(WARNING.USER.PHONE_NUMBER);
                 isValidModification = false;
             }
             if (!isValidPostcode(postcode)) {
-                postcodeWarningLabel.setText(WarningConfig.USER.POSTCODE);
+                postcodeWarningLabel.setText(WARNING.USER.POSTCODE);
                 isValidModification = false;
             }
             if (isValidModification) {
                 this.customer.setName(name);
                 this.customer.setEmailAddress(email);
                 this.customer.setPhoneNumber(phoneNumber);
+                this.customer.setGender(gender);
                 this.customer.setAddress(new Address(
                         houseNo,
                         street1,

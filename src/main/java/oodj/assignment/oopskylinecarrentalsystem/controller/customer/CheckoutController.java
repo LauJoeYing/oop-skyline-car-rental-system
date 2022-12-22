@@ -7,7 +7,8 @@ import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.ButtonType;
 import javafx.scene.control.TextField;
-import oodj.assignment.oopskylinecarrentalsystem.config.BookingConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.BookingUtils;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.*;
 
@@ -16,8 +17,8 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.alertResultOk;
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.alertResultOk;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.setAlert;
 
 public class CheckoutController extends LabelledViewController implements Initializable {
 
@@ -72,7 +73,7 @@ public class CheckoutController extends LabelledViewController implements Initia
                             """
             );
             if (alertResultOk(alertConfirmation.showAndWait())) {
-                switchLabelledUserSceneWithObject(event, "TopUp", unprocessedBooking);
+                switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.TOP_UP, unprocessedBooking);
             }
         } else {
             setAlert(
@@ -82,13 +83,13 @@ public class CheckoutController extends LabelledViewController implements Initia
             );
 
             if (alertResultOk(alertConfirmation.showAndWait())) {
-                BookingConfig.addBooking(new Booking(
+                BookingUtils.addBooking(new Booking(
                         getUser().getUsername(),
                         unprocessedBooking.getCar().getId(),
                         unprocessedBooking.getBookingDateRange(),
                         unprocessedBooking.getLicenseURL()
                 ));
-                BookingConfig.updateFile();
+                BookingUtils.updateFile();
                 setAlert(
                         alertInformation,
                         "Booking Pending Acceptance",
@@ -96,7 +97,7 @@ public class CheckoutController extends LabelledViewController implements Initia
                 );
                 Optional<ButtonType> resultInformation = alertInformation.showAndWait();
                 if (resultInformation.isEmpty() || resultInformation.get() == ButtonType.OK) {
-                    switchUserScene(event, "Dashboard");
+                    switchLabelledUserScene(event, FILEPATH.USER_MAIN);
                 }
             }
         }
@@ -104,7 +105,7 @@ public class CheckoutController extends LabelledViewController implements Initia
 
     @FXML
     void onCrossButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserSceneWithObject(event, "DriverDetails", unprocessedBooking);
+        switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.DRIVER_DETAILS, unprocessedBooking);
     }
 
     @Override

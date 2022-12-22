@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Admin;
 
@@ -12,6 +13,8 @@ import java.io.IOException;
 
 public class AdminMainController extends LabelledViewController {
 
+    @FXML
+    private Button logOutButton;
     @FXML
     private Button generateAnalysedReportButton;
     @FXML
@@ -28,28 +31,28 @@ public class AdminMainController extends LabelledViewController {
     private Text welcomeText;
 
     @FXML
-    void onGenerateAnalysedReportButtonClick(ActionEvent event) {
-
+    void onGenerateAnalysedReportButtonClick(ActionEvent event) throws IOException {
+        switchUserScene(event, FILEPATH.ADMIN.SUMMARY_REPORT);
     }
 
     @FXML
-    void onManageBookingButtonClick(ActionEvent event) {
-
+    void onManageBookingButtonClick(ActionEvent event) throws IOException {
+        switchUserScene(event, FILEPATH.ADMIN.MANAGE_BOOKING);
     }
 
     @FXML
     void onManageCarMenuButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "ManageCarMenu");
+        switchUserScene(event, FILEPATH.ADMIN.MANAGE_CAR_MENU);
     }
 
     @FXML
-    void onRecoverOrBlacklistAccountButtonClick(ActionEvent event) {
-
+    void onViewTransactionRecordButtonClick(ActionEvent event) throws IOException {
+        switchUserScene(event, FILEPATH.ADMIN.TRANSACTION_RECORD);
     }
 
     @FXML
-    void onViewTransactionRecordButtonClick(ActionEvent event) {
-
+    private void onLogOutButtonClick(ActionEvent event) throws IOException {
+        switchSharedScene(event, FILEPATH.SHARED.LOGIN);
     }
 
     public void setLabelData() {

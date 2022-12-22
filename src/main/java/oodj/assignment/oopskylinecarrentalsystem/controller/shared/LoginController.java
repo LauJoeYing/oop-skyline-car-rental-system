@@ -6,7 +6,8 @@ import javafx.fxml.FXML;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.UserUtils;
 import oodj.assignment.oopskylinecarrentalsystem.model.User;
 
 import java.io.IOException;
@@ -36,7 +37,7 @@ public class LoginController extends CommonViewController {
 
     @FXML
     void onSignUpHyperlinkClick(ActionEvent event) throws IOException {
-        switchSharedScene(event, "SignUp");
+        switchSharedScene(event, FILEPATH.SHARED.SIGN_UP);
     }
 
     @FXML
@@ -55,10 +56,10 @@ public class LoginController extends CommonViewController {
         } else if (passwordInput.equals("")) {
             warningLabel.setText("Please enter your password.");
         } else {
-            setUser(UserConfig.login(usernameInput, passwordInput));
+            setUser(UserUtils.login(usernameInput, passwordInput));
             User user = getUser();
             if (user != null) {
-                LabelledViewController mainController = (LabelledViewController) switchUserScene(event, "Main");
+                LabelledViewController mainController = (LabelledViewController) switchUserScene(event, FILEPATH.USER_MAIN);
                 mainController.setLabelData();
             } else {
                 warningLabel.setText("Incorrect username or password. Please try again!");

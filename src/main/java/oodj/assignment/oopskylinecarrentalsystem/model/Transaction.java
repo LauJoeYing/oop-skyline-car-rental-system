@@ -1,10 +1,15 @@
 package oodj.assignment.oopskylinecarrentalsystem.model;
 
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.FileWrite;
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.Searchable;
+
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.UUID;
 
-public class Transaction implements FileWrite {
+public class Transaction implements FileWrite, Searchable {
     private final UUID id;
     private final LocalDateTime date;
     private final String transactionType;
@@ -48,8 +53,19 @@ public class Transaction implements FileWrite {
         return amount;
     }
 
+
+
     @Override
     public String fileFormat() {
         return String.join(" || ", id.toString(), date.format(formatter), transactionType, referenceId, String.valueOf(amount));
+    }
+
+    @Override
+    public List<String> getSearchableProperties() {
+        List<String> searchableProperties = new ArrayList<>();
+        searchableProperties.add(String.valueOf(id));
+        searchableProperties.add(referenceId);
+        searchableProperties.add(transactionType);
+        return searchableProperties;
     }
 }

@@ -10,6 +10,7 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
@@ -21,10 +22,10 @@ import java.time.LocalDate;
 import java.time.Period;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.alertResultOk;
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
-import static oodj.assignment.oopskylinecarrentalsystem.config.ImageConfig.ImgAssign;
-import static oodj.assignment.oopskylinecarrentalsystem.config.StringConfig.isAnyContainsBlank;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.alertResultOk;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.setAlert;
+import static oodj.assignment.oopskylinecarrentalsystem.util.ImageUtils.ImgAssign;
+import static oodj.assignment.oopskylinecarrentalsystem.util.StringUtils.isAnyContainsBlank;
 
 public class DriverDetailsController extends LabelledViewController implements Initializable {
 
@@ -65,7 +66,7 @@ public class DriverDetailsController extends LabelledViewController implements I
 
     @FXML
     void onBackButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserSceneWithObject(event, "CarMenu", unprocessedBooking);
+        switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.CAR_MENU, unprocessedBooking);
     }
 
     @FXML
@@ -83,7 +84,7 @@ public class DriverDetailsController extends LabelledViewController implements I
             );
             if (alertResultOk(alertConfirmation.showAndWait())) {
                 unprocessedBooking.setLicenseURL(driverLicenseURL);
-                switchLabelledUserSceneWithObject(event, "Checkout", unprocessedBooking);
+                switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.CHECKOUT, unprocessedBooking);
             }
         }
 
@@ -91,7 +92,7 @@ public class DriverDetailsController extends LabelledViewController implements I
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "Main");
+        switchUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @Override

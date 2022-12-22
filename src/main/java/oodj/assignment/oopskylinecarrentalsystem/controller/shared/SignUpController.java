@@ -7,10 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.MailConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.*;
+import oodj.assignment.oopskylinecarrentalsystem.constant.WARNING;
 import oodj.assignment.oopskylinecarrentalsystem.model.Address;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 
@@ -19,10 +18,10 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.alertResultEmptyOrOk;
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
-import static oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig.*;
-import static oodj.assignment.oopskylinecarrentalsystem.config.StringConfig.isAnyContainsBlank;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.alertResultEmptyOrOk;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.setAlert;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.StringUtils.isAnyContainsBlank;
 import static org.apache.commons.lang.WordUtils.capitalize;
 
 public class SignUpController extends CommonViewController implements Initializable {
@@ -102,7 +101,7 @@ public class SignUpController extends CommonViewController implements Initializa
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchSharedScene(event, "Login");
+        switchSharedScene(event, FILEPATH.SHARED.LOGIN);
     }
 
     @FXML
@@ -128,14 +127,14 @@ public class SignUpController extends CommonViewController implements Initializa
     }
 
     private boolean isEmailVerified () {
-        return MailConfig.validateUserEmail(customer.getUsername(), verificationCodeTextField.getText());
+        return MailUtils.validateUserEmail(customer.getUsername(), verificationCodeTextField.getText());
     }
 
     private void registerCustomer(Event event) throws IOException {
         signUpTipsTextArea.setText("");
         if (isEmailVerified()) {
-            CustomerConfig.register(customer);
-            UserConfig.updateFile();
+            CustomerUtils.register(customer);
+            UserUtils.updateFile();
 
             setAlert(
                     alert,
@@ -146,7 +145,7 @@ public class SignUpController extends CommonViewController implements Initializa
             Optional<ButtonType> result = alert.showAndWait();
 
             if(alertResultEmptyOrOk(result)) {
-                switchSharedScene(event, "Login");
+                switchSharedScene(event, FILEPATH.SHARED.LOGIN);
             }
         } else {
             signUpTipsTextArea.setText("Invalid verification code.");
@@ -166,6 +165,7 @@ public class SignUpController extends CommonViewController implements Initializa
         String name = nameTextField.getText();
         String email = emailTextField.getText();
         String icNumber = icTextField.getText();
+        String gender = genderComboBox.getValue();
         String phoneNumber = phoneNumberTextField.getText();
         String unit = unitTextField.getText();
         String street1 = streetOneTextField.getText();
@@ -190,7 +190,7 @@ public class SignUpController extends CommonViewController implements Initializa
                 confirmPassword
         )
         ) {
-            signUpTipsTextArea.setText(WarningConfig.FILLINALLFIELDS);
+            signUpTipsTextArea.setText(WARNING.FILL_IN_ALL_THE_FIELDS);
             return false;
         } else {
             username = username.trim();
@@ -205,35 +205,35 @@ public class SignUpController extends CommonViewController implements Initializa
             state = capitalize(state.trim());
 
             if (!isValidUsername(username)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.USERNAME);
+                signUpTipsTextArea.setText(WARNING.USER.USERNAME);
                 return false;
             }
             if (!isValidName(name)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.NAME);
+                signUpTipsTextArea.setText(WARNING.USER.NAME);
                 return false;
             }
             if (!isValidEmailToCreate(email)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.EMAIL);
+                signUpTipsTextArea.setText(WARNING.USER.EMAIL);
                 return false;
             }
             if (!isValidIcNumber(icNumber)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.IC);
+                signUpTipsTextArea.setText(WARNING.USER.IC);
                 return false;
             }
             if (!isValidPhoneNumberToCreate(phoneNumber)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.PHONENUMBER);
+                signUpTipsTextArea.setText(WARNING.USER.PHONE_NUMBER);
                 return false;
             }
             if (!isValidPostcode(postcode)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.POSTCODE);
+                signUpTipsTextArea.setText(WARNING.USER.POSTCODE);
                 return false;
             }
             if (!isValidPassword(password)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.PASSWORD);
+                signUpTipsTextArea.setText(WARNING.USER.PASSWORD);
                 return false;
             }
             if (!password.equals(confirmPassword)) {
-                signUpTipsTextArea.setText(WarningConfig.USER.UNMATCHEDPASSWORD);
+                signUpTipsTextArea.setText(WARNING.USER.UNMATCHED_PASSWORD);
                 return false;
             }
             customer = new Customer(
@@ -241,8 +241,9 @@ public class SignUpController extends CommonViewController implements Initializa
                     password,
                     name,
                     email,
-                    icNumber,
                     phoneNumber,
+                    icNumber,
+                    gender,
                     new Address(unit, street1, street2, city, postcode, state)
             );
             return true;
@@ -262,6 +263,6 @@ public class SignUpController extends CommonViewController implements Initializa
         );
 
         alert.show();
-        MailConfig.sendVerificationCode(customer);
+        MailUtils.sendVerificationCode(customer);
     }
 }

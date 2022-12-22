@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
 import javafx.scene.text.Text;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 
@@ -35,32 +36,32 @@ public class CustomerMainController extends LabelledViewController {
 
     @FXML
     void onEditPersonalDetailsButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "EditAccountDetails");
+        switchLabelledUserScene(event, FILEPATH.CUSTOMER.EDIT_ACCOUNT_DETAILS);
     }
 
     @FXML
     void onModifyPasswordButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "EditPassword");
+        switchUserScene(event, FILEPATH.CUSTOMER.EDIT_PASSWORD);
     }
 
     @FXML
     void onRentCarButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "CarMenu");
+        switchUserScene(event, FILEPATH.CUSTOMER.CAR_MENU);
     }
 
     @FXML
     void onTopUpButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "TopUp");
+        switchLabelledUserScene(event, FILEPATH.CUSTOMER.TOP_UP);
     }
 
     @FXML
     void onViewBookingHistoryButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "ViewBookingHistory");
+        switchLabelledUserScene(event, FILEPATH.CUSTOMER.VIEW_BOOKING_HISTORY);
     }
 
     @FXML
     void onLogOutButtonClick(ActionEvent event) throws IOException {
-        switchSharedScene(event, "Login");
+        switchSharedScene(event, FILEPATH.SHARED.LOGIN);
     }
 
     public void setLabelData() {

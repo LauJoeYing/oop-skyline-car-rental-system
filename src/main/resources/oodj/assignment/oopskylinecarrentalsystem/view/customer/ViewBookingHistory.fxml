@@ -12,9 +12,9 @@
         <TableView fx:id="bookingTableView" layoutX="24.0" layoutY="99.0" prefHeight="334.0" prefWidth="855.0" style="-fx-border-color: #000000;" AnchorPane.bottomAnchor="39.0" AnchorPane.leftAnchor="23.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="98.0">
             <columns>
                 <TableColumn fx:id="idColumn" prefWidth="194.40003204345703" text="Booking ID" />
-                <TableColumn fx:id="bookingDateColumn" prefWidth="128.79998779296875" text="Booking Date" />
-                <TableColumn fx:id="startDateColumn" prefWidth="125.60003662109375" text="Start Date" />
-                <TableColumn fx:id="endDateColumn" prefWidth="123.19992065429688" text="End Date" />
+                <TableColumn fx:id="bookingDateColumn" prefWidth="152.0" text="Booking Date" />
+                <TableColumn fx:id="startDateColumn" prefWidth="112.0" text="Start Date" />
+                <TableColumn fx:id="endDateColumn" prefWidth="112.0" text="End Date" />
                 <TableColumn fx:id="bookingAmountColumn" minWidth="0.0" prefWidth="168.79998779296875" text="Booking Amount (RM)" />
             <TableColumn fx:id="statusColumn" minWidth="0.0" prefWidth="107.2000732421875" text="Status" />
             </columns>

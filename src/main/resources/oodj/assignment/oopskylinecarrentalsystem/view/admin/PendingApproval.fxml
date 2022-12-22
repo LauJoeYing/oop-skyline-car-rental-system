@@ -1,8 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
 <?import javafx.scene.control.Button?>
-<?import javafx.scene.control.TableColumn?>
-<?import javafx.scene.control.TableView?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.Pane?>
@@ -10,40 +8,44 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="">
+<AnchorPane prefHeight="540.0" prefWidth="960.0" style="-fx-background-color: linear-gradient(to top,#98A8F8, #BCCEF8, #FFE3E1);" xmlns="http://javafx.com/javafx/19" xmlns:fx="http://javafx.com/fxml/1" fx:controller="oodj.assignment.oopskylinecarrentalsystem.controller.admin.PendingApprovalController">
     <Pane layoutX="30.0" layoutY="26.0" prefHeight="482.0" prefWidth="900.0" style="-fx-background-color: #F9F9F9; -fx-border-radius: 20; -fx-background-radius: 20; -fx-border-color: #000000;" AnchorPane.bottomAnchor="20.0" AnchorPane.topAnchor="26.0">
         <Pane layoutX="33.0" layoutY="89.0" prefHeight="241.0" prefWidth="409.0" style="-fx-background-color: #F9F9F9; -fx-border-color: #000000;">
-            <Text layoutX="38.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username" wrappingWidth="93.291015625">
+            <Text layoutX="38.0" layoutY="91.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:" wrappingWidth="93.291015625">
                 <font>
                     <Font name="Georgia Bold" size="15.0" />
                 </font>
             </Text>
-            <TextField fx:id="usernameTextField" layoutX="38.0" layoutY="88.0" prefHeight="25.0" prefWidth="335.0" />
+            <TextField fx:id="usernameTextField" editable="false" focusTraversable="false" layoutX="163.0" layoutY="72.0" mouseTransparent="true" prefHeight="25.0" prefWidth="210.0" />
             <Text fill="#153462" layoutX="126.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Customer Details">
                 <font>
                     <Font name="Georgia Bold" size="20.0" />
                 </font>
             </Text>
-            <Text layoutX="38.0" layoutY="152.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:" wrappingWidth="124.291015625">
+            <Text layoutX="38.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Driver License:" wrappingWidth="124.291015625">
                 <font>
                     <Font name="Georgia Bold" size="15.0" />
                 </font>
             </Text>
-            <Button fx:id="viewLicenseButton" layoutX="162.0" layoutY="134.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="210.0" text="View Image" />
             <Text layoutX="38.0" layoutY="199.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NRIC:" wrappingWidth="105.291015625">
                 <font>
                     <Font name="Georgia Bold" size="15.0" />
                 </font>
             </Text>
             <Line endX="68.173828125" endY="1.0" layoutX="236.0" layoutY="41.0" startX="-110.0" startY="1.0" />
-         <TextField fx:id="usernameTextbox1" layoutX="95.0" layoutY="181.0" prefHeight="25.0" prefWidth="277.0" />
+         <TextField fx:id="icNumberTextField" editable="false" focusTraversable="false" layoutX="162.0" layoutY="181.0" mouseTransparent="true" prefHeight="25.0" prefWidth="210.0" />
+         <Button fx:id="viewDriverLicenseButton" layoutX="163.0" layoutY="129.0" mnemonicParsing="false" onAction="#onViewDriverLicenseButtonClick" prefHeight="25.0" prefWidth="210.0" text="View Driver License">
+            <font>
+               <Font name="Georgia" size="13.0" />
+            </font>
+         </Button>
         </Pane>
-        <Text fill="#153462" layoutX="33.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending Approval">
+        <Text fx:id="title" fill="#153462" layoutX="33.0" layoutY="72.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Pending Approval">
             <font>
                 <Font name="Georgia Bold" size="48.0" />
             </font>
         </Text>
-        <Button fx:id="backToManageBooking" layoutX="828.0" layoutY="24.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="29.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;" text="X">
+        <Button fx:id="crossButton" layoutX="828.0" layoutY="24.0" mnemonicParsing="false" onAction="#onCrossButtonClick" prefHeight="25.0" prefWidth="29.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-background-color: #FFFFFF; -fx-border-color: #000001;" text="X">
             <font>
                 <Font name="Berlin Sans FB" size="18.0" />
             </font>
@@ -55,54 +57,64 @@
                         <Font name="Georgia Bold" size="15.0" />
                     </font>
                 </Text>
-                <TextField fx:id="carIdTextbox" layoutX="30.0" layoutY="89.0" prefHeight="25.0" prefWidth="335.0" />
+                <TextField fx:id="carIdTextField" editable="false" focusTraversable="false" layoutX="30.0" layoutY="89.0" mouseTransparent="true" prefHeight="25.0" prefWidth="335.0" />
                 <Text layoutX="31.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Model" wrappingWidth="93.291015625">
                     <font>
                         <Font name="Georgia Bold" size="15.0" />
                     </font>
                 </Text>
-                <TextField fx:id="carModelTextbox" layoutX="31.0" layoutY="157.0" prefHeight="25.0" prefWidth="335.0" />
-                <Text layoutX="32.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Rate (RM)" wrappingWidth="140.0">
+                <TextField fx:id="carModelTextField" editable="false" focusTraversable="false" layoutX="31.0" layoutY="157.0" mouseTransparent="true" prefHeight="25.0" prefWidth="335.0" />
+                <Text layoutX="32.0" layoutY="218.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Daily Rate" wrappingWidth="140.0">
                     <font>
                         <Font name="Georgia Bold" size="15.0" />
                     </font>
                 </Text>
-                <TextField fx:id="dailyRateTextbox" layoutX="32.0" layoutY="232.0" prefHeight="25.0" prefWidth="335.0" />
+                <TextField fx:id="dailyRateTextField" editable="false" focusTraversable="false" layoutX="32.0" layoutY="232.0" mouseTransparent="true" prefHeight="25.0" prefWidth="335.0" />
                 <Text fill="#153462" layoutX="157.0" layoutY="37.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Car Details">
                     <font>
                         <Font name="Georgia Bold" size="20.0" />
                     </font>
                 </Text>
                 <Line endX="11.0" endY="1.0" layoutX="264.0" layoutY="41.0" startX="-110.0" startY="1.0" />
-                <Text layoutX="30.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Amount (RM)" wrappingWidth="187.199951171875">
+                <Text layoutX="30.0" layoutY="292.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Booking Amount" wrappingWidth="187.199951171875">
                     <font>
                         <Font name="Georgia Bold" size="15.0" />
                     </font>
                 </Text>
-                <TextField fx:id="subTotalTextbox" layoutX="31.0" layoutY="304.0" prefHeight="25.0" prefWidth="335.0" />
-                <Button layoutX="32.0" layoutY="343.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="167.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #990000;" text="Reject" textFill="WHITE">
+                <TextField fx:id="bookingAmountTextField" editable="false" focusTraversable="false" layoutX="31.0" layoutY="304.0" mouseTransparent="true" prefHeight="25.0" prefWidth="335.0" />
+                <Button fx:id="rejectButton" layoutX="32.0" layoutY="343.0" mnemonicParsing="false" onAction="#onRejectButtonClick" prefHeight="31.0" prefWidth="167.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #990000;" text="Reject" textFill="WHITE">
                     <font>
                         <Font name="Georgia Bold" size="16.0" />
                     </font>
                 </Button>
-                <Button layoutX="211.0" layoutY="343.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="154.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #799351;" text="Approve" textFill="WHITE">
+                <Button fx:id="approveButton" layoutX="211.0" layoutY="343.0" mnemonicParsing="false" onAction="#onApproveButtonClick" prefHeight="31.0" prefWidth="154.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #799351;" text="Approve" textFill="WHITE">
                     <font>
                         <Font name="Georgia Bold" size="16.0" />
                     </font>
                 </Button>
             </children>
         </Pane>
-        <TableView fx:id="bookingSlotTable" layoutX="33.0" layoutY="335.0" prefHeight="142.0" prefWidth="409.0" style="-fx-border-color: #000000;">
-            <columns>
-                <TableColumn prefWidth="135.0" text="Start Date" />
-                <TableColumn prefWidth="136.00001525878915" text="End Date" />
-                <TableColumn prefWidth="133.5999755859375" text="Duration (Day)" />
-            </columns>
-        </TableView>
-        <Button layoutX="504.0" layoutY="42.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="154.0" style="-fx-background-radius: 360; -fx-border-radius: 360; -fx-border-color: #000000; -fx-background-color: #DFF6FF;" text="HOME" textFill="#153462">
-            <font>
-                <Font name="Georgia Bold" size="16.0" />
-            </font>
-        </Button>
+      <Pane layoutX="33.0" layoutY="340.0" prefHeight="138.0" prefWidth="409.0" style="-fx-background-color: #F9F9F9; -fx-border-color: #000000;">
+         <children>
+            <Text layoutX="54.0" layoutY="43.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Start Date:" wrappingWidth="93.291015625">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="startDateTextField" editable="false" focusTraversable="false" layoutX="166.0" layoutY="25.0" mouseTransparent="true" prefHeight="25.0" prefWidth="167.0" />
+            <Text layoutX="54.0" layoutY="79.0" strokeType="OUTSIDE" strokeWidth="0.0" text="End Date:" wrappingWidth="124.291015625">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <Text layoutX="55.0" layoutY="113.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Duration:" wrappingWidth="105.291015625">
+               <font>
+                  <Font name="Georgia Bold" size="15.0" />
+               </font>
+            </Text>
+            <TextField fx:id="durationTextField" editable="false" focusTraversable="false" layoutX="166.0" layoutY="95.0" mouseTransparent="true" prefHeight="25.0" prefWidth="167.0" />
+            <TextField fx:id="endDateTextField" editable="false" focusTraversable="false" layoutX="166.0" layoutY="61.0" mouseTransparent="true" prefHeight="25.0" prefWidth="167.0" />
+         </children>
+      </Pane>
     </Pane>
 </AnchorPane>

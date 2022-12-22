@@ -7,8 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.CarUtils;
+import oodj.assignment.oopskylinecarrentalsystem.constant.WARNING;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.CommonViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
 
@@ -16,11 +17,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.*;
-import static oodj.assignment.oopskylinecarrentalsystem.config.CarConfig.*;
-import static oodj.assignment.oopskylinecarrentalsystem.config.FloatConfig.roundToTwoDecimals;
-import static oodj.assignment.oopskylinecarrentalsystem.config.StringConfig.isAnyContainsBlank;
-import static oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig.resetLabel;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CarUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.FloatUtils.roundToTwoDecimals;
+import static oodj.assignment.oopskylinecarrentalsystem.util.StringUtils.isAnyContainsBlank;
+import static oodj.assignment.oopskylinecarrentalsystem.util.WarningUtils.resetLabel;
 import static org.apache.commons.lang.WordUtils.capitalize;
 
 public class AddCarController extends CommonViewController implements Initializable {
@@ -86,12 +87,12 @@ public class AddCarController extends CommonViewController implements Initializa
 
     @FXML
     void onBackButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "ManageCarMenu");
+        switchUserScene(event, FILEPATH.ADMIN.MANAGE_CAR_MENU);
     }
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "Main");
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @FXML
@@ -108,8 +109,8 @@ public class AddCarController extends CommonViewController implements Initializa
             );
 
             if (alertResultOk(alertConfirmation.showAndWait())) {
-                CarConfig.addCar(newCar);
-                CarConfig.updateFile();
+                CarUtils.addCar(newCar);
+                CarUtils.updateFile();
 
                 setAlert(
                         alertInformation,
@@ -118,7 +119,7 @@ public class AddCarController extends CommonViewController implements Initializa
                 );
 
                 if (alertResultEmptyOrOk(alertInformation.showAndWait())) {
-                    switchUserScene(event, "ManageCarMenu");
+                    switchUserScene(event, FILEPATH.ADMIN.MANAGE_CAR_MENU);
                 }
             }
         }
@@ -142,18 +143,18 @@ public class AddCarController extends CommonViewController implements Initializa
                 dailyRateInString
         )
         ) {
-            warningLabel.setText(WarningConfig.FILLINALLFIELDS);
+            warningLabel.setText(WARNING.FILL_IN_ALL_THE_FIELDS);
         } else {
             carId = toStandardCarId(carId.trim());
             brand = capitalize(brand.trim());
             model = capitalize(model.trim());
 
             if (!isValidCarIdToCreate(carId)) {
-                carIdWarningLabel.setText(WarningConfig.CAR.CARID);
+                carIdWarningLabel.setText(WARNING.CAR.CAR_ID);
                 isValidCreation = false;
             }
             if (!isValidDailyRate(dailyRateInString)) {
-                dailyRateWarningLabel.setText(WarningConfig.CAR.DAILYRATE);
+                dailyRateWarningLabel.setText(WARNING.CAR.DAILY_RATE);
                 isValidCreation = false;
             }
             if (isValidCreation) {

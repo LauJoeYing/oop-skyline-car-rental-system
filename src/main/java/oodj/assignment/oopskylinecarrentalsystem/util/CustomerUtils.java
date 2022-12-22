@@ -1,4 +1,4 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.util;
 
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 import oodj.assignment.oopskylinecarrentalsystem.model.User;
@@ -10,13 +10,13 @@ import java.util.regex.Pattern;
 
 import static org.apache.commons.lang.WordUtils.capitalize;
 
-public class CustomerConfig {
+public class CustomerUtils {
     private static final List<Customer> customerList;
 
     static {
         customerList = new ArrayList<>();
 
-        for(User user: UserConfig.getUserList()) {
+        for(User user: UserUtils.getUserList()) {
             if (user instanceof Customer) {
                 customerList.add((Customer) user);
             }
@@ -161,31 +161,6 @@ public class CustomerConfig {
         customerList.replaceAll(oldCustomer ->
                 oldCustomer.getUsername().equals(customer.getUsername()) ? customer : oldCustomer
         );
-    }
-
-    public static List<Customer> searchCustomer(String searchKeys) {
-        String[] searchKeyList = searchKeys.split(" ");
-        List<Customer> matchingCustomerList = new ArrayList<>(List.copyOf(customerList));
-
-        for (String searchKey: searchKeyList) {
-            String searchKeyRegex = String.format("^.*%s.*$", searchKey);
-            Pattern searchKeyPattern = Pattern.compile(searchKeyRegex, Pattern.CASE_INSENSITIVE);
-
-            matchingCustomerList.retainAll(
-                    customerList.stream()
-                            .filter(customer ->
-                                    customer.getSearchableProperties()
-                                            .stream()
-                                            .anyMatch(property ->
-                                                    searchKeyPattern.matcher(property)
-                                                            .matches()
-                                            )
-                            )
-                            .toList()
-            );
-        }
-
-        return matchingCustomerList;
     }
 
     public static List<Customer> getCustomerList() {

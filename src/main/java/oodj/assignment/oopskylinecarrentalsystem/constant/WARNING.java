@@ -1,10 +1,7 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.constant;
 
-import javafx.scene.control.Label;
-
-public final class WarningConfig {
-
-    public static final String FILLINALLFIELDS = "Please fill in all the fields.";
+public final class WARNING {
+    public static final String FILL_IN_ALL_THE_FIELDS = "Please fill in all the fields.";
 
     public static final class USER {
         public static final String USERNAME = """
@@ -25,7 +22,7 @@ public final class WarningConfig {
                             2. IC number must be unique.
                             """;
 
-        public static final String PHONENUMBER = """
+        public static final String PHONE_NUMBER = """
                             1. Phone number must be in the format of `601X-XXXXXXX`.
                             2. Phone number must be unique.
                             """;
@@ -40,21 +37,15 @@ public final class WarningConfig {
                             5. Must contain at least 1 special character
                             """;
 
-        public static final String UNMATCHEDPASSWORD = "Passwords do not match.";
+        public static final String UNMATCHED_PASSWORD = "Passwords do not match.";
     }
 
     public static final class CAR {
-        public final static String CARID = """
+        public final static String CAR_ID = """
                             1. Car number plate must be in the correct format.
                             2. Car number plate must be unique.
                             """;
 
-        public final static String DAILYRATE = "Car daily rate must be in decimals format.";
-    }
-
-    public static void resetLabel(Label... labels) {
-        for (Label label:labels) {
-            label.setText("");
-        }
+        public final static String DAILY_RATE = "Car daily rate must be in decimals format.";
     }
 }

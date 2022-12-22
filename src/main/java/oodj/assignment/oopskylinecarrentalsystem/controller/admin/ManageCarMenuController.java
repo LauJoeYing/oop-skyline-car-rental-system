@@ -9,16 +9,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
+import oodj.assignment.oopskylinecarrentalsystem.util.CarUtils;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.CommonViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
+import oodj.assignment.oopskylinecarrentalsystem.util.SearchUtils;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class ManageCarMenuController extends CommonViewController implements Initializable {
-    ObservableList<Car> carList = FXCollections.observableList(CarConfig.getCarList());
+    private ObservableList<Car> carList = FXCollections.observableList(CarUtils.getCarList());
 
     @FXML
     private Button addNewCarButton;
@@ -82,7 +84,7 @@ public class ManageCarMenuController extends CommonViewController implements Ini
 
     @FXML
     void onAddNewCarButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "AddCar");
+        switchUserScene(event, FILEPATH.ADMIN.ADD_CAR);
     }
 
     @FXML
@@ -92,7 +94,7 @@ public class ManageCarMenuController extends CommonViewController implements Ini
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "Main");
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @FXML
@@ -106,7 +108,7 @@ public class ManageCarMenuController extends CommonViewController implements Ini
         if (searchKey.equals("")) {
             resetCarTableView();
         } else {
-            ObservableList<Car> matchingCarList = FXCollections.observableList(CarConfig.searchCar(searchKey));
+            ObservableList<Car> matchingCarList = FXCollections.observableList(SearchUtils.search(carList, searchKey));
             carTableView.setItems(matchingCarList);
         }
     }
@@ -118,7 +120,7 @@ public class ManageCarMenuController extends CommonViewController implements Ini
     private void modifyCar(Event event) throws IOException {
         Car selectedCar = carTableView.getSelectionModel().getSelectedItem();
         if (selectedCar != null) {
-            switchLabelledUserSceneWithObject(event, "EditCar", selectedCar);
+            switchLabelledUserSceneWithObject(event, FILEPATH.ADMIN.EDIT_CAR, selectedCar);
         }
     }
 }

@@ -1,5 +1,7 @@
 package oodj.assignment.oopskylinecarrentalsystem.model;
 
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.FileWrite;
+
 import java.time.LocalDate;
 import java.util.List;
 
@@ -19,12 +21,6 @@ public class DateRange implements FileWrite {
     public DateRange(LocalDate startDate, LocalDate endDate) {
         this.startDate = startDate;
         this.endDate = endDate;
-        calculateDuration();
-    }
-
-    public DateRange(String[] dateRangeRegistered) {
-        this.startDate = LocalDate.parse(dateRangeRegistered[0]);
-        this.endDate = LocalDate.parse(dateRangeRegistered[1]);
         calculateDuration();
     }
 
@@ -78,6 +74,6 @@ public class DateRange implements FileWrite {
     }
     @Override
     public String fileFormat() {
-        return String.join(" - ", startDate.toString(), endDate.toString());
+        return String.join(" || ", startDate.toString(), endDate.toString());
     }
 }

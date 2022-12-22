@@ -7,8 +7,9 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.CarUtils;
+import oodj.assignment.oopskylinecarrentalsystem.constant.WARNING;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
 
@@ -17,12 +18,12 @@ import java.net.URL;
 import java.util.Optional;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.alertResultEmptyOrOk;
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
-import static oodj.assignment.oopskylinecarrentalsystem.config.CarConfig.*;
-import static oodj.assignment.oopskylinecarrentalsystem.config.FloatConfig.roundToTwoDecimals;
-import static oodj.assignment.oopskylinecarrentalsystem.config.StringConfig.isAnyContainsBlank;
-import static oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig.resetLabel;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.alertResultEmptyOrOk;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.setAlert;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CarUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.FloatUtils.roundToTwoDecimals;
+import static oodj.assignment.oopskylinecarrentalsystem.util.StringUtils.isAnyContainsBlank;
+import static oodj.assignment.oopskylinecarrentalsystem.util.WarningUtils.resetLabel;
 import static org.apache.commons.lang.WordUtils.capitalize;
 
 public class EditCarController extends LabelledViewController implements Initializable {
@@ -43,8 +44,6 @@ public class EditCarController extends LabelledViewController implements Initial
     private Button homeButton;
     @FXML
     private TextField idTextField;
-    @FXML
-    private TextField imageTextField;
     @FXML
     private TextField modelTextField;
     @FXML
@@ -75,12 +74,12 @@ public class EditCarController extends LabelledViewController implements Initial
 
     @FXML
     void onBackButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, "ManageCarMenu");
+        switchUserScene(event, FILEPATH.ADMIN.MANAGE_CAR_MENU);
     }
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "Main");
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @FXML
@@ -133,11 +132,11 @@ public class EditCarController extends LabelledViewController implements Initial
         Optional<ButtonType> resultConfirmation = alertConfirmation.showAndWait();
         if (resultConfirmation.isPresent() && resultConfirmation.get() == ButtonType.OK) {
             if (action.equals("Delete")) {
-                CarConfig.removeCar(car);
+                CarUtils.removeCar(car);
             } else {
-                CarConfig.updateCar(car);
+                CarUtils.updateCar(car);
             }
-            CarConfig.updateFile();
+            CarUtils.updateFile();
             setAlert(
                     alertInformation,
                     action.equals("Delete") ? "Complete Deletion" : "Complete Update",
@@ -146,7 +145,7 @@ public class EditCarController extends LabelledViewController implements Initial
 
             Optional<ButtonType> resultInformation = alertInformation.showAndWait();
             if (alertResultEmptyOrOk(resultInformation)) {
-                switchUserScene(event, "ManageCarMenu");
+                switchUserScene(event, FILEPATH.ADMIN.MANAGE_CAR_MENU);
             }
         }
     }
@@ -170,18 +169,18 @@ public class EditCarController extends LabelledViewController implements Initial
                 dailyRateInString
         )
         ) {
-            warningLabel.setText(WarningConfig.FILLINALLFIELDS);
+            warningLabel.setText(WARNING.FILL_IN_ALL_THE_FIELDS);
         } else {
             carId = toStandardCarId(carId.trim());
             brand = capitalize(brand);
             model = capitalize(model);
 
             if (!isValidCarIdToModify(car, carId)) {
-                idWarningLabel.setText(WarningConfig.CAR.CARID);
+                idWarningLabel.setText(WARNING.CAR.CAR_ID);
                 isValidModification = false;
             }
             if (!isValidDailyRate(dailyRateInString)) {
-                dailyRateWarningLabel.setText(WarningConfig.CAR.DAILYRATE);
+                dailyRateWarningLabel.setText(WARNING.CAR.DAILY_RATE);
                 isValidModification = false;
             }
             if (isValidModification) {

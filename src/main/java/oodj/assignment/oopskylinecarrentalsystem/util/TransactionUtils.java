@@ -1,4 +1,4 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.util;
 
 import oodj.assignment.oopskylinecarrentalsystem.model.Transaction;
 import org.apache.commons.io.FileUtils;
@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TransactionConfig {
+public class TransactionUtils {
     private static final String transactionFilePath;
     private static final List<Transaction> transactionList;
 
@@ -23,7 +23,7 @@ public class TransactionConfig {
 
         String transactionFilePathRegex = "(?<=IdeaProjects/oop-skyline-car-rental-system/)(target/classes)(?=/oodj/assignment/oopskylinecarrentalsystem/textfiles/Transaction\\.txt$)";
         Pattern transactionFilePathPattern = Pattern.compile(transactionFilePathRegex);
-        Matcher transactionFilePathMatcher = transactionFilePathPattern.matcher(Objects.requireNonNull(TransactionConfig.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/Transaction.txt")).getPath());
+        Matcher transactionFilePathMatcher = transactionFilePathPattern.matcher(Objects.requireNonNull(TransactionUtils.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/Transaction.txt")).getPath());
         String pathReplacement = "src/main/resources";
 
         String incompleteUserFilePath = transactionFilePathMatcher.replaceFirst(pathReplacement);

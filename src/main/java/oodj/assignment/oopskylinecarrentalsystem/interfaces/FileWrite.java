@@ -1,4 +1,4 @@
-package oodj.assignment.oopskylinecarrentalsystem.model;
+package oodj.assignment.oopskylinecarrentalsystem.interfaces;
 
 public interface FileWrite {
     public String fileFormat();

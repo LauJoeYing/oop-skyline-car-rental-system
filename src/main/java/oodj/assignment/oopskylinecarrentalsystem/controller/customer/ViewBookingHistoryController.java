@@ -1,5 +1,6 @@
 package oodj.assignment.oopskylinecarrentalsystem.controller.customer;
 
+import javafx.beans.property.SimpleObjectProperty;
 import javafx.collections.FXCollections;
 import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
@@ -7,14 +8,14 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
-import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.BookingConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.BookingUtils;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Booking;
-import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
 
 import java.io.IOException;
 import java.net.URL;
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.List;
@@ -30,21 +31,18 @@ public class ViewBookingHistoryController extends LabelledViewController impleme
     @FXML
     private TableView<Booking> bookingTableView;
     @FXML
-    private TableColumn<Booking, DateRange> endDateColumn;
+    private TableColumn<Booking, LocalDate> endDateColumn;
     @FXML
     private Button homeButton;
     @FXML
     private TableColumn<Booking, UUID> idColumn;
     @FXML
-    private TextField searchTextField;
-    @FXML
-    private TableColumn<Booking, DateRange> startDateColumn;
+    private TableColumn<Booking, LocalDate> startDateColumn;
     @FXML
     private TableColumn<Booking, String> statusColumn;
 
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
-        final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         bookingDateColumn.setCellValueFactory(new PropertyValueFactory<>("bookingDateTime"));
         bookingDateColumn.setCellFactory(bookingDateCell -> new TableCell<>() {
@@ -54,46 +52,24 @@ public class ViewBookingHistoryController extends LabelledViewController impleme
                 if (empty) {
                     setText(null);
                 } else {
-                    setText(bookingDate.format(formatter));
+                    setText(bookingDate.format(DateTimeFormatter.ofPattern("yyyy-MM-dd hh:mm:ss a")));
                 }
             }
         });
-        startDateColumn.setCellValueFactory(new PropertyValueFactory<>("bookingDateRange"));
-        startDateColumn.setCellFactory(bookingDateCell -> new TableCell<>() {
-            @Override
-            protected void updateItem(DateRange bookingDateRange, boolean empty) {
-                super.updateItem(bookingDateRange, empty);
-                if (empty) {
-                    setText(null);
-                } else {
-                    setText(bookingDateRange.getStartDate().toString());
-                }
-            }
-        });
-        endDateColumn.setCellValueFactory(new PropertyValueFactory<>("bookingDateRange"));
-        endDateColumn.setCellFactory(bookingDateCell -> new TableCell<>() {
-            @Override
-            protected void updateItem(DateRange bookingDateRange, boolean empty) {
-                super.updateItem(bookingDateRange, empty);
-                if (empty) {
-                    setText(null);
-                } else {
-                    setText(bookingDateRange.getEndDate().toString());
-                }
-            }
-        });
+        startDateColumn.setCellValueFactory(booking -> new SimpleObjectProperty<>(booking.getValue().getBookingDateRange().getStartDate()));
+        endDateColumn.setCellValueFactory(booking -> new SimpleObjectProperty<>(booking.getValue().getBookingDateRange().getEndDate()));
         bookingAmountColumn.setCellValueFactory(new PropertyValueFactory<>("BookingAmount"));
         statusColumn.setCellValueFactory(new PropertyValueFactory<>("Status"));
     }
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "Main");
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @Override
     public void setLabelData() {
-        List<Booking> bookingList = BookingConfig.getBookingFromCustomerUsername(getUser().getUsername());
+        List<Booking> bookingList = BookingUtils.getBookingFromCustomerUsername(getUser().getUsername());
         ObservableList<Booking> observableBookingList = FXCollections.observableList(bookingList);
         bookingTableView.setItems(observableBookingList);
     }

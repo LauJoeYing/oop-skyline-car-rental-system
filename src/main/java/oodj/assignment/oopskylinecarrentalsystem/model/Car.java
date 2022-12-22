@@ -1,5 +1,8 @@
 package oodj.assignment.oopskylinecarrentalsystem.model;
 
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.FileWrite;
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.Searchable;
+
 import java.util.ArrayList;
 import java.util.List;
 

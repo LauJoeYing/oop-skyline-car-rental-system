@@ -8,12 +8,13 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.control.cell.PropertyValueFactory;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.CarUtils;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
-import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
 import oodj.assignment.oopskylinecarrentalsystem.model.UnprocessedBooking;
+import oodj.assignment.oopskylinecarrentalsystem.util.SearchUtils;
 
 import java.io.IOException;
 import java.net.URL;
@@ -21,11 +22,11 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
-import static oodj.assignment.oopskylinecarrentalsystem.config.CarConfig.getCarUnavailableDatesFromId;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.setAlert;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CarUtils.getCarUnavailableDatesFromId;
 
 public class CarMenuController extends LabelledViewController implements Initializable {
-    private ObservableList<Car> carList = FXCollections.observableList(CarConfig.getCarList());
+    private ObservableList<Car> carList = FXCollections.observableList(CarUtils.getCarList());
     private Car carSelected;
     private Alert alertConfirmation;
 
@@ -118,7 +119,7 @@ public class CarMenuController extends LabelledViewController implements Initial
                     "Are you sure to book this car?"
             );
 
-            switchLabelledUserSceneWithObject(event, "DriverDetails", new UnprocessedBooking(carSelected, dateRangeSelected));
+            switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.DRIVER_DETAILS, new UnprocessedBooking(carSelected, dateRangeSelected));
         }
     }
 
@@ -131,7 +132,7 @@ public class CarMenuController extends LabelledViewController implements Initial
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "Main");
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @FXML
@@ -180,7 +181,7 @@ public class CarMenuController extends LabelledViewController implements Initial
     }
 
     private void resetCarTableView() {
-        carTableView.setItems(FXCollections.observableList(CarConfig.getCarList()));
+        carTableView.setItems(FXCollections.observableList(CarUtils.getCarList()));
     }
 
     private void searchCar() {
@@ -189,7 +190,7 @@ public class CarMenuController extends LabelledViewController implements Initial
         if (searchKey.equals("")) {
             resetCarTableView();
         } else {
-            carTableView.setItems(FXCollections.observableList(CarConfig.searchCar((searchKey))));
+            carTableView.setItems(FXCollections.observableList(SearchUtils.search(carList, searchKey)));
         }
     }
 

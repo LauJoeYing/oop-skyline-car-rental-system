@@ -1,8 +1,7 @@
-package oodj.assignment.oopskylinecarrentalsystem.config;
+package oodj.assignment.oopskylinecarrentalsystem.util;
 
 import oodj.assignment.oopskylinecarrentalsystem.model.Booking;
 import oodj.assignment.oopskylinecarrentalsystem.model.Car;
-import oodj.assignment.oopskylinecarrentalsystem.model.DateRange;
 import org.apache.commons.io.FileUtils;
 
 import java.io.File;
@@ -15,9 +14,9 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig.isRegexMatchCaseInsensitive;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils.isRegexMatchCaseInsensitive;
 
-public class CarConfig {
+public class CarUtils {
     private static final String carFilePath;
     private static final List<Car> carList;
 
@@ -26,7 +25,7 @@ public class CarConfig {
 
         String carFilePathRegex = "(?<=IdeaProjects/oop-skyline-car-rental-system/)(target/classes)(?=/oodj/assignment/oopskylinecarrentalsystem/textfiles/Car\\.txt$)";
         Pattern carFilePathPattern = Pattern.compile(carFilePathRegex);
-        Matcher carFilePathMatcher = carFilePathPattern.matcher(Objects.requireNonNull(CarConfig.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/Car.txt")).getPath());
+        Matcher carFilePathMatcher = carFilePathPattern.matcher(Objects.requireNonNull(CarUtils.class.getResource("/oodj/assignment/oopskylinecarrentalsystem/textfiles/Car.txt")).getPath());
         String pathReplacement = "src/main/resources";
 
         String incompleteCarFilePath = carFilePathMatcher.replaceFirst(pathReplacement);
@@ -72,7 +71,7 @@ public class CarConfig {
     public static List<LocalDate> getCarUnavailableDatesFromId(String id) {
         List<LocalDate> unavailableDates = new ArrayList<>();
 
-        for (Booking booking: BookingConfig.getBookingListByStatus("Accepted")) {
+        for (Booking booking: BookingUtils.getBookingListByStatus("Accepted")) {
             unavailableDates.addAll(booking.getBookingDateRange().getDateList());
         }
 
@@ -93,31 +92,6 @@ public class CarConfig {
 
     public static void addCar(Car car) {
         carList.add(car);
-    }
-
-    public static List<Car> searchCar(String searchKeys) {
-        String[] searchKeyList = searchKeys.split(" ");
-        List<Car> matchingCarList = new ArrayList<>(List.copyOf(carList));
-
-        for (String searchKey: searchKeyList) {
-            String searchKeyRegex = String.format("^.*%s.*$", searchKey);
-            Pattern searchKeyPattern = Pattern.compile(searchKeyRegex, Pattern.CASE_INSENSITIVE);
-
-            matchingCarList.retainAll(
-                    carList.stream()
-                            .filter(car ->
-                                    car.getSearchableProperties()
-                                            .stream()
-                                            .anyMatch(property ->
-                                                    searchKeyPattern.matcher(property)
-                                                            .matches()
-                                            )
-                            )
-                            .toList()
-            );
-        }
-
-        return matchingCarList;
     }
 
     public static boolean isValidCarIdToModify(Car targetCar, String carId) {

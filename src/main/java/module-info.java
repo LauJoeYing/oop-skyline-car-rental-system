@@ -14,11 +14,12 @@ module oodj.assignment.oopskylinecarrentalsystem {
     requires commons.lang;
     requires java.dotenv;
     requires java.mail;
+    requires java.desktop;
 
     exports oodj.assignment.oopskylinecarrentalsystem.model;
     opens oodj.assignment.oopskylinecarrentalsystem.model to javafx.fxml;
-    exports oodj.assignment.oopskylinecarrentalsystem.config;
-    opens oodj.assignment.oopskylinecarrentalsystem.config to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.util;
+    opens oodj.assignment.oopskylinecarrentalsystem.util to javafx.fxml;
     exports oodj.assignment.oopskylinecarrentalsystem.app;
     opens oodj.assignment.oopskylinecarrentalsystem.app to javafx.fxml;
     exports oodj.assignment.oopskylinecarrentalsystem.controller.shared;
@@ -27,4 +28,8 @@ module oodj.assignment.oopskylinecarrentalsystem {
     opens oodj.assignment.oopskylinecarrentalsystem.controller.customer to javafx.fxml;
     exports oodj.assignment.oopskylinecarrentalsystem.controller.admin;
     opens oodj.assignment.oopskylinecarrentalsystem.controller.admin to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.constant;
+    opens oodj.assignment.oopskylinecarrentalsystem.constant to javafx.fxml;
+    exports oodj.assignment.oopskylinecarrentalsystem.interfaces;
+    opens oodj.assignment.oopskylinecarrentalsystem.interfaces to javafx.fxml;
 }

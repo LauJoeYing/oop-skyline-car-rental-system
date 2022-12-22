@@ -1,15 +1,17 @@
 package oodj.assignment.oopskylinecarrentalsystem.model;
 
-import oodj.assignment.oopskylinecarrentalsystem.config.CarConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.TransactionConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
+import oodj.assignment.oopskylinecarrentalsystem.util.CarUtils;
+import oodj.assignment.oopskylinecarrentalsystem.util.TransactionUtils;
+import oodj.assignment.oopskylinecarrentalsystem.util.UserUtils;
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.FileWrite;
+import oodj.assignment.oopskylinecarrentalsystem.interfaces.Searchable;
 
 import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
 import java.util.*;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig.getCustomerFromUsername;
-import static oodj.assignment.oopskylinecarrentalsystem.config.MailConfig.sendBookingConfirmation;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils.getCustomerFromUsername;
+import static oodj.assignment.oopskylinecarrentalsystem.util.MailUtils.sendBookingConfirmation;
 
 public class Booking implements FileWrite, Searchable {
     private final UUID id;
@@ -28,7 +30,7 @@ public class Booking implements FileWrite, Searchable {
         this.id = UUID.randomUUID();
         this.customerUsername = customerUsername;
         this.bookingDateTime = LocalDateTime.now();
-        this.bookingAmount = CarConfig.getCarDailyRateFromId(carId) * bookingDateRange.getDuration();
+        this.bookingAmount = CarUtils.getCarDailyRateFromId(carId) * bookingDateRange.getDuration();
         this.carId = carId;
         this.bookingDateRange = bookingDateRange;
         this.licenseURL = licenseURL;
@@ -51,6 +53,7 @@ public class Booking implements FileWrite, Searchable {
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(String.valueOf(id));
         searchableProperties.add(customerUsername);
+        searchableProperties.add(String.valueOf(bookingAmount));
         searchableProperties.add(carId);
         searchableProperties.add(status);
 
@@ -110,7 +113,7 @@ public class Booking implements FileWrite, Searchable {
         if (status.equals("Rejected") || status.equals("Pending")) {
             if (status.equals("Rejected")) {
                 customer.addAccountBalance(bookingAmount);
-                TransactionConfig.addTransaction(new Transaction(
+                TransactionUtils.addTransaction(new Transaction(
                         String.valueOf(id),
                         "Booking-Refund",
                         bookingAmount
@@ -118,14 +121,14 @@ public class Booking implements FileWrite, Searchable {
                 sendBookingConfirmation(customer, this, false);
             } else {
                 customer.deductAccountBalance(bookingAmount);
-                TransactionConfig.addTransaction(new Transaction(
+                TransactionUtils.addTransaction(new Transaction(
                         String.valueOf(id),
                         "Booking-Payment",
                         bookingAmount
                 ));
             }
-            UserConfig.updateFile();
-            TransactionConfig.updateFile();
+            UserUtils.updateFile();
+            TransactionUtils.updateFile();
         } else {
             sendBookingConfirmation(customer, this, true);
         }
@@ -134,7 +137,7 @@ public class Booking implements FileWrite, Searchable {
     }
 
     public String emailFormat() {
-        return String.format("%s%s", CarConfig.getCarFromId(carId).emailFormat(), bookingDateRange.emailFormat());
+        return String.format("<br>%s%s", Objects.requireNonNull(CarUtils.getCarFromId(carId)).emailFormat(), bookingDateRange.emailFormat());
     }
 
     @Override

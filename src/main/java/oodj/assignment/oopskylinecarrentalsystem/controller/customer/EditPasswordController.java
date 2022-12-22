@@ -10,9 +10,10 @@ import javafx.scene.control.TextField;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
-import oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils;
+import oodj.assignment.oopskylinecarrentalsystem.util.UserUtils;
+import oodj.assignment.oopskylinecarrentalsystem.constant.WARNING;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.CommonViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
 
@@ -20,11 +21,11 @@ import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.alertResultOk;
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.setAlert;
-import static oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig.*;
-import static oodj.assignment.oopskylinecarrentalsystem.config.StringConfig.isAnyContainsBlank;
-import static oodj.assignment.oopskylinecarrentalsystem.config.WarningConfig.resetLabel;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.alertResultOk;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.setAlert;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.StringUtils.isAnyContainsBlank;
+import static oodj.assignment.oopskylinecarrentalsystem.util.WarningUtils.resetLabel;
 
 public class EditPasswordController extends CommonViewController implements Initializable {
 
@@ -73,7 +74,7 @@ public class EditPasswordController extends CommonViewController implements Init
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchLabelledUserScene(event, "Main");
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     private void updateAccountPassword() {
@@ -101,14 +102,14 @@ public class EditPasswordController extends CommonViewController implements Init
                 confirmPassword
         )
         ) {
-            confirmPasswordWarningLabel.setText(WarningConfig.FILLINALLFIELDS);
+            confirmPasswordWarningLabel.setText(WARNING.FILL_IN_ALL_THE_FIELDS);
         } else {
             if (!isValidPassword(newPassword)) {
-                newPasswordWarningLabel.setText(WarningConfig.USER.PASSWORD);
+                newPasswordWarningLabel.setText(WARNING.USER.PASSWORD);
                 isValidModification = false;
             }
             if (!newPassword.equals(confirmPassword)) {
-                confirmPasswordWarningLabel.setText(WarningConfig.USER.UNMATCHEDPASSWORD);
+                confirmPasswordWarningLabel.setText(WARNING.USER.UNMATCHED_PASSWORD);
                 isValidModification = false;
             }
             if (isValidModification) {
@@ -126,8 +127,8 @@ public class EditPasswordController extends CommonViewController implements Init
                 "Are you sure to update the account password?"
         );
         if (alertResultOk(alertConfirmation.showAndWait())) {
-            CustomerConfig.updateCustomer(customer);
-            UserConfig.updateFile();
+            CustomerUtils.updateCustomer(customer);
+            UserUtils.updateFile();
             setAlert(
                     alertInformation,
                     "Complete Update",

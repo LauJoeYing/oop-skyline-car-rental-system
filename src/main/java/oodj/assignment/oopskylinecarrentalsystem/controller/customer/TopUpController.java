@@ -5,18 +5,21 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.ImageView;
-import oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig;
-import oodj.assignment.oopskylinecarrentalsystem.config.UserConfig;
+import oodj.assignment.oopskylinecarrentalsystem.constant.FILEPATH;
+import oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils;
+import oodj.assignment.oopskylinecarrentalsystem.util.TransactionUtils;
+import oodj.assignment.oopskylinecarrentalsystem.util.UserUtils;
 import oodj.assignment.oopskylinecarrentalsystem.controller.shared.LabelledViewController;
 import oodj.assignment.oopskylinecarrentalsystem.model.Customer;
+import oodj.assignment.oopskylinecarrentalsystem.model.Transaction;
 import oodj.assignment.oopskylinecarrentalsystem.model.UnprocessedBooking;
 
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-import static oodj.assignment.oopskylinecarrentalsystem.config.AlertConfig.*;
-import static oodj.assignment.oopskylinecarrentalsystem.config.CarConfig.isValidDailyRate;
+import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.*;
+import static oodj.assignment.oopskylinecarrentalsystem.util.CarUtils.isValidDailyRate;
 
 public class TopUpController extends LabelledViewController implements Initializable {
 
@@ -59,8 +62,10 @@ public class TopUpController extends LabelledViewController implements Initializ
 
             if (alertResultOk(alertConfirmation.showAndWait())) {
                 customer.addAccountBalance(topUpAmount);
-                CustomerConfig.updateCustomer(customer);
-                UserConfig.updateFile();
+                TransactionUtils.addTransaction(new Transaction(customer.getUsername(), "Top-Up", topUpAmount));
+                CustomerUtils.updateCustomer(customer);
+                TransactionUtils.updateFile();
+                UserUtils.updateFile();
 
                 setAlert(
                         alertInformation,
@@ -76,9 +81,9 @@ public class TopUpController extends LabelledViewController implements Initializ
     @FXML
     void onBackButtonClick(ActionEvent event) throws IOException {
         if (unprocessedBooking != null) {
-            switchLabelledUserSceneWithObject(event, "Checkout", unprocessedBooking);
+            switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.CHECKOUT, unprocessedBooking);
         } else {
-            switchLabelledUserScene(event, "Main");
+            switchLabelledUserScene(event, FILEPATH.USER_MAIN);
         }
     }
 
@@ -97,7 +102,7 @@ public class TopUpController extends LabelledViewController implements Initializ
                         "You will be directed back to the booking page."
                 );
                 alertInformation.show();
-                switchLabelledUserSceneWithObject(event, "Checkout", unprocessedBooking);
+                switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.CHECKOUT, unprocessedBooking);
             } else {
                 setAlert(
                         alertInformation,
@@ -105,10 +110,10 @@ public class TopUpController extends LabelledViewController implements Initializ
                         "You will be directed back to the main page."
                 );
                 alertInformation.show();
-                switchLabelledUserScene(event, "Main");
+                switchLabelledUserScene(event, FILEPATH.USER_MAIN);
             }
         } else {
-            switchLabelledUserScene(event, "Main");
+            switchLabelledUserScene(event, FILEPATH.USER_MAIN);
         }
     }
 
