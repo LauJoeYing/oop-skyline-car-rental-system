@@ -6,6 +6,11 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
+// OOP Concept Implemented:
+// Inheritance: The class Customer extends the class User, which means that it inherits all the properties and methods of the User class.
+// Polymorphism: The class Customer implements the interface Searchable.
+// Encapsulation: The class Customer has several private instance variables which are only accessible through public methods.
+// Abstraction: The interface Searchable defines a set of methods that must be implemented by any class that implements it, but does not provide any implementations for those methods.
 public class Customer extends User implements Searchable {
     private String phoneNumber;
     private String icNumber;
@@ -13,6 +18,8 @@ public class Customer extends User implements Searchable {
     private Address address;
     private float accountBalance;
 
+    // OOP Concept Implemented: Inheritance & Encapsulation
+    // The superclass (User) constructor using the super keyword to initialize the instance variables inherited from the User class.
     public Customer(String username, String password, String name, String emailAddress, String phoneNumber, String icNumber, String gender, Address address) {
         super(username, password, name, emailAddress);
         this.phoneNumber = phoneNumber;
@@ -22,6 +29,7 @@ public class Customer extends User implements Searchable {
         accountBalance = 0.0F;
     }
 
+    // OOP Concept Implemented: Inheritance & Encapsulation
     public Customer(String[] registeredCustomer) {
         super(Arrays.copyOfRange(registeredCustomer, 1, 5));
         this.phoneNumber = registeredCustomer[5];
@@ -74,14 +82,17 @@ public class Customer extends User implements Searchable {
         this.accountBalance = accountBalance;
     }
 
+    // To add the current customer account balance
     public void addAccountBalance(float amount) {
         this.accountBalance += amount;
     }
 
+    // To deduct the current customer account balance
     public void deductAccountBalance(float amount) {
         this.accountBalance -= amount;
     }
 
+    // OOP Concept Implemented: Compiled-Time Polymorphism
     public List<String> getSearchableProperties() {
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(getUsername());
