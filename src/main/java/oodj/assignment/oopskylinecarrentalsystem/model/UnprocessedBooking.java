@@ -1,9 +1,9 @@
 package oodj.assignment.oopskylinecarrentalsystem.model;
 
 public class UnprocessedBooking {
-    Car car;
-    DateRange bookingDateRange;
-    String licenseURL;
+    private Car car;
+    private DateRange bookingDateRange;
+    private String licenseURL;
 
     public UnprocessedBooking(Car car, DateRange bookingDateRange) {
         this.car = car;
