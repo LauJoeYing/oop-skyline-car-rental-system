@@ -11,6 +11,7 @@ import java.util.*;
 import static oodj.assignment.oopskylinecarrentalsystem.config.CustomerConfig.getCustomerFromUsername;
 import static oodj.assignment.oopskylinecarrentalsystem.config.MailConfig.sendBookingConfirmation;
 
+// OOP Concept: Encapsulation
 public class Booking implements FileWrite, Searchable {
     private final UUID id;
     private final LocalDateTime bookingDateTime;
@@ -46,6 +47,8 @@ public class Booking implements FileWrite, Searchable {
         this.status = registeredBooking[8];
     }
 
+    // Returns a list of properties of this booking that can be used for searching.
+    // OOP Concept: Method Overriding (Run-Time Polymorphism)
     @Override
     public List<String> getSearchableProperties() {
         List<String> searchableProperties = new ArrayList<>();
@@ -105,6 +108,15 @@ public class Booking implements FileWrite, Searchable {
         return status;
     }
 
+    /**
+     * Sets the booking status and updates the customer's account balance and transaction history accordingly.
+     * If the new status is "Rejected", the customer's account balance is increased by the booking amount and a
+     * transaction is added to the transaction history. If the new status is "Pending", the customer's account
+     * balance is decreased by the booking amount and a transaction is added to the transaction history. If the
+     * new status is "Confirmed", a booking confirmation email is sent to the customer.
+     *
+     * @param status the new booking status (e.g. "Rejected", "Pending", "Confirmed")
+     */
     public void setStatus(String status) {
         Customer customer = Objects.requireNonNull(getCustomerFromUsername(customerUsername));
         if (status.equals("Rejected") || status.equals("Pending")) {
@@ -133,10 +145,12 @@ public class Booking implements FileWrite, Searchable {
         this.status = status;
     }
 
+     // Generates a formatted string for an email message based on the car and booking date range.
     public String emailFormat() {
         return String.format("%s%s", CarConfig.getCarFromId(carId).emailFormat(), bookingDateRange.emailFormat());
     }
 
+    // OOP Concept: Method Overriding (Run-Time Polymorphism)
     @Override
     public String fileFormat() {
         return String.join(

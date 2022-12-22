@@ -11,6 +11,7 @@ public class Car implements FileWrite, Searchable {
     private String transmissionType;
     private float dailyRate;
 
+    // OOP Concept Implemented: Encapsulation
     public Car(String id, String brand, String model, String type, String transmissionType, float dailyRate) {
         this.id = id;
         this.brand = brand;
@@ -20,6 +21,7 @@ public class Car implements FileWrite, Searchable {
         this.dailyRate = dailyRate;
     }
 
+    // OOP Concept Implemented: Encapsulation
     public Car(String[] registeredCar) {
         this.id = registeredCar[0];
         this.brand = registeredCar[1];
@@ -77,10 +79,12 @@ public class Car implements FileWrite, Searchable {
         this.dailyRate = (float) (Math.round(dailyRate * 100.0) / 100.0);
     }
 
+    // To format the Email
     public String emailFormat() {
         return String.format("<a style=\"font-weight:bold\">%s %s (%s)</a>", brand, model, id);
     }
 
+    // OOP Concept Implemented: Compiled-time Polymorphism
     @Override
     public List<String> getSearchableProperties() {
         List<String> searchableProperties = new ArrayList<>();
@@ -92,6 +96,7 @@ public class Car implements FileWrite, Searchable {
 
         return searchableProperties;
     }
+
     @Override
     public String fileFormat() {
         return String.join(" || ", id, brand, model, type, transmissionType, String.valueOf(dailyRate));
