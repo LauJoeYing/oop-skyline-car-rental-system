@@ -13,7 +13,7 @@ import java.util.*;
 import static oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils.getCustomerFromUsername;
 import static oodj.assignment.oopskylinecarrentalsystem.util.MailUtils.sendBookingConfirmation;
 
-// OOP Concept: Encapsulation
+// OOP Concept: Abstraction, Encapsulation
 public class Booking implements FileWrite, Searchable {
     private final UUID id;
     private final LocalDateTime bookingDateTime;
@@ -23,7 +23,6 @@ public class Booking implements FileWrite, Searchable {
     private DateRange bookingDateRange;
     private String licenseURL;
     private String status;
-
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public Booking(String customerUsername, String carId, DateRange bookingDateRange, String licenseURL) {

@@ -42,42 +42,52 @@ public class Customer extends User implements Searchable {
         this.accountBalance = Float.parseFloat(registeredCustomer[9]);
     }
 
+    // Returns the phone number of this customer.
     public String getPhoneNumber() {
         return phoneNumber;
     }
 
+    // Sets the phone number of this customer.
     public void setPhoneNumber(String phoneNumber) {
         this.phoneNumber = phoneNumber;
     }
 
+    // Returns the identity card number of this customer.
     public String getIcNumber() {
         return icNumber;
     }
 
+    // Sets the IC number of this customer.
     public void setIcNumber(String icNumber) {
         this.icNumber = icNumber;
     }
 
+    // Returns the gender of this customer.
     public String getGender() {
         return gender;
     }
 
+    // Sets the Gender of this customer.
     public void setGender(String gender) {
         this.gender = gender;
     }
 
+    // Returns the address of this customer.
     public Address getAddress() {
         return address;
     }
 
+    //  Sets the address of this customer.
     public void setAddress(Address address) {
         this.address = address;
     }
 
+    // Returns the Account Balance of this customer.
     public float getAccountBalance() {
         return accountBalance;
     }
 
+    // Sets the Account Balance of this customer.
     public void setAccountBalance(float accountBalance) {
         this.accountBalance = accountBalance;
     }
@@ -92,7 +102,8 @@ public class Customer extends User implements Searchable {
         this.accountBalance -= amount;
     }
 
-    // OOP Concept Implemented: Compiled-Time Polymorphism
+    // OOP Concept Implemented: Run-Time Polymorphism
+    @Override
     public List<String> getSearchableProperties() {
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(getUsername());
@@ -104,6 +115,7 @@ public class Customer extends User implements Searchable {
         return searchableProperties;
     }
 
+    // OOP Concept Implemented: Run-Time Polymorphism
     @Override
     public String fileFormat() {
         return String.join(" || ", "c", getUsername(), getPassword(), getName(), getEmailAddress(), phoneNumber, icNumber, gender, address.fileFormat(), String.valueOf(getAccountBalance()));
