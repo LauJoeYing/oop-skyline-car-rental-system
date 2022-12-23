@@ -6,6 +6,7 @@ import oodj.assignment.oopskylinecarrentalsystem.interfaces.Searchable;
 import java.util.ArrayList;
 import java.util.List;
 
+// OOP Concept Implemented: Encapsulation, Abstraction, Run-time Polymorphism
 public class Car implements FileWrite, Searchable {
     private String id;
     private String brand;
@@ -14,7 +15,7 @@ public class Car implements FileWrite, Searchable {
     private String transmissionType;
     private float dailyRate;
 
-    // OOP Concept Implemented: Encapsulation
+
     public Car(String id, String brand, String model, String type, String transmissionType, float dailyRate) {
         this.id = id;
         this.brand = brand;
@@ -24,7 +25,7 @@ public class Car implements FileWrite, Searchable {
         this.dailyRate = dailyRate;
     }
 
-    // OOP Concept Implemented: Encapsulation
+
     public Car(String[] registeredCar) {
         this.id = registeredCar[0];
         this.brand = registeredCar[1];
@@ -34,50 +35,62 @@ public class Car implements FileWrite, Searchable {
         this.dailyRate = Float.parseFloat(registeredCar[5]);
     }
 
+    // Returns the ID of this car.
     public String getId() {
         return id;
     }
 
+    // Sets the ID of this car.
     public void setId(String id) {
         this.id = id;
     }
 
+    // Returns the brand of this car.
     public String getBrand() {
         return brand;
     }
 
+    // Sets the brand of this car.
     public void setBrand(String brand) {
         this.brand = brand;
     }
 
+    // Returns the model of this car.
     public String getModel() {
         return model;
     }
 
+    // Sets the model of this car.
     public void setModel(String model) {
         this.model = model;
     }
 
+    // Returns the car type of this car.
     public String getType() {
         return type;
     }
 
+    // Sets the car type of this car.
     public void setType(String type) {
         this.type = type;
     }
 
+    // Returns the transmission type of this car.
     public String getTransmissionType() {
         return transmissionType;
     }
 
+    // Sets the transmission type of this car.
     public void setTransmissionType(String transmissionType) {
         this.transmissionType = transmissionType;
     }
 
+    // Returns the daily rate of this car.
     public float getDailyRate() {
         return dailyRate;
     }
 
+    // Sets the daily rate of this car.
     public void setDailyRate(float dailyRate) {
         this.dailyRate = (float) (Math.round(dailyRate * 100.0) / 100.0);
     }
@@ -87,7 +100,7 @@ public class Car implements FileWrite, Searchable {
         return String.format("<a style=\"font-weight:bold\">%s %s (%s)</a>", brand, model, id);
     }
 
-    // OOP Concept Implemented: Compiled-time Polymorphism
+    // OOP Concept Implemented: Run-Time Polymorphism
     @Override
     public List<String> getSearchableProperties() {
         List<String> searchableProperties = new ArrayList<>();
@@ -99,6 +112,8 @@ public class Car implements FileWrite, Searchable {
 
         return searchableProperties;
     }
+
+    // OOP Concept Implemented: Run-Time Polymorphism
     @Override
     public String fileFormat() {
         return String.join(" || ", id, brand, model, type, transmissionType, String.valueOf(dailyRate));

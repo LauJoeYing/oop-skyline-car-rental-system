@@ -25,8 +25,9 @@ import java.util.ResourceBundle;
 import static oodj.assignment.oopskylinecarrentalsystem.util.AlertUtils.setAlert;
 import static oodj.assignment.oopskylinecarrentalsystem.util.CarUtils.getCarUnavailableDatesFromId;
 
+// OOP Concept: Encapsulation, Run-time Polymorphism
 public class CarMenuController extends LabelledViewController implements Initializable {
-    private ObservableList<Car> carList = FXCollections.observableList(CarUtils.getCarList());
+    private final ObservableList<Car> carList = FXCollections.observableList(CarUtils.getCarList());
     private Car carSelected;
     private Alert alertConfirmation;
 
@@ -69,6 +70,7 @@ public class CarMenuController extends LabelledViewController implements Initial
     @FXML
     private TextField typeTextField;
 
+    // OOP Concept: Run-time Polymorphism
     @Override
     public void initialize(URL url, ResourceBundle resourceBundle) {
         alertConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
@@ -164,6 +166,7 @@ public class CarMenuController extends LabelledViewController implements Initial
             }
         });
 
+
         endDateDatePicker.setDayCellFactory(datePicker -> new DateCell() {
             @Override
             public void updateItem(LocalDate endDate, boolean empty) {
@@ -184,6 +187,7 @@ public class CarMenuController extends LabelledViewController implements Initial
         carTableView.setItems(FXCollections.observableList(CarUtils.getCarList()));
     }
 
+    // Filters the list of cars based on the search key and updates the table view to show only the matching cars.
     private void searchCar() {
         String searchKey = searchTextField.getText().trim();
 
@@ -194,6 +198,7 @@ public class CarMenuController extends LabelledViewController implements Initial
         }
     }
 
+    // Populates the GUI with the details of the selected car and booking dates.
     @Override
     public void setLabelData() {
         UnprocessedBooking unprocessedBooking = (UnprocessedBooking) getObject();
@@ -204,6 +209,7 @@ public class CarMenuController extends LabelledViewController implements Initial
         endDateDatePicker.setValue(bookingDateRange.getEndDate());
     }
 
+    // Populates the GUI text fields with the details of the selected car.
     private void setCarDetailsInBookingSelection() {
         idTextField.setText(carSelected.getId());
         brandTextField.setText(carSelected.getBrand());

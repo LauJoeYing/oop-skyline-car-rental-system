@@ -62,7 +62,6 @@ public class EditPasswordController extends CommonViewController implements Init
     @FXML
     void onChangePasswordButtonClick(ActionEvent event) {
         updateAccountPassword();
-
     }
 
     @FXML
