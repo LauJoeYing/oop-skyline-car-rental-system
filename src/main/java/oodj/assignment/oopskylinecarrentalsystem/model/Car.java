@@ -14,7 +14,7 @@ public class Car implements FileWrite, Searchable {
     private String transmissionType;
     private float dailyRate;
 
-    public Car(String id, String brand, String model, String type, String transmissionType, float dailyRate) {
+    public Car(String id, String brand, String model, String type, String transmissionType, float dailyRate) {      //Constructor declaration of Car class
         this.id = id;
         this.brand = brand;
         this.model = model;
@@ -23,7 +23,7 @@ public class Car implements FileWrite, Searchable {
         this.dailyRate = dailyRate;
     }
 
-    public Car(String[] registeredCar) {
+    public Car(String[] registeredCar) {                //Overloaded Constructor for Car class
         this.id = registeredCar[0];
         this.brand = registeredCar[1];
         this.model = registeredCar[2];
@@ -31,6 +31,10 @@ public class Car implements FileWrite, Searchable {
         this.transmissionType = registeredCar[4];
         this.dailyRate = Float.parseFloat(registeredCar[5]);
     }
+
+    /**
+     *Below are Getter and Setter for Car object attributes
+     */
 
     public String getId() {
         return id;
@@ -85,7 +89,7 @@ public class Car implements FileWrite, Searchable {
     }
 
     @Override
-    public List<String> getSearchableProperties() {
+    public List<String> getSearchableProperties() {                 //Overriden method for get car properties from searched
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(id);
         searchableProperties.add(brand);
@@ -96,7 +100,7 @@ public class Car implements FileWrite, Searchable {
         return searchableProperties;
     }
     @Override
-    public String fileFormat() {
+    public String fileFormat() {                //Overriden method for joining car string format in file
         return String.join(" || ", id, brand, model, type, transmissionType, String.valueOf(dailyRate));
     }
 }

@@ -8,7 +8,7 @@ public class Address {
     private String postcode;
     private String state;
 
-    public Address(String unitNumber, String streetAddressLine1, String city, String postcode, String state) {
+    public Address(String unitNumber, String streetAddressLine1, String city, String postcode, String state) {      //Constructor for Address Class
         this.unitNumber = unitNumber;
         this.streetAddressLine1 = streetAddressLine1;
         this.city = city;
@@ -16,7 +16,7 @@ public class Address {
         this.state = state;
     }
 
-    public Address(String unitNumber, String streetAddressLine1, String streetAddressLine2, String city, String postcode, String state) {
+    public Address(String unitNumber, String streetAddressLine1, String streetAddressLine2, String city, String postcode, String state) { //OverloadedConstructor for Address Class
         this.unitNumber = unitNumber;
         this.streetAddressLine1 = streetAddressLine1;
         this.streetAddressLine2 = streetAddressLine2;
@@ -25,7 +25,7 @@ public class Address {
         this.state = state;
     }
 
-    public Address(String[] registeredAddress) {
+    public Address(String[] registeredAddress) {                //Overloaded Constructor for Address Class
         this.unitNumber = registeredAddress[0];
         this.streetAddressLine1 = registeredAddress[1];
         if (registeredAddress[2].equals("-")) {
@@ -38,6 +38,11 @@ public class Address {
         this.state = registeredAddress[5];
     }
 
+
+    /**
+     *
+     * Below are getter and setters for each object attributes
+     */
     public String getUnitNumber() {
         return unitNumber;
     }
@@ -97,8 +102,10 @@ public class Address {
         return String.join(" | ", unitNumber, streetAddressLine1, addressLine2, city, postcode, state);
     }
 
+
+
     @Override
-    public String toString() {
+    public String toString() {              //Overriden toString method for Address Class Object
         if (streetAddressLine2 == null) {
             return String.join(", ",
                     unitNumber,

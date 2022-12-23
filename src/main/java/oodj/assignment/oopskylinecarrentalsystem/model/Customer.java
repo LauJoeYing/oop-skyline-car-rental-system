@@ -34,6 +34,11 @@ public class Customer extends User implements Searchable {
         this.accountBalance = Float.parseFloat(registeredCustomer[9]);
     }
 
+
+    /**
+     * Getter and Setter for Customer Class
+     *
+     */
     public String getPhoneNumber() {
         return phoneNumber;
     }
@@ -82,7 +87,9 @@ public class Customer extends User implements Searchable {
         this.accountBalance -= amount;
     }
 
-    public List<String> getSearchableProperties() {
+
+
+    public List<String> getSearchableProperties() {             //Overriden Method for getting searched Customer attributes
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(getUsername());
         searchableProperties.add(getName());
@@ -94,7 +101,7 @@ public class Customer extends User implements Searchable {
     }
 
     @Override
-    public String fileFormat() {
+    public String fileFormat() {                //Overriden method for joining customer attributes in file
         return String.join(" || ", "c", getUsername(), getPassword(), getName(), getEmailAddress(), phoneNumber, icNumber, gender, address.fileFormat(), String.valueOf(getAccountBalance()));
     }
 }

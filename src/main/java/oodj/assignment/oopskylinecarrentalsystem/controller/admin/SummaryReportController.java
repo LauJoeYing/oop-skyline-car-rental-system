@@ -43,12 +43,12 @@ public class SummaryReportController extends CommonViewController implements Ini
     @FXML
     private TextField totalCarTextField;
     @FXML
-    void onHomeButtonClick(ActionEvent event) throws IOException {
+    void onHomeButtonClick(ActionEvent event) throws IOException {        //Switch to Admin Main Menu
         switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {       //Initialize Report Content
         List<Car> carList = CarUtils.getCarList();
         int suvCount = 0;
         int sedanCount = 0;

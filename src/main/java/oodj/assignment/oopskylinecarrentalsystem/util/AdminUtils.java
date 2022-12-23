@@ -6,7 +6,7 @@ import oodj.assignment.oopskylinecarrentalsystem.model.User;
 import java.util.ArrayList;
 import java.util.List;
 
-public class AdminUtils {
+public class AdminUtils {                   //Utility Function for Admin User Account
     private static final List<Admin> adminList;
 
     static {

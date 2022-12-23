@@ -55,7 +55,7 @@ public class ManageBookingController extends CommonViewController implements Ini
     private Button approveOrRejectBookingRequestButton;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {        //Feeding Data into the Table
         idColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         bookingDateColumn.setCellValueFactory(new PropertyValueFactory<>("bookingDateTime"));
         bookingDateColumn.setCellFactory(bookingDateColumn -> new TableCell<>() {
@@ -96,12 +96,12 @@ public class ManageBookingController extends CommonViewController implements Ini
     }
 
     @FXML
-    private void onHomeButtonClick(ActionEvent event) throws IOException {
+    private void onHomeButtonClick(ActionEvent event) throws IOException {      //Change Scene to Admin Main Menu
         switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @FXML
-    private void onSearchTextFieldKeyTyped(KeyEvent event) {
+    private void onSearchTextFieldKeyTyped(KeyEvent event) {                //Function controlling the search field at runtime
         String searchKey = searchTextField.getText().trim();
         if (searchKey.length() == 0) {
             if (pendingCheckBox.isSelected()) {
@@ -124,7 +124,7 @@ public class ManageBookingController extends CommonViewController implements Ini
         modifyBooking(event);
     }
 
-    private void setApproveOrRejectBookingRequestButtonVisibility() {
+    private void setApproveOrRejectBookingRequestButtonVisibility() {              //show hide approve or reject button
         Booking booking = bookingTableView.getSelectionModel().getSelectedItem();
         if (booking != null) {
             approveOrRejectBookingRequestButton.setVisible(true);
@@ -143,12 +143,12 @@ public class ManageBookingController extends CommonViewController implements Ini
         bookingTableView.setItems(pendingBookingObservableList);
     }
 
-    private void searchBooking(String searchKey) {
+    private void searchBooking(String searchKey) {                 //Filter to search bar input
         ObservableList<Booking> matchingCarList = FXCollections.observableList(SearchUtils.search(bookingObservableList, searchKey));
         bookingTableView.setItems(matchingCarList);
     }
 
-    private void searchPendingBooking(String searchKey) {
+    private void searchPendingBooking(String searchKey) {           //Filter to 'pending' booking status
         ObservableList<Booking> matchingCarList = FXCollections.observableList(SearchUtils.search(pendingBookingObservableList, searchKey));
         bookingTableView.setItems(matchingCarList);
     }

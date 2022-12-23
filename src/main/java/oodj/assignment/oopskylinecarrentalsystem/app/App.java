@@ -12,7 +12,7 @@ import java.io.IOException;
 public class App extends Application {
 
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {     //Set Initial Scene of Skyline Car Rental System
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oodj/assignment/oopskylinecarrentalsystem/view/shared/Login.fxml"));
         Scene loginScene = new Scene(fxmlLoader.load());
         primaryStage.setTitle("Skyline Car Rental");

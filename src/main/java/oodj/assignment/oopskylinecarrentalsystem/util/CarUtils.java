@@ -16,7 +16,7 @@ import java.util.regex.Pattern;
 
 import static oodj.assignment.oopskylinecarrentalsystem.util.CustomerUtils.isRegexMatchCaseInsensitive;
 
-public class CarUtils {
+public class CarUtils {                 //Utilities for Car Menu
     private static final String carFilePath;
     private static final List<Car> carList;
 

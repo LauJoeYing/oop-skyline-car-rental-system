@@ -1,6 +1,6 @@
 package oodj.assignment.oopskylinecarrentalsystem.constant;
 
-public final class IMAGEPATH {
+public final class IMAGEPATH { //Images Link Constant
     public static final String CAMRY = "https://drive.google.com/uc?id=1pUGT31DTeDh59QNY64y4HSM9AMhdEMzj";
     public static final String MYVI = "https://drive.google.com/uc?id=1EiRzcU8S9Clwk9KT0OZzSB29crbGRGEQ";
     public static final String BEZZA = "https://drive.google.com/uc?id=1TlMvyTlBJ98nAGe0JGZm7ZFyo_p_R0Yi";

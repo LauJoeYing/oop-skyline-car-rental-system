@@ -12,18 +12,23 @@ public class DateRange implements FileWrite {
     private LocalDate endDate;
     private int duration;
 
-    public DateRange(String startDate, String endDate) {
+    public DateRange(String startDate, String endDate) {            //Constructor
         this.startDate = LocalDate.parse(startDate);
         this.endDate = LocalDate.parse(endDate);
         calculateDuration();
     }
 
-    public DateRange(LocalDate startDate, LocalDate endDate) {
+    public DateRange(LocalDate startDate, LocalDate endDate) {          //Overloaded Constructor
         this.startDate = startDate;
         this.endDate = endDate;
         calculateDuration();
     }
 
+
+    /**
+     *
+     * Getter and Setter for DateRange class
+     */
     public LocalDate getStartDate() {
         return startDate;
     }
@@ -61,7 +66,9 @@ public class DateRange implements FileWrite {
                 .toList();
     }
 
-    public String emailFormat() {
+
+
+    public String emailFormat() {       //Email format Reader method
         return String.format(
                         """
                         <ul style="padding-left: 1rem;">
@@ -72,8 +79,9 @@ public class DateRange implements FileWrite {
                         """
     , startDate.toString(), endDate.toString(), duration, duration > 1 ? "s" : "");
     }
+
     @Override
-    public String fileFormat() {
+    public String fileFormat() {            //Overriden method to join DateRange attributes
         return String.join(" || ", startDate.toString(), endDate.toString());
     }
 }

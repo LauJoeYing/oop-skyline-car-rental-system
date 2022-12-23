@@ -86,12 +86,12 @@ public class AddCarController extends CommonViewController implements Initializa
     }
 
     @FXML
-    void onBackButtonClick(ActionEvent event) throws IOException {
+    void onBackButtonClick(ActionEvent event) throws IOException {       //Change Scene to Car Menu
         switchUserScene(event, FILEPATH.ADMIN.MANAGE_CAR_MENU);
     }
 
     @FXML
-    void onHomeButtonClick(ActionEvent event) throws IOException {
+    void onHomeButtonClick(ActionEvent event) throws IOException {      //Change Scene to Admin Main Menu
         switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
@@ -100,7 +100,7 @@ public class AddCarController extends CommonViewController implements Initializa
         addCar(event);
     }
 
-    private void addCar(Event event) throws IOException {
+    private void addCar(Event event) throws IOException {        //Confirmation Alert Function for Add Car
         if(validateCarCreation()) {
             setAlert(
                     alertConfirmation,
@@ -125,7 +125,7 @@ public class AddCarController extends CommonViewController implements Initializa
         }
     }
 
-    private boolean validateCarCreation() {
+    private boolean validateCarCreation() {               //Function to validate fields in provided car details
         resetLabel(warningLabel, carIdWarningLabel, dailyRateWarningLabel);
 
         boolean isValidCreation = true;

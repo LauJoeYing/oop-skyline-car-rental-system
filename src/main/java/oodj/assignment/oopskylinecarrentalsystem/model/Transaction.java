@@ -15,9 +15,9 @@ public class Transaction implements FileWrite, Searchable {
     private final String transactionType;
     private final String referenceId;
     private final float amount;
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");         //Format specification for date time string
 
-    public Transaction(String referenceId, String description, float amount) {
+    public Transaction(String referenceId, String description, float amount) {              //Constructor
         this.id = UUID.randomUUID();
         this.date = LocalDateTime.now();
         this.transactionType = description;
@@ -25,7 +25,7 @@ public class Transaction implements FileWrite, Searchable {
         this.amount = amount;
     }
 
-    public Transaction(String[] registeredTransaction) {
+    public Transaction(String[] registeredTransaction) {                    //Overloaded Constructor
         this.id = UUID.fromString(registeredTransaction[0]);
         this.date = LocalDateTime.parse(registeredTransaction[1], formatter);
         this.transactionType = registeredTransaction[2];
@@ -56,12 +56,12 @@ public class Transaction implements FileWrite, Searchable {
 
 
     @Override
-    public String fileFormat() {
+    public String fileFormat() {                    //Overriden Method to join Transaction object attributes
         return String.join(" || ", id.toString(), date.format(formatter), transactionType, referenceId, String.valueOf(amount));
     }
 
     @Override
-    public List<String> getSearchableProperties() {
+    public List<String> getSearchableProperties() {             //Overriden Method to get Searched string property
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(String.valueOf(id));
         searchableProperties.add(referenceId);

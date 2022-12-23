@@ -23,10 +23,10 @@ public class Booking implements FileWrite, Searchable {
     private String licenseURL;
     private String status;
 
-    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+    private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");         //Sets the format of date time string
 
 
-    public Booking(String customerUsername, String carId, DateRange bookingDateRange, String licenseURL) {
+    public Booking(String customerUsername, String carId, DateRange bookingDateRange, String licenseURL) {          //Constuctor of Booking
         this.id = UUID.randomUUID();
         this.customerUsername = customerUsername;
         this.bookingDateTime = LocalDateTime.now();
@@ -37,7 +37,7 @@ public class Booking implements FileWrite, Searchable {
         this.setStatus("Pending");
     }
 
-    public Booking(String[] registeredBooking) {
+    public Booking(String[] registeredBooking) {                        //Overloaded Constructor of Booking
         this.id = UUID.fromString(registeredBooking[0]);
         this.bookingDateTime = LocalDateTime.parse(registeredBooking[1], formatter);
         this.customerUsername = registeredBooking[2];
@@ -49,7 +49,7 @@ public class Booking implements FileWrite, Searchable {
     }
 
     @Override
-    public List<String> getSearchableProperties() {
+    public List<String> getSearchableProperties() {                     //Overriden method for getting searched values
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(String.valueOf(id));
         searchableProperties.add(customerUsername);

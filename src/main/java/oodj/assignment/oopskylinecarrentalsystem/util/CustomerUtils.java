@@ -10,7 +10,7 @@ import java.util.regex.Pattern;
 
 import static org.apache.commons.lang.WordUtils.capitalize;
 
-public class CustomerUtils {
+public class CustomerUtils {                //Utilities for Customer User
     private static final List<Customer> customerList;
 
     static {

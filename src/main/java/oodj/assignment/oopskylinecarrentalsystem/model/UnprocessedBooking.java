@@ -10,6 +10,12 @@ public class UnprocessedBooking {
         this.bookingDateRange = bookingDateRange;
     }
 
+    /**
+     * Getter and Setter for Unprocesed Booking Class
+     *
+     */
+
+
     public Car getCar() {
         return car;
     }

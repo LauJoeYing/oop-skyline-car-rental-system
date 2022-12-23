@@ -15,7 +15,7 @@ import java.util.*;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class UserUtils {
+public class UserUtils {                //Utilities for Shared Functions
     private static final List<User> userList;
     private static String userFilePath = "";
 

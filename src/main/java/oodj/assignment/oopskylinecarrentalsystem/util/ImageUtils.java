@@ -2,7 +2,7 @@ package oodj.assignment.oopskylinecarrentalsystem.util;
 
 import oodj.assignment.oopskylinecarrentalsystem.constant.IMAGEPATH;
 
-public class ImageUtils {
+public class ImageUtils {               //
 
     public static String ImgAssign(String model){
         return switch (model) {

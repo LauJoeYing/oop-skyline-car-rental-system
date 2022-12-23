@@ -5,7 +5,7 @@ import javafx.scene.control.ButtonType;
 
 import java.util.Optional;
 
-public class AlertUtils {
+public class AlertUtils {                  //Utility Function for Alert Popup
     public static void setAlert(Alert alert, String title, String contentText) {
         alert.setTitle(title);
         alert.setContentText(contentText);
