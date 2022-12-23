@@ -94,7 +94,7 @@ public class PendingApprovalController extends LabelledViewController implements
         icNumberTextField.setText(Objects.requireNonNull(CustomerUtils.getCustomerFromUsername(usernameTextField.getText())).getIcNumber());
         startDateTextField.setText(booking.getBookingDateRange().getStartDate().toString());
         endDateTextField.setText(booking.getBookingDateRange().getEndDate().toString());
-        durationTextField.setText(String.valueOf(booking.getBookingDateRange().getDuration()));
+        durationTextField.setText(String.format("%d day(s)", booking.getBookingDateRange().getDuration()));
         Car car = Objects.requireNonNull(CarUtils.getCarFromId(booking.getCarId()));
         carIdTextField.setText(booking.getCarId());
         carModelTextField.setText(car.getModel());
