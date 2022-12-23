@@ -7,12 +7,15 @@ import java.util.List;
 
 import static java.time.temporal.ChronoUnit.DAYS;
 
+// OOP Concept Implemented: Encapsulation
 public class DateRange implements FileWrite {
     private LocalDate startDate;
     private LocalDate endDate;
     private int duration;
 
-    public DateRange(String startDate, String endDate) {            //Constructor
+
+    // Constructor for creating a new DateRange object.
+    public DateRange(String startDate, String endDate) {
         this.startDate = LocalDate.parse(startDate);
         this.endDate = LocalDate.parse(endDate);
         calculateDuration();
@@ -25,14 +28,12 @@ public class DateRange implements FileWrite {
     }
 
 
-    /**
-     *
-     * Getter and Setter for DateRange class
-     */
+    // Returns the start date of the DateRange.
     public LocalDate getStartDate() {
         return startDate;
     }
 
+    //  Sets the start date of the DateRange.
     public void setStartDate(LocalDate startDate) {
         this.startDate = startDate;
 
@@ -41,10 +42,12 @@ public class DateRange implements FileWrite {
         }
     }
 
+    // Returns the end date of the DateRange.
     public LocalDate getEndDate() {
         return endDate;
     }
 
+    //  Sets the end date of the DateRange.
     public void setEndDate(LocalDate endDate) {
         this.endDate = endDate;
 
@@ -53,10 +56,12 @@ public class DateRange implements FileWrite {
         }
     }
 
+    // Returns the duration of the DateRange.
     public int getDuration() {
         return duration;
     }
 
+    // Calculates the duration of the DateRange based on the start and end dates.
     private void calculateDuration() {
         duration = (int) DAYS.between(this.startDate, this.endDate);
     }
@@ -67,8 +72,12 @@ public class DateRange implements FileWrite {
     }
 
 
-
-    public String emailFormat() {       //Email format Reader method
+    /**
+     * Returns a formatted string representation of the DateRange for use in an email.
+     * The returned string includes the start and end dates of the DateRange and the duration in days.
+     * The string is formatted as an HTML unordered list, with each item in the list represented as a list item element.
+     */
+    public String emailFormat() {
         return String.format(
                         """
                         <ul style="padding-left: 1rem;">
