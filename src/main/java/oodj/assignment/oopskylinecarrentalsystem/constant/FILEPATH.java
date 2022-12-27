@@ -1,7 +1,7 @@
 package oodj.assignment.oopskylinecarrentalsystem.constant;
 
 public final class FILEPATH {
-    public final static class ADMIN {
+    public final static class ADMIN {   //FXML files constant for each UI in Admin Function
         public static final String ADD_CAR = "AddCar";
         public static final String EDIT_CAR = "EditCar";
         public static final String MANAGE_BOOKING = "ManageBooking";
@@ -11,7 +11,7 @@ public final class FILEPATH {
         public static final String TRANSACTION_RECORD = "TransactionRecord";
     }
 
-    public final static class CUSTOMER {
+    public final static class CUSTOMER {  //FXML files constant for each UI in Customer Function
         public static final String CAR_MENU = "CarMenu";
         public static final String CHECKOUT = "Checkout";
         public static final String DRIVER_DETAILS = "DriveDetails";
@@ -21,7 +21,7 @@ public final class FILEPATH {
         public static final String VIEW_BOOKING_HISTORY = "ViewBookingHistory";
     }
 
-    public final static class SHARED {
+    public final static class SHARED {  //FXML files constant for each UI in Shared Function
         public static final String LOGIN = "Login";
         public static final String SIGN_UP = "SignUp";
     }

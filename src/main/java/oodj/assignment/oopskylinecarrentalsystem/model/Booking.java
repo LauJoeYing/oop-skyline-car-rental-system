@@ -23,6 +23,7 @@ public class Booking implements FileWrite, Searchable {
     private DateRange bookingDateRange;
     private String licenseURL;
     private String status;
+
     private final DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
 
     public Booking(String customerUsername, String carId, DateRange bookingDateRange, String licenseURL) {
@@ -36,7 +37,7 @@ public class Booking implements FileWrite, Searchable {
         this.setStatus("Pending");
     }
 
-    public Booking(String[] registeredBooking) {
+    public Booking(String[] registeredBooking) {                        //Overloaded Constructor of Booking
         this.id = UUID.fromString(registeredBooking[0]);
         this.bookingDateTime = LocalDateTime.parse(registeredBooking[1], formatter);
         this.customerUsername = registeredBooking[2];
@@ -50,7 +51,7 @@ public class Booking implements FileWrite, Searchable {
     // Returns a list of properties of this booking that can be used for searching.
     // OOP Concept: Method Overriding (Run-Time Polymorphism)
     @Override
-    public List<String> getSearchableProperties() {
+    public List<String> getSearchableProperties() {                     //Overriden method for getting searched values
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(String.valueOf(id));
         searchableProperties.add(customerUsername);

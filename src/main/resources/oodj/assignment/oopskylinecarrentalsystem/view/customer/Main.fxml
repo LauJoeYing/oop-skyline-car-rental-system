@@ -53,7 +53,7 @@
                 <Font name="Georgia Bold" size="13.0" />
             </font>
         </Button>
-        <Button fx:id="viewBookingHistoryButton" layoutX="520.0" layoutY="227.0" mnemonicParsing="false" onAction="#onViewBookingHistoryButtonClick" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="View Booking History" textAlignment="CENTER" textFill="#555879" wrapText="true">
+        <Button fx:id="viewBookingHistoryButton" layoutX="520.0" layoutY="229.0" mnemonicParsing="false" onAction="#onViewBookingHistoryButtonClick" prefHeight="39.0" prefWidth="271.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="View Booking History" textAlignment="CENTER" textFill="#555879" wrapText="true">
             <font>
                 <Font name="Georgia Bold" size="13.0" />
             </font>
@@ -64,15 +64,15 @@
         <ImageView fitHeight="50.0" fitWidth="68.0" layoutX="448.0" layoutY="223.0" pickOnBounds="true" preserveRatio="true">
             <Image url="https://img.icons8.com/plasticine/100/null/test-partial-passed.png" />
         </ImageView>
-      <Text fill="#153462" layoutX="54.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
-         <font>
-            <Font name="Georgia Bold" size="16.0" />
-         </font>
-      </Text>
-      <Button fx:id="logOutButton" layoutX="556.0" layoutY="306.0" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="39.0" prefWidth="200.0" style="-fx-background-color: #B9E0FF; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Log Out" textAlignment="CENTER" textFill="#555879" wrapText="true">
-         <font>
-            <Font name="Georgia Bold" size="13.0" />
-         </font>
-      </Button>
+        <Text fill="#153462" layoutX="54.0" layoutY="221.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Username:">
+            <font>
+                <Font name="Georgia Bold" size="16.0" />
+            </font>
+        </Text>
+        <Button fx:id="logOutButton" layoutX="454.0" layoutY="306.0" mnemonicParsing="false" onAction="#onLogOutButtonClick" prefHeight="39.0" prefWidth="340.0" style="-fx-background-color: #FCFFE7; -fx-background-radius: 40; -fx-border-radius: 40; -fx-border-color: #000000;" text="Log Out" textAlignment="CENTER" textFill="#555879" wrapText="true">
+            <font>
+                <Font name="Georgia Bold" size="13.0" />
+            </font>
+        </Button>
     </Pane>
 </AnchorPane>

@@ -9,7 +9,7 @@ import javax.mail.internet.InternetAddress;
 import javax.mail.internet.MimeMessage;
 import java.util.*;
 
-public class MailUtils {
+public class MailUtils {                //Utilities for Mail Verification Feature
     static Dotenv dotenv;
     static Map<String, String> pendingVerification;
 

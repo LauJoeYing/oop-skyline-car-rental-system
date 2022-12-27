@@ -42,6 +42,7 @@ public class Customer extends User implements Searchable {
         this.accountBalance = Float.parseFloat(registeredCustomer[9]);
     }
 
+
     // Returns the phone number of this customer.
     public String getPhoneNumber() {
         return phoneNumber;
@@ -117,7 +118,7 @@ public class Customer extends User implements Searchable {
 
     // OOP Concept Implemented: Run-Time Polymorphism
     @Override
-    public String fileFormat() {
+    public String fileFormat() {                //Overriden method for joining customer attributes in file
         return String.join(" || ", "c", getUsername(), getPassword(), getName(), getEmailAddress(), phoneNumber, icNumber, gender, address.fileFormat(), String.valueOf(getAccountBalance()));
     }
 }

@@ -17,7 +17,7 @@ public class App extends Application {
     // sets the layout as the scene of a JavaFX Stage, and sets the user and label data for the application's controller.
     // Finally, it sets the title of the Stage and shows it.
     @Override
-    public void start(Stage primaryStage) throws IOException {
+    public void start(Stage primaryStage) throws IOException {     //Set Initial Scene of Skyline Car Rental System
         FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("/oodj/assignment/oopskylinecarrentalsystem/view/shared/Login.fxml"));
         Scene loginScene = new Scene(fxmlLoader.load());
         primaryStage.setTitle("Skyline Car Rental");

@@ -55,7 +55,7 @@ public class AdminMainController extends LabelledViewController {
         switchSharedScene(event, FILEPATH.SHARED.LOGIN);
     }
 
-    public void setLabelData() {
+    public void setLabelData() {        //Initializa and set the welcome text to the username
         Admin admin = (Admin) getUser();
 
         welcomeText.setText(String.format("Welcome,  %s", admin.getName()));

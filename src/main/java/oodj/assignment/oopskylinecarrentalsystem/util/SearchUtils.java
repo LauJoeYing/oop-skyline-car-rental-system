@@ -6,7 +6,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.regex.Pattern;
 
-public class SearchUtils {
+public class SearchUtils {                  //Utilities for Search Bar Filter Feature
     public static <T extends Searchable> List<T> search(List<T> searchableModelList, String searchKeys) {
         String[] searchKeyList = searchKeys.split(" ");
         List<T> matchingModelList = new ArrayList<>(searchableModelList);

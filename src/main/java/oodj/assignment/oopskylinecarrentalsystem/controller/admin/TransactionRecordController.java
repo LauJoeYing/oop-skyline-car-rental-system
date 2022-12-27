@@ -54,7 +54,7 @@ public class TransactionRecordController extends CommonViewController implements
     private Button viewPaymentDetailsButton;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {                    //Initialize transaction record table content
         transactionIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         referenceIdColumn.setCellValueFactory(new PropertyValueFactory<>("referenceId"));
         transactionTypeColumn.setCellValueFactory(new PropertyValueFactory<>("transactionType"));
@@ -88,12 +88,12 @@ public class TransactionRecordController extends CommonViewController implements
     }
 
     @FXML
-    void onHomeButtonClick(ActionEvent event) throws IOException {
+    void onHomeButtonClick(ActionEvent event) throws IOException {        //Change Scene to Admin Main Menu
         switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @FXML
-    void onSearchTextFieldKeyTyped(KeyEvent event) {
+    void onSearchTextFieldKeyTyped(KeyEvent event) {            //Search Filter Function
         String searchKey = searchTextField.getText().trim();
 
         if (searchKey.equals("")) {
@@ -104,7 +104,7 @@ public class TransactionRecordController extends CommonViewController implements
         }
     }
 
-    private void resetTransactionTableView() {
+    private void resetTransactionTableView() {              //Reset Table to Initialization State
         transactionTableView.setItems(transactionList);
     }
 }

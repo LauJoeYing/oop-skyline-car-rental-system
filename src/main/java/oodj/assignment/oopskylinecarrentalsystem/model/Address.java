@@ -9,6 +9,7 @@ public class Address {
     private String postcode;
     private String state;
 
+
     // This constructor initializes an Address object with the specified unit number, street address, city, postcode, and state
     // OOP Concept: Encapsulation
     public Address(String unitNumber, String streetAddressLine1, String city, String postcode, String state) {
@@ -19,6 +20,9 @@ public class Address {
         this.state = state;
     }
 
+
+
+
     // OOP Concept: Encapsulation
     public Address(String unitNumber, String streetAddressLine1, String streetAddressLine2, String city, String postcode, String state) {
         this.unitNumber = unitNumber;
@@ -28,6 +32,7 @@ public class Address {
         this.postcode = postcode;
         this.state = state;
     }
+
 
     // OOP Concept: Encapsulation
     public Address(String[] registeredAddress) {
@@ -42,6 +47,7 @@ public class Address {
         this.postcode = registeredAddress[4];
         this.state = registeredAddress[5];
     }
+
 
     // This method returns the current Unit Number of the object
     public String getUnitNumber() {
@@ -122,7 +128,7 @@ public class Address {
     // If the streetAddressLine2 field is null:
     // the string will contain the unit number, street address line 1, city, postcode, and state separated by commas.
     @Override
-    public String toString() {
+    public String toString() {              //Overriden toString method for Address Class Object
         if (streetAddressLine2 == null) {
             return String.join(", ",
                     unitNumber,

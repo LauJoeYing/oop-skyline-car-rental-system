@@ -46,7 +46,7 @@ public class ManageCarMenuController extends CommonViewController implements Ini
     private TableColumn<Car, String> typeColumn;
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {           //Initialization of UI page to feed values to table
         carIdColumn.setCellValueFactory(new PropertyValueFactory<>("id"));
         brandColumn.setCellValueFactory(new PropertyValueFactory<>("brand"));
         modelColumn.setCellValueFactory(new PropertyValueFactory<>("model"));
@@ -102,7 +102,7 @@ public class ManageCarMenuController extends CommonViewController implements Ini
         modifyCar(event);
     }
 
-    private void searchCar() {
+    private void searchCar() {                     //Filter tables values according to search bar input
         String searchKey = searchTextField.getText().trim();
 
         if (searchKey.equals("")) {
@@ -117,7 +117,7 @@ public class ManageCarMenuController extends CommonViewController implements Ini
         carTableView.setItems(carList);
     }
 
-    private void modifyCar(Event event) throws IOException {
+    private void modifyCar(Event event) throws IOException {                  //Switch to edit car details page for selected car
         Car selectedCar = carTableView.getSelectionModel().getSelectedItem();
         if (selectedCar != null) {
             switchLabelledUserSceneWithObject(event, FILEPATH.ADMIN.EDIT_CAR, selectedCar);

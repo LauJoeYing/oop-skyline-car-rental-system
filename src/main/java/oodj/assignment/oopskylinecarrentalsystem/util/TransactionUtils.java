@@ -14,7 +14,7 @@ import java.util.Objects;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class TransactionUtils {
+public class TransactionUtils {     //Utilities for Transaction Class Feature
     private static final String transactionFilePath;
     private static final List<Transaction> transactionList;
 

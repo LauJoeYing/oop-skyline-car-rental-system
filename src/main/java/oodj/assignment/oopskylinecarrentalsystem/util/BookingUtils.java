@@ -15,7 +15,7 @@ import java.util.UUID;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
-public class BookingUtils {
+public class BookingUtils {             //Utility function for Booking Features
     private static final String bookingFilePath;
     private static final List<Booking> bookingList;
 

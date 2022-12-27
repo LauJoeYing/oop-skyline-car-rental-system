@@ -35,6 +35,7 @@ public class Car implements FileWrite, Searchable {
         this.dailyRate = Float.parseFloat(registeredCar[5]);
     }
 
+
     // Returns the ID of this car.
     public String getId() {
         return id;
@@ -102,7 +103,7 @@ public class Car implements FileWrite, Searchable {
 
     // OOP Concept Implemented: Run-Time Polymorphism
     @Override
-    public List<String> getSearchableProperties() {
+    public List<String> getSearchableProperties() {                 //Overriden method for get car properties from searched
         List<String> searchableProperties = new ArrayList<>();
         searchableProperties.add(id);
         searchableProperties.add(brand);
@@ -115,7 +116,7 @@ public class Car implements FileWrite, Searchable {
 
     // OOP Concept Implemented: Run-Time Polymorphism
     @Override
-    public String fileFormat() {
+    public String fileFormat() {                //Overriden method for joining car string format in file
         return String.join(" || ", id, brand, model, type, transmissionType, String.valueOf(dailyRate));
     }
 }

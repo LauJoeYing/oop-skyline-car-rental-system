@@ -117,7 +117,7 @@ public class EditCarController extends LabelledViewController implements Initial
         }
     }
 
-    private void modifyAction(Event event, String action) throws IOException {
+    private void modifyAction(Event event, String action) throws IOException {     //Confirmation for Changing Car Details
         if (action.equals("Update")) {
             if (!validateCarModification()) {
                 return;
@@ -150,7 +150,7 @@ public class EditCarController extends LabelledViewController implements Initial
         }
     }
 
-    private boolean validateCarModification() {
+    private boolean validateCarModification() {                 //Validation of Car Details Input
         resetLabel(warningLabel, idWarningLabel, dailyRateWarningLabel);
 
         boolean isValidModification = true;

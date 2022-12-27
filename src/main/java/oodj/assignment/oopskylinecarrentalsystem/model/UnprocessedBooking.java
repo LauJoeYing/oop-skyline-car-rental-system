@@ -12,6 +12,7 @@ public class UnprocessedBooking {
         this.bookingDateRange = bookingDateRange;
     }
 
+
     // Returns the car for this unprocessed booking.
     public Car getCar() {
         return car;

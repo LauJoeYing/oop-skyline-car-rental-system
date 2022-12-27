@@ -78,7 +78,7 @@ public class PendingApprovalController extends LabelledViewController implements
     }
 
     @FXML
-    void onCrossButtonClick(ActionEvent event) throws IOException {
+    void onCrossButtonClick(ActionEvent event) throws IOException {        //Change Scene back to Manage Booking Page
         switchUserScene(event, FILEPATH.ADMIN.MANAGE_BOOKING);
     }
 
@@ -88,7 +88,7 @@ public class PendingApprovalController extends LabelledViewController implements
     }
 
     @Override
-    public void setLabelData() {
+    public void setLabelData() {                   //Set all attribute of the Booking Details to the text fields.
         booking = (Booking) getObject();
         usernameTextField.setText(booking.getCustomerUsername());
         icNumberTextField.setText(Objects.requireNonNull(CustomerUtils.getCustomerFromUsername(usernameTextField.getText())).getIcNumber());
@@ -120,7 +120,7 @@ public class PendingApprovalController extends LabelledViewController implements
         }
     }
 
-    private void updateBookingStatus(ActionEvent event, boolean isAccepted) throws IOException {
+    private void updateBookingStatus(ActionEvent event, boolean isAccepted) throws IOException {          //Confirmation to Approve/disapprove a Booking
         setAlert(
                 alertConfirmation,
                 String.format("%s Booking", isAccepted ? "Accept" : "Reject"),
@@ -154,7 +154,7 @@ public class PendingApprovalController extends LabelledViewController implements
     }
 
     @Override
-    public void initialize(URL url, ResourceBundle resourceBundle) {
+    public void initialize(URL url, ResourceBundle resourceBundle) {               //
         alertInformation = new Alert(Alert.AlertType.INFORMATION);
         alertConfirmation = new Alert(Alert.AlertType.CONFIRMATION);
         alertConfirmation.setResizable(false);
