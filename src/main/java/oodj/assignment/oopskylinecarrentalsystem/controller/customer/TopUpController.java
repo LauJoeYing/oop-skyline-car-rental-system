@@ -77,6 +77,17 @@ public class TopUpController extends LabelledViewController implements Initializ
                     switchLabelledUserScene(event, FILEPATH.USER_MAIN);
                 };
             }
+        } else {
+            setAlert(
+                    alertInformation,
+                    "Invalid Top-Up Request",
+                    """
+                            Please ensure that:
+                            1. Valid decimals are entered.
+                            2. Top-Up amount is larger than RM 0.00.
+                            """
+                    );
+            alertInformation.show();
         }
     }
 
