@@ -31,7 +31,7 @@ public class DriverDetailsController extends LabelledViewController implements I
 
     private UnprocessedBooking unprocessedBooking;
 
-
+    private Alert alertInformation;
     private Alert alertConfirmation;
     @FXML
     private ImageView carImage;
@@ -86,13 +86,24 @@ public class DriverDetailsController extends LabelledViewController implements I
                 unprocessedBooking.setLicenseURL(driverLicenseURL);
                 switchLabelledUserSceneWithObject(event, FILEPATH.CUSTOMER.CHECKOUT, unprocessedBooking);
             }
+        } else {
+            setAlert(
+                    alertInformation,
+                    "Invalid Booking Request",
+                    """
+                            Please ensure your booking request:
+                            1. All fields are not blank.
+                            2. The driver's age is older than 17 y.o.
+                            """
+                    );
+            alertInformation.show();
         }
 
     }
 
     @FXML
     void onHomeButtonClick(ActionEvent event) throws IOException {
-        switchUserScene(event, FILEPATH.USER_MAIN);
+        switchLabelledUserScene(event, FILEPATH.USER_MAIN);
     }
 
     @Override

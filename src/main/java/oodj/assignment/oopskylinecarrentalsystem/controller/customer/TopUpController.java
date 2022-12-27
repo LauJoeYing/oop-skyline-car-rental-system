@@ -50,7 +50,7 @@ public class TopUpController extends LabelledViewController implements Initializ
     }
 
     @FXML
-    void onTopUpButtonClick(ActionEvent event) {
+    void onTopUpButtonClick(ActionEvent event) throws IOException {
         String topUpAmountInString = topUpAmountTextField.getText();
         if (isValidDailyRate(topUpAmountInString)) {
             float topUpAmount = Float.parseFloat(topUpAmountInString);
@@ -73,7 +73,9 @@ public class TopUpController extends LabelledViewController implements Initializ
                         "You've topped-up your account balance successfully."
                 );
 
-                alertInformation.show();
+                if (alertResultEmptyOrOk(alertInformation.showAndWait())) {
+                    switchLabelledUserScene(event, FILEPATH.USER_MAIN);
+                };
             }
         }
     }
