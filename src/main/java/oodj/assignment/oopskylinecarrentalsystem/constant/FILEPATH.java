@@ -14,7 +14,7 @@ public final class FILEPATH {
     public final static class CUSTOMER {  //FXML files constant for each UI in Customer Function
         public static final String CAR_MENU = "CarMenu";
         public static final String CHECKOUT = "Checkout";
-        public static final String DRIVER_DETAILS = "DriveDetails";
+        public static final String DRIVER_DETAILS = "DriverDetails";
         public static final String EDIT_ACCOUNT_DETAILS = "EditAccountDetails";
         public static final String EDIT_PASSWORD = "EditPassword";
         public static final String TOP_UP = "TopUp";
